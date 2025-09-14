@@ -1,0 +1,2351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENGL 0008 - Week 2: Comprehensive Learning Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .slide {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            min-height: 600px;
+            display: none;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        .slide h1 {
+            color: #4a5568;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 20px;
+        }
+        
+        .slide h2 {
+            color: #2d3748;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+            padding-left: 20px;
+        }
+        
+        .slide h3 {
+            color: #4a5568;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .slide h4 {
+            color: #2d3748;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .slide ul, .slide ol {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-left: 20px;
+        }
+        
+        .slide li {
+            margin-bottom: 8px;
+        }
+        
+        .slide p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        
+        .nav-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .nav-button:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+        
+        .nav-button:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .slide-counter {
+            text-align: center;
+            margin: 0 20px;
+            font-weight: bold;
+            color: #4a5568;
+            font-size: 16px;
+        }
+        
+        .intro-slide {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .intro-slide h1 {
+            color: white;
+            font-size: 3em;
+            border-bottom: 3px solid white;
+        }
+        
+        .example-box {
+            background: #e6fffa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #38b2ac;
+            font-style: italic;
+        }
+        
+        .example-box h4 {
+            color: #2c7a7b;
+            margin-top: 0;
+            font-style: normal;
+        }
+        
+        .warning-box {
+            background: #fed7d7;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #f56565;
+        }
+        
+        .warning-box h4 {
+            color: #c53030;
+            margin-top: 0;
+        }
+        
+        .success-box {
+            background: #c6f6d5;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #48bb78;
+        }
+        
+        .success-box h4 {
+            color: #2f855a;
+            margin-top: 0;
+        }
+        
+        .info-box {
+            background: #bee3f8;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #3182ce;
+        }
+        
+        .info-box h4 {
+            color: #2c5282;
+            margin-top: 0;
+        }
+        
+        .step-by-step {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #4299e1;
+        }
+        
+        .step-by-step h4 {
+            color: #2b6cb0;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        .assignment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .assignment-card {
+            background: #f7fafc;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .assignment-card h4 {
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .vocabulary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .vocab-card {
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .vocab-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .vocab-word {
+            font-weight: bold;
+            color: #2d3748;
+            font-size: 1.1em;
+        }
+        
+        .feedback-example {
+            background: #f0fff4;
+            border: 2px solid #68d391;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .feedback-bad {
+            background: #fffaf0;
+            border: 2px solid #f6ad55;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .tense-example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #28a745;
+        }
+        
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            z-index: 1001;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: #48bb78;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-indicator">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <div class="container">
+        <!-- Slide 1: Title -->
+        <div class="slide active intro-slide">
+            <h1>ENGL 0008 - Intermediate English 2</h1>
+            <h2>Unit 2: Building Basic Skills for Reading and Writing English</h2>
+            <h3>Comprehensive Learning Guide</h3>
+            <p style="font-size: 1.4em; margin-top: 40px;">Instructor: Yogeeta</p>
+            <p style="font-size: 1.2em;">University of the People</p>
+            <div style="margin-top: 40px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                <p style="font-size: 1.1em;">This comprehensive presentation covers all Week 2 concepts, assignments, and examples to support your learning journey.</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Overview and Learning Journey -->
+        <div class="slide">
+            <h1>Welcome to Week 2: Your Learning Journey</h1>
+            
+            <div class="highlight">
+                <h3>What Makes This Week Special?</h3>
+                <p>This week, you'll develop fundamental skills that will support all your future academic writing. Think of this as building the foundation of a house - strong foundations lead to strong academic success.</p>
+            </div>
+            
+            <h2>Your Week 2 Learning Path</h2>
+            <div class="step-by-step">
+                <h4>Step 1: Master Paragraph Structure</h4>
+                <p>Learn the building blocks of effective writing: topic sentences, supporting details, and conclusions.</p>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Step 2: Explore Compare and Contrast Writing</h4>
+                <p>Discover how to effectively analyze similarities and differences in academic writing.</p>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Step 3: Avoid Common Grammar Mistakes</h4>
+                <p>Learn to identify and correct run-on sentences and comma splices.</p>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Step 4: Develop Peer Feedback Skills</h4>
+                <p>Practice giving and receiving constructive feedback to improve your own writing.</p>
+            </div>
+            
+            <div class="success-box">
+                <h4>Learning Objectives Achieved By Week's End:</h4>
+                <ul>
+                    <li>Write well-structured paragraphs with clear topic sentences</li>
+                    <li>Create effective compare and contrast essays</li>
+                    <li>Identify and correct common sentence errors</li>
+                    <li>Provide meaningful feedback to classmates</li>
+                    <li>Apply proper English tenses in writing</li>
+                    <li>Develop stronger reading and listening comprehension</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 3: Understanding Paragraphs - The Foundation -->
+        <div class="slide">
+            <h1>Understanding Paragraphs: The Foundation of Writing</h1>
+            
+            <h2>What Is a Paragraph?</h2>
+            <p>A paragraph is a group of sentences that work together to express one main idea. Think of it as a mini-essay focused on a single topic.</p>
+            
+            <div class="info-box">
+                <h4>Key Principle: One Paragraph = One Idea</h4>
+                <p>Every paragraph should focus on just one main idea. When you want to discuss a new idea, start a new paragraph.</p>
+            </div>
+            
+            <h2>The Three Essential Parts</h2>
+            
+            <div class="assignment-grid">
+                <div class="assignment-card">
+                    <h4>1. Topic Sentence</h4>
+                    <ul>
+                        <li><strong>Position:</strong> Usually the first sentence</li>
+                        <li><strong>Purpose:</strong> Introduces the main idea</li>
+                        <li><strong>Function:</strong> Tells readers what to expect</li>
+                        <li><strong>Tip:</strong> Should be specific, not too general</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>2. Supporting Sentences</h4>
+                    <ul>
+                        <li><strong>Position:</strong> Middle of the paragraph</li>
+                        <li><strong>Purpose:</strong> Explain, prove, or describe the main idea</li>
+                        <li><strong>Function:</strong> Provide evidence and details</li>
+                        <li><strong>Tip:</strong> Use examples, facts, or explanations</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>3. Concluding Sentence</h4>
+                    <ul>
+                        <li><strong>Position:</strong> Last sentence</li>
+                        <li><strong>Purpose:</strong> Wraps up the paragraph</li>
+                        <li><strong>Function:</strong> Restates main idea differently</li>
+                        <li><strong>Tip:</strong> Don't introduce new information</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2>Paragraph Length Guidelines</h2>
+            <ul>
+                <li><strong>Academic writing:</strong> Typically 5-8 sentences</li>
+                <li><strong>Minimum length:</strong> At least 3-4 sentences</li>
+                <li><strong>Word count:</strong> Usually 100-200 words</li>
+                <li><strong>Remember:</strong> Length depends on the complexity of your idea</li>
+            </ul>
+        </div>
+
+        <!-- Slide 4: Paragraph Structure Examples -->
+        <div class="slide">
+            <h1>Paragraph Structure: Detailed Examples</h1>
+            
+            <h2>Example 1: Well-Structured Paragraph</h2>
+            <div class="example-box">
+                <h4>Sample Paragraph About Reading</h4>
+                <p><span style="color: #e53e3e; font-weight: bold;">[Topic Sentence]</span> Reading books regularly provides numerous benefits for personal development. <span style="color: #3182ce; font-weight: bold;">[Supporting Detail 1]</span> First, reading expands vocabulary by exposing readers to new words in context. <span style="color: #3182ce; font-weight: bold;">[Supporting Detail 2]</span> Additionally, books improve concentration skills because reading requires sustained attention for extended periods. <span style="color: #3182ce; font-weight: bold;">[Supporting Detail 3]</span> Furthermore, reading different genres enhances empathy by allowing readers to experience various perspectives and cultures. <span style="color: #38a169; font-weight: bold;">[Concluding Sentence]</span> Therefore, making reading a daily habit contributes significantly to intellectual and emotional growth.</p>
+            </div>
+            
+            <h2>Analysis of the Example</h2>
+            <table class="comparison-table">
+                <tr>
+                    <th>Sentence Type</th>
+                    <th>Content</th>
+                    <th>Function</th>
+                </tr>
+                <tr>
+                    <td><strong>Topic Sentence</strong></td>
+                    <td>"Reading books regularly provides numerous benefits..."</td>
+                    <td>Introduces main idea about reading benefits</td>
+                </tr>
+                <tr>
+                    <td><strong>Supporting Detail 1</strong></td>
+                    <td>"First, reading expands vocabulary..."</td>
+                    <td>Provides first specific benefit with explanation</td>
+                </tr>
+                <tr>
+                    <td><strong>Supporting Detail 2</strong></td>
+                    <td>"Additionally, books improve concentration..."</td>
+                    <td>Gives second benefit with reasoning</td>
+                </tr>
+                <tr>
+                    <td><strong>Supporting Detail 3</strong></td>
+                    <td>"Furthermore, reading different genres..."</td>
+                    <td>Presents third benefit with explanation</td>
+                </tr>
+                <tr>
+                    <td><strong>Concluding Sentence</strong></td>
+                    <td>"Therefore, making reading a daily habit..."</td>
+                    <td>Restates main idea and emphasizes importance</td>
+                </tr>
+            </table>
+            
+            <h2>Common Paragraph Problems to Avoid</h2>
+            <div class="warning-box">
+                <h4>Problem 1: Missing Topic Sentence</h4>
+                <p><strong>Issue:</strong> Readers don't know what the paragraph is about.<br>
+                <strong>Solution:</strong> Always start with a clear topic sentence.</p>
+            </div>
+            
+            <div class="warning-box">
+                <h4>Problem 2: Multiple Ideas in One Paragraph</h4>
+                <p><strong>Issue:</strong> Confuses readers and weakens focus.<br>
+                <strong>Solution:</strong> Discuss only one main idea per paragraph.</p>
+            </div>
+            
+            <div class="warning-box">
+                <h4>Problem 3: Weak Supporting Details</h4>
+                <p><strong>Issue:</strong> Main idea isn't properly explained or proven.<br>
+                <strong>Solution:</strong> Include specific examples, facts, or explanations.</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Compare and Contrast Writing - Introduction -->
+        <div class="slide">
+            <h1>Compare and Contrast Writing: Complete Guide</h1>
+            
+            <h2>What is Compare and Contrast Writing?</h2>
+            <p><strong>Compare:</strong> To examine similarities between two or more things<br>
+            <strong>Contrast:</strong> To examine differences between two or more things</p>
+            
+            <div class="info-box">
+                <h4>Why Is This Important?</h4>
+                <p>Compare and contrast writing helps you:</p>
+                <ul>
+                    <li>Analyze information critically</li>
+                    <li>Make informed decisions</li>
+                    <li>Understand complex topics better</li>
+                    <li>Present balanced arguments</li>
+                    <li>Demonstrate analytical thinking skills</li>
+                </ul>
+            </div>
+            
+            <h2>Step 1: Choosing Your Purpose</h2>
+            <p>Before you start writing, decide what you want to achieve:</p>
+            
+            <div class="assignment-grid">
+                <div class="assignment-card">
+                    <h4>Purpose 1: To Inform</h4>
+                    <p>Present neutral information about similarities and differences without taking sides.</p>
+                    <p><strong>Example:</strong> "Both online and traditional education have unique characteristics that students should consider."</p>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Purpose 2: To Persuade</h4>
+                    <p>Argue that one option is better than another using comparisons.</p>
+                    <p><strong>Example:</strong> "While both cities offer cultural opportunities, New York provides more diverse experiences than Boston."</p>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Purpose 3: To Analyze</h4>
+                    <p>Examine the relationship between subjects to understand them better.</p>
+                    <p><strong>Example:</strong> "Comparing Eastern and Western philosophies reveals different approaches to happiness."</p>
+                </div>
+            </div>
+            
+            <h2>Step 2: Selecting Comparison Criteria</h2>
+            <p><strong>Criteria</strong> are the specific points you'll use to compare your subjects. Good criteria are:</p>
+            <ul>
+                <li><strong>Relevant:</strong> Important to your purpose</li>
+                <li><strong>Parallel:</strong> Can be applied to both subjects</li>
+                <li><strong>Specific:</strong> Clear and measurable</li>
+                <li><strong>Limited:</strong> Usually 2-4 main points for clarity</li>
+            </ul>
+        </div>
+
+        <!-- Slide 6: Compare and Contrast Structures -->
+        <div class="slide">
+            <h1>Compare and Contrast Essay Structures</h1>
+            
+            <h2>Structure 1: Subject-by-Subject (Block Method)</h2>
+            <p>Discuss all points about Subject A, then all points about Subject B.</p>
+            
+            <div class="example-box">
+                <h4>Subject-by-Subject Structure Example: Dogs vs. Cats as Pets</h4>
+                <p><strong>Introduction:</strong> Both dogs and cats make wonderful pets, but they differ in care requirements, social behavior, and maintenance needs.</p>
+                <p><strong>Body Paragraph 1 - Dogs:</strong></p>
+                <ul>
+                    <li>Care requirements: Need daily walks, regular exercise</li>
+                    <li>Social behavior: Very social, eager to please, loyal</li>
+                    <li>Maintenance: Require grooming, training, more attention</li>
+                </ul>
+                <p><strong>Body Paragraph 2 - Cats:</strong></p>
+                <ul>
+                    <li>Care requirements: Independent, use litter box, less exercise needed</li>
+                    <li>Social behavior: More independent, affectionate on their terms</li>
+                    <li>Maintenance: Self-grooming, minimal training needed</li>
+                </ul>
+                <p><strong>Conclusion:</strong> Both animals offer companionship, but dogs suit active owners while cats suit busy lifestyles.</p>
+            </div>
+            
+            <h2>Structure 2: Point-by-Point (Alternating Method)</h2>
+            <p>Discuss each comparison point for both subjects before moving to the next point.</p>
+            
+            <div class="example-box">
+                <h4>Point-by-Point Structure Example: Dogs vs. Cats as Pets</h4>
+                <p><strong>Introduction:</strong> Both dogs and cats make wonderful pets, but they differ in care requirements, social behavior, and maintenance needs.</p>
+                <p><strong>Body Paragraph 1 - Care Requirements:</strong></p>
+                <ul>
+                    <li>Dogs: Need daily walks, regular exercise, outdoor bathroom breaks</li>
+                    <li>Cats: Use litter box, minimal exercise needs, mostly indoor</li>
+                </ul>
+                <p><strong>Body Paragraph 2 - Social Behavior:</strong></p>
+                <ul>
+                    <li>Dogs: Very social, eager to please, form strong bonds</li>
+                    <li>Cats: More independent, selective affection, territorial</li>
+                </ul>
+                <p><strong>Body Paragraph 3 - Maintenance:</strong></p>
+                <ul>
+                    <li>Dogs: Regular grooming, training required, constant attention</li>
+                    <li>Cats: Self-grooming, instinctive behaviors, less supervision</li>
+                </ul>
+                <p><strong>Conclusion:</strong> Choose based on your lifestyle and preferences.</p>
+            </div>
+            
+            <h2>Which Structure Should You Choose?</h2>
+            <table class="comparison-table">
+                <tr>
+                    <th>Structure</th>
+                    <th>Best For</th>
+                    <th>Advantages</th>
+                    <th>Considerations</th>
+                </tr>
+                <tr>
+                    <td><strong>Subject-by-Subject</strong></td>
+                    <td>Shorter essays, simple comparisons</td>
+                    <td>Easy to organize, clear structure</td>
+                    <td>May forget to connect subjects</td>
+                </tr>
+                <tr>
+                    <td><strong>Point-by-Point</strong></td>
+                    <td>Longer essays, complex comparisons</td>
+                    <td>Direct comparison, stronger connections</td>
+                    <td>Requires careful organization</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Slide 7: Transition Words and Phrases -->
+        <div class="slide">
+            <h1>Transition Words: Connecting Your Ideas</h1>
+            
+            <h2>Why Transition Words Matter</h2>
+            <p>Transition words are like bridges between your ideas. They help readers follow your thinking and understand the relationships between your points.</p>
+            
+            <h2>Compare Words (Showing Similarities)</h2>
+            <div class="vocabulary-grid">
+                <div class="vocab-card">
+                    <div class="vocab-word">Similarly</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-word">Likewise</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-word">In the same way</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-word">Both</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-word">Also</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-word">Equally</div>
+                </div>
+            </div>
+            
+            <h2>Contrast Words (Showing Differences)</h2>
+            <div class="vocabulary-grid">
+                <div class="vocab-card">
+                    <div class="vocab-word">However</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-word">In contrast</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-word">On the other hand</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-word">While</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-word">Although</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-word">Nevertheless</div>
+                </div>
+            </div>
+            
+            <h2>Examples in Context</h2>
+            <div class="example-box">
+                <h4>Using Compare Transitions</h4>
+                <p>"Tokyo is a bustling metropolis with millions of residents. <span style="color: #e53e3e; font-weight: bold;">Similarly</span>, New York City has a dense population and fast-paced lifestyle."</p>
+                
+                <p>"<span style="color: #e53e3e; font-weight: bold;">Both</span> cities offer excellent public transportation systems that help residents navigate efficiently."</p>
+                
+                <p>"Tokyo has numerous museums and cultural sites. <span style="color: #e53e3e; font-weight: bold;">Likewise</span>, New York provides abundant cultural opportunities."</p>
+            </div>
+            
+            <div class="example-box">
+                <h4>Using Contrast Transitions</h4>
+                <p>"Tokyo has an efficient train system that runs precisely on schedule. <span style="color: #3182ce; font-weight: bold;">However</span>, New York's subway system, while extensive, often experiences delays."</p>
+                
+                <p>"<span style="color: #3182ce; font-weight: bold;">While</span> Tokyo is known for its politeness and order, New York is famous for its directness and energy."</p>
+                
+                <p>"Living costs in Tokyo are high. <span style="color: #3182ce; font-weight: bold;">In contrast</span>, many American cities offer more affordable housing options."</p>
+            </div>
+            
+            <div class="success-box">
+                <h4>Pro Tips for Using Transitions</h4>
+                <ul>
+                    <li>Don't overuse them - one transition per main point is usually enough</li>
+                    <li>Vary your transitions - don't repeat the same word multiple times</li>
+                    <li>Place them at the beginning of sentences or paragraphs for clarity</li>
+                    <li>Make sure the transition matches the relationship you're showing</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 8: Common Comparison Criteria Mistakes -->
+        <div class="slide">
+            <h1>Avoiding Common Comparison Mistakes</h1>
+            
+            <h2>Mistake 1: Mismatched Criteria</h2>
+            <div class="warning-box">
+                <h4>Incorrect Example</h4>
+                <p>"E-books are easy to purchase online. However, paper books take up a lot of storage space."</p>
+                <p><strong>Problem:</strong> Comparing purchasing (process) with storage (physical space) - these don't match!</p>
+            </div>
+            
+            <div class="success-box">
+                <h4>Corrected Example</h4>
+                <p>"E-books require minimal physical storage space since they're stored digitally. In contrast, paper books require significant shelf space and storage areas."</p>
+                <p><strong>Why it works:</strong> Both sentences discuss storage space - the criteria match!</p>
+            </div>
+            
+            <h2>Mistake 2: Too General or Vague</h2>
+            <div class="warning-box">
+                <h4>Incorrect Example</h4>
+                <p>"City life is better than country life because cities are more exciting."</p>
+                <p><strong>Problem:</strong> "Exciting" is too vague and subjective.</p>
+            </div>
+            
+            <div class="success-box">
+                <h4>Corrected Example</h4>
+                <p>"City life offers more entertainment options than country life, including theaters, museums, concerts, and restaurants within walking distance."</p>
+                <p><strong>Why it works:</strong> Specific, measurable criteria with examples!</p>
+            </div>
+            
+            <h2>Mistake 3: Unfair Comparisons</h2>
+            <div class="warning-box">
+                <h4>Incorrect Example</h4>
+                <p>"My hometown is small and quiet, while Paris is a major international city with millions of tourists."</p>
+                <p><strong>Problem:</strong> Comparing a small town to a major city isn't fair or useful.</p>
+            </div>
+            
+            <div class="success-box">
+                <h4>Corrected Example</h4>
+                <p>"My hometown and the neighboring city both serve as regional centers, but they differ in population size, available services, and cultural offerings."</p>
+                <p><strong>Why it works:</strong> Comparing similar types of places makes the comparison meaningful!</p>
+            </div>
+            
+            <h2>How to Choose Good Comparison Criteria</h2>
+            <div class="step-by-step">
+                <h4>Step 1: Brainstorm All Possible Points</h4>
+                <p>List everything you can think of about both subjects.</p>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Step 2: Group Similar Ideas</h4>
+                <p>Organize your points into categories (cost, convenience, quality, etc.).</p>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Step 3: Select 2-4 Most Important Categories</h4>
+                <p>Choose the criteria most relevant to your purpose and audience.</p>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Step 4: Test for Parallelism</h4>
+                <p>Make sure each criterion can be meaningfully applied to both subjects.</p>
+            </div>
+        </div>
+
+        <!-- Slide 9: Grammar Focus - Sentence Errors Part 1 -->
+        <div class="slide">
+            <h1>Grammar Focus: Understanding Sentence Errors</h1>
+            
+            <h2>What Are Run-on Sentences?</h2>
+            <p>A run-on sentence occurs when two or more complete sentences are joined together without proper punctuation or connecting words.</p>
+            
+            <div class="info-box">
+                <h4>What Makes a Complete Sentence?</h4>
+                <p>A complete sentence must have:</p>
+                <ul>
+                    <li><strong>Subject:</strong> Who or what the sentence is about</li>
+                    <li><strong>Predicate:</strong> What the subject does or is</li>
+                    <li><strong>Complete thought:</strong> Makes sense by itself</li>
+                </ul>
+            </div>
+            
+            <h2>Types of Run-on Sentences</h2>
+            
+            <h3>Type 1: Fused Sentences (No Punctuation)</h3>
+            <div class="warning-box">
+                <h4>Incorrect Examples</h4>
+                <p>"I love reading books they help me relax after work."</p>
+                <p>"The weather is beautiful today I want to go for a walk."</p>
+                <p>"She studied hard for the exam she passed with excellent grades."</p>
+            </div>
+            
+            <h3>Type 2: Comma Splices (Comma Only)</h3>
+            <div class="warning-box">
+                <h4>Incorrect Examples</h4>
+                <p>"I love reading books, they help me relax after work."</p>
+                <p>"The weather is beautiful today, I want to go for a walk."</p>
+                <p>"She studied hard for the exam, she passed with excellent grades."</p>
+            </div>
+            
+            <h2>Why These Errors Happen</h2>
+            <ul>
+                <li><strong>Thinking too fast:</strong> Your brain moves faster than your writing</li>
+                <li><strong>Related ideas:</strong> The sentences seem connected, so you join them incorrectly</li>
+                <li><strong>Speaking patterns:</strong> In speech, we often pause briefly between related thoughts</li>
+                <li><strong>Lack of awareness:</strong> Not recognizing where one complete thought ends</li>
+            </ul>
+            
+            <div class="info-box">
+                <h4>Quick Test: Is It a Run-on?</h4>
+                <p>Read your sentence aloud and ask:</p>
+                <ol>
+                    <li>Can I break this into two complete sentences?</li>
+                    <li>Does each part have its own subject and verb?</li>
+                    <li>Does each part express a complete thought?</li>
+                </ol>
+                <p>If you answered "yes" to all three, and they're joined incorrectly, you have a run-on!</p>
+            </div>
+        </div>
+
+        <!-- Slide 10: Grammar Focus - Fixing Sentence Errors -->
+        <div class="slide">
+            <h1>Grammar Focus: Fixing Sentence Errors</h1>
+            
+            <h2>Method 1: Separate with a Period</h2>
+            <p>The simplest solution: Make two separate sentences.</p>
+            
+            <div class="success-box">
+                <h4>Examples Fixed with Periods</h4>
+                <p><strong>Before:</strong> "I love reading books they help me relax after work."<br>
+                <strong>After:</strong> "I love reading books. They help me relax after work."</p>
+                
+                <p><strong>Before:</strong> "The weather is beautiful today, I want to go for a walk."<br>
+                <strong>After:</strong> "The weather is beautiful today. I want to go for a walk."</p>
+            </div>
+            
+            <h2>Method 2: Use Coordinating Conjunctions</h2>
+            <p>Connect sentences with FANBOYS: <strong>F</strong>or, <strong>A</strong>nd, <strong>N</strong>or, <strong>B</strong>ut, <strong>O</strong>r, <strong>Y</strong>et, <strong>S</strong>o</p>
+            
+            <div class="success-box">
+                <h4>Examples Fixed with Coordinating Conjunctions</h4>
+                <p><strong>Before:</strong> "I love reading books they help me relax after work."<br>
+                <strong>After:</strong> "I love reading books, <span style="color: #e53e3e; font-weight: bold;">and</span> they help me relax after work."</p>
+                
+                <p><strong>Before:</strong> "She studied hard for the exam she passed with excellent grades."<br>
+                <strong>After:</strong> "She studied hard for the exam, <span style="color: #e53e3e; font-weight: bold;">so</span> she passed with excellent grades."</p>
+            </div>
+            
+            <h2>Method 3: Use Subordinating Conjunctions</h2>
+            <p>Make one sentence dependent on the other using words like: because, although, since, when, while, if, unless</p>
+            
+            <div class="success-box">
+                <h4>Examples Fixed with Subordinating Conjunctions</h4>
+                <p><strong>Before:</strong> "The weather is beautiful today I want to go for a walk."<br>
+                <strong>After:</strong> "<span style="color: #e53e3e; font-weight: bold;">Because</span> the weather is beautiful today, I want to go for a walk."</p>
+                
+                <p><strong>Before:</strong> "I love reading books they help me relax after work."<br>
+                <strong>After:</strong> "I love reading books <span style="color: #e53e3e; font-weight: bold;">because</span> they help me relax after work."</p>
+            </div>
+            
+            <h2>Method 4: Use Semicolons (Advanced)</h2>
+            <p>Use semicolons to connect closely related sentences.</p>
+            
+            <div class="success-box">
+                <h4>Examples Fixed with Semicolons</h4>
+                <p><strong>Before:</strong> "She studied hard for the exam she passed with excellent grades."<br>
+                <strong>After:</strong> "She studied hard for the exam<span style="color: #e53e3e; font-weight: bold;">;</span> she passed with excellent grades."</p>
+            </div>
+            
+            <h2>Choosing the Right Method</h2>
+            <table class="comparison-table">
+                <tr>
+                    <th>Method</th>
+                    <th>When to Use</th>
+                    <th>Effect</th>
+                </tr>
+                <tr>
+                    <td>Period</td>
+                    <td>Ideas are separate or equal</td>
+                    <td>Clear, simple, direct</td>
+                </tr>
+                <tr>
+                    <td>Coordinating Conjunction</td>
+                    <td>Ideas are related and equal</td>
+                    <td>Shows relationship between ideas</td>
+                </tr>
+                <tr>
+                    <td>Subordinating Conjunction</td>
+                    <td>One idea depends on the other</td>
+                    <td>Shows cause-effect or time relationships</td>
+                </tr>
+                <tr>
+                    <td>Semicolon</td>
+                    <td>Ideas are very closely related</td>
+                    <td>Formal, sophisticated connection</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Slide 11: Grammar Focus - English Tenses Review -->
+        <div class="slide">
+            <h1>English Tenses: Complete Review with Examples</h1>
+            
+            <h2>Present Tenses</h2>
+            
+            <h3>Present Simple</h3>
+            <div class="tense-example">
+                <p><strong>Form:</strong> Subject + base verb (+ s/es for he/she/it)</p>
+                <p><strong>Uses:</strong></p>
+                <ul>
+                    <li>Habits and routines: "I read every morning."</li>
+                    <li>Facts and general truths: "The sun rises in the east."</li>
+                    <li>Scheduled events: "The train leaves at 9 AM."</li>
+                </ul>
+                <p><strong>Examples:</strong></p>
+                <ul>
+                    <li>Positive: "She works at a hospital."</li>
+                    <li>Negative: "He doesn't like coffee."</li>
+                    <li>Question: "Do you speak Spanish?"</li>
+                </ul>
+            </div>
+            
+            <h3>Present Continuous</h3>
+            <div class="tense-example">
+                <p><strong>Form:</strong> Subject + am/is/are + verb + ing</p>
+                <p><strong>Uses:</strong></p>
+                <ul>
+                    <li>Actions happening now: "I am writing an email."</li>
+                    <li>Temporary situations: "She is staying with friends this week."</li>
+                    <li>Future arrangements: "We are meeting tomorrow."</li>
+                </ul>
+                <p><strong>Examples:</strong></p>
+                <ul>
+                    <li>Positive: "They are studying for exams."</li>
+                    <li>Negative: "It isn't raining today."</li>
+                    <li>Question: "Are you coming to the party?"</li>
+                </ul>
+            </div>
+            
+            <h2>Past Tenses</h2>
+            
+            <h3>Past Simple</h3>
+            <div class="tense-example">
+                <p><strong>Form:</strong> Subject + past form of verb</p>
+                <p><strong>Uses:</strong></p>
+                <ul>
+                    <li>Completed actions: "I finished my homework yesterday."</li>
+                    <li>Past habits: "She always walked to school."</li>
+                    <li>Sequential events: "He arrived, ate dinner, and went to bed."</li>
+                </ul>
+                <p><strong>Examples:</strong></p>
+                <ul>
+                    <li>Positive: "We visited Paris last summer."</li>
+                    <li>Negative: "They didn't understand the lesson."</li>
+                    <li>Question: "Did you enjoy the movie?"</li>
+                </ul>
+            </div>
+            
+            <h2>Future Tenses</h2>
+            
+            <h3>Future with "Will"</h3>
+            <div class="tense-example">
+                <p><strong>Form:</strong> Subject + will + base verb</p>
+                <p><strong>Uses:</strong></p>
+                <ul>
+                    <li>Spontaneous decisions: "I'll help you with that."</li>
+                    <li>Predictions: "It will rain tomorrow."</li>
+                    <li>Promises: "I will call you later."</li>
+                </ul>
+            </div>
+            
+            <h3>Future with "Going to"</h3>
+            <div class="tense-example">
+                <p><strong>Form:</strong> Subject + am/is/are going to + base verb</p>
+                <p><strong>Uses:</strong></p>
+                <ul>
+                    <li>Plans and intentions: "I'm going to study medicine."</li>
+                    <li>Predictions with evidence: "Look at those clouds - it's going to rain."</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 12: Peer Feedback - Comprehensive Guide -->
+        <div class="slide">
+            <h1>Peer Feedback: A Complete Guide</h1>
+            
+            <h2>Why Peer Feedback Matters</h2>
+            <div class="highlight">
+                <h3>Benefits for You (The Reviewer)</h3>
+                <ul>
+                    <li><strong>Improves your own writing:</strong> Seeing others' work helps you recognize good and poor writing</li>
+                    <li><strong>Develops critical thinking:</strong> You learn to analyze and evaluate ideas</li>
+                    <li><strong>Builds editing skills:</strong> Practice identifying errors and weaknesses</li>
+                    <li><strong>Enhances communication:</strong> Learn to give constructive feedback</li>
+                </ul>
+                
+                <h3>Benefits for Your Classmates (The Reviewed)</h3>
+                <ul>
+                    <li><strong>Fresh perspective:</strong> You see things the writer missed</li>
+                    <li><strong>Reader awareness:</strong> Helps them understand how others perceive their writing</li>
+                    <li><strong>Specific improvements:</strong> Concrete suggestions for enhancement</li>
+                    <li><strong>Motivation:</strong> Positive feedback encourages continued effort</li>
+                </ul>
+            </div>
+            
+            <h2>The Four Pillars of Effective Feedback</h2>
+            
+            <div class="step-by-step">
+                <h4>Pillar 1: Read Carefully and Thoroughly</h4>
+                <ul>
+                    <li>Read the assignment <strong>at least twice</strong></li>
+                    <li>First reading: Get the overall impression</li>
+                    <li>Second reading: Focus on specific requirements</li>
+                    <li>Take notes as you read</li>
+                    <li>Review the assignment criteria before starting</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Pillar 2: Be Specific and Concrete</h4>
+                <ul>
+                    <li>Point to exact sentences or phrases</li>
+                    <li>Explain <strong>why</strong> something works or doesn't work</li>
+                    <li>Give examples of how to improve</li>
+                    <li>Avoid vague comments like "good job" or "needs work"</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Pillar 3: Balance Positive and Constructive</h4>
+                <ul>
+                    <li>Always mention <strong>at least one specific strength</strong></li>
+                    <li>Focus on the most important areas for improvement</li>
+                    <li>Use encouraging language</li>
+                    <li>Frame criticism as suggestions, not attacks</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Pillar 4: Proofread Your Own Feedback</h4>
+                <ul>
+                    <li>Check that you've answered all required questions</li>
+                    <li>Ensure your comments are clear and helpful</li>
+                    <li>Correct any errors in your own writing</li>
+                    <li>Read from the recipient's perspective</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 13: Peer Feedback Examples -->
+        <div class="slide">
+            <h1>Peer Feedback: Examples and Practice</h1>
+            
+            <h2>Good vs. Poor Feedback Examples</h2>
+            
+            <h3>Example Assignment Excerpt:</h3>
+            <div class="info-box">
+                <p>"Living in a big city is better than living in a small town. Cities have more job opportunities. There are also more restaurants and entertainment. Small towns are boring and don't have much to do."</p>
+            </div>
+            
+            <h3>Poor Feedback Example:</h3>
+            <div class="feedback-bad">
+                <h4>What NOT to do:</h4>
+                <p>"Good job. I agree with your points. Maybe add more details. Some grammar errors need fixing."</p>
+                <p><strong>Problems:</strong></p>
+                <ul>
+                    <li>Too vague - no specific examples</li>
+                    <li>Doesn't identify which grammar errors</li>
+                    <li>No specific suggestions for improvement</li>
+                    <li>Doesn't address assignment requirements</li>
+                </ul>
+            </div>
+            
+            <h3>Excellent Feedback Example:</h3>
+            <div class="feedback-example">
+                <h4>What TO do:</h4>
+                <p>"Your topic sentence clearly states your preference for city living, which directly answers the assignment prompt. Your supporting points about job opportunities and entertainment are relevant and easy to understand.</p>
+                
+                <p>To strengthen your paragraph, consider adding specific examples. For instance, instead of saying 'more job opportunities,' you could mention 'diverse career options in finance, technology, and healthcare.' This would make your argument more convincing.</p>
+                
+                <p>The sentence 'Small towns are boring and don't have much to do' sounds harsh and might offend readers from small towns. Consider rephrasing this more neutrally, such as 'Small towns typically offer fewer entertainment options.'</p>
+                
+                <p>Your paragraph structure follows the assignment requirements well with a clear topic sentence and supporting details. Adding a concluding sentence would help wrap up your ideas effectively."</p>
+                
+                <p><strong>Why this works:</strong></p>
+                <ul>
+                    <li>Identifies specific strengths</li>
+                    <li>Gives concrete examples of improvements</li>
+                    <li>Explains reasoning behind suggestions</li>
+                    <li>Addresses assignment requirements</li>
+                    <li>Maintains encouraging tone</li>
+                </ul>
+            </div>
+            
+            <h2>This Week's Peer Assessment Focus</h2>
+            <p>You'll be evaluating oral presentations using these specific criteria:</p>
+            
+            <div class="assignment-grid">
+                <div class="assignment-card">
+                    <h4>Question 1: Compare/Contrast Argument</h4>
+                    <p><strong>Look for:</strong> Clear statement of preference between two options</p>
+                    <p><strong>Example answer:</strong> "The speaker clearly prefers online classes over traditional classes and states this in the introduction."</p>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Question 2: Sufficient Information</h4>
+                    <p><strong>Look for:</strong> Enough details to understand similarities and differences</p>
+                    <p><strong>Example answer:</strong> "The speaker explained three clear differences but could have provided more specific examples about cost and convenience."</p>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Question 3: Convincing Argument</h4>
+                    <p><strong>Look for:</strong> Logical reasoning and strong evidence</p>
+                    <p><strong>Example answer:</strong> "The speaker was moderately convincing because they provided personal examples, but stronger evidence would improve the argument."</p>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Question 4: Oral Delivery</h4>
+                    <p><strong>Look for:</strong> Clear pronunciation, appropriate pace, good organization</p>
+                    <p><strong>Example answer:</strong> "The speaker spoke clearly and at a good pace. The organization was easy to follow with clear transitions between points."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Reading Comprehension Strategies -->
+        <div class="slide">
+            <h1>Reading Comprehension: "The Technological Age"</h1>
+            
+            <h2>Pre-Reading Preparation</h2>
+            <div class="step-by-step">
+                <h4>Step 1: Review Vocabulary</h4>
+                <p>Before reading, familiarize yourself with key terms:</p>
+                <ul>
+                    <li><strong>Technological age:</strong> The current era dominated by technology</li>
+                    <li><strong>Social media:</strong> Online platforms for communication and sharing</li>
+                    <li><strong>Generation Z:</strong> People born from mid-1990s to early 2010s</li>
+                    <li><strong>Echo chamber:</strong> Environment where people hear only opinions similar to their own</li>
+                    <li><strong>Groupthink:</strong> Practice of thinking as a group, often suppressing individual opinions</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Step 2: Preview the Article</h4>
+                <ul>
+                    <li>Read the title and predict the content</li>
+                    <li>Scan for headings and subheadings</li>
+                    <li>Notice the author's name and publication date</li>
+                    <li>Look at the length and structure</li>
+                </ul>
+            </div>
+            
+            <h2>Active Reading Strategies</h2>
+            
+            <div class="info-box">
+                <h4>First Reading: Get the Big Picture</h4>
+                <ul>
+                    <li>Read without stopping to look up every unknown word</li>
+                    <li>Focus on understanding the main argument</li>
+                    <li>Notice the overall structure and flow</li>
+                    <li>Ask: "What is the author's main point?"</li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <h4>Second Reading: Analyze Details</h4>
+                <ul>
+                    <li>Take notes on key points and evidence</li>
+                    <li>Look up important unknown vocabulary</li>
+                    <li>Identify the author's arguments and supporting evidence</li>
+                    <li>Notice transitions and connections between ideas</li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <h4>Third Reading: Critical Evaluation</h4>
+                <ul>
+                    <li>Evaluate the strength of the arguments</li>
+                    <li>Consider whether you agree or disagree</li>
+                    <li>Think about your own experiences with technology</li>
+                    <li>Prepare for discussion and writing assignments</li>
+                </ul>
+            </div>
+            
+            <h2>Key Questions to Consider</h2>
+            <div class="highlight">
+                <h3>Content Questions</h3>
+                <ul>
+                    <li>What is the author's main argument about technology's role in our lives?</li>
+                    <li>What evidence does the author provide for their claims?</li>
+                    <li>How does the author define "groupthink" and why is it concerning?</li>
+                    <li>What positive and negative effects of social media are mentioned?</li>
+                </ul>
+                
+                <h3>Critical Thinking Questions</h3>
+                <ul>
+                    <li>Do you agree with the author's perspective? Why or why not?</li>
+                    <li>How does your experience with technology compare to what's described?</li>
+                    <li>What examples from your own life support or contradict the author's points?</li>
+                    <li>Are there important aspects of technology use that the author didn't consider?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 15: Vocabulary - Media and Technology -->
+        <div class="slide">
+            <h1>Vocabulary: Media and Technology</h1>
+            
+            <h2>Essential Vocabulary for This Week</h2>
+            
+            <div class="assignment-grid">
+                <div class="assignment-card">
+                    <h4>Communication & Access</h4>
+                    <ul>
+                        <li><strong>Access:</strong> The ability to use or obtain something</li>
+                        <li><strong>Communication:</strong> Exchange of information between people</li>
+                        <li><strong>Navigate:</strong> To find your way through something</li>
+                        <li><strong>Platform:</strong> A digital service or website</li>
+                        <li><strong>Interactive:</strong> Allowing two-way communication</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Technology & Progress</h4>
+                    <ul>
+                        <li><strong>Application:</strong> A software program (app)</li>
+                        <li><strong>Artificial:</strong> Made by humans, not natural</li>
+                        <li><strong>Generate:</strong> To create or produce</li>
+                        <li><strong>Progress:</strong> Forward movement or improvement</li>
+                        <li><strong>Efficiency:</strong> Doing something well without waste</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Benefits & Issues</h4>
+                    <ul>
+                        <li><strong>Beneficial:</strong> Helpful or advantageous</li>
+                        <li><strong>Advantage:</strong> A positive aspect or benefit</li>
+                        <li><strong>Conflict:</strong> Disagreement or opposition</li>
+                        <li><strong>Issue:</strong> A problem or concern</li>
+                        <li><strong>Secure:</strong> Safe and protected</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>People & Society</h4>
+                    <ul>
+                        <li><strong>Individual:</strong> A single person</li>
+                        <li><strong>Mentality:</strong> A way of thinking</li>
+                        <li><strong>Responsibility:</strong> Duty or obligation</li>
+                        <li><strong>Account:</strong> A user profile on a platform</li>
+                        <li><strong>Instance:</strong> An example or case</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2>Vocabulary in Context</h2>
+            <div class="example-box">
+                <h4>Example Sentences</h4>
+                <p>"Students need <strong>access</strong> to reliable internet to participate in online learning."</p>
+                <p>"Social media <strong>platforms</strong> allow users to share content and <strong>communicate</strong> with others worldwide."</p>
+                <p>"<strong>Interactive</strong> technology can <strong>generate</strong> new opportunities for education."</p>
+                <p>"Each <strong>individual</strong> must take <strong>responsibility</strong> for their online behavior."</p>
+                <p>"Modern <strong>applications</strong> are designed to improve <strong>efficiency</strong> in daily tasks."</p>
+            </div>
+            
+            <h2>Study Strategies</h2>
+            <div class="success-box">
+                <h4>How to Learn These Words Effectively</h4>
+                <ol>
+                    <li><strong>Create word cards:</strong> Write the word on one side, definition and example on the other</li>
+                    <li><strong>Use them in sentences:</strong> Write your own sentences using each word</li>
+                    <li><strong>Practice pronunciation:</strong> Listen to audio pronunciations online</li>
+                    <li><strong>Look for them while reading:</strong> Notice these words in the article and other texts</li>
+                    <li><strong>Use them in speaking:</strong> Try to use new vocabulary in discussions</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Slide 16: Discussion Assignment Details -->
+        <div class="slide">
+            <h1>Discussion Assignment: Step-by-Step Guide</h1>
+            
+            <h2>Assignment Overview</h2>
+            <div class="info-box">
+                <h4>Your Task</h4>
+                <p>Read "The Technological Age: Are We in Control of It, or Does it Have Control of Us?" and respond with your analysis and opinion.</p>
+                <p><strong>Main Post Requirements:</strong></p>
+                <ul>
+                    <li>One sentence summarizing the author's main point</li>
+                    <li>2-3 sentences stating your agreement or disagreement</li>
+                    <li>Minimum 50 words total</li>
+                </ul>
+            </div>
+            
+            <h2>Step 1: Writing Your Summary Sentence</h2>
+            <div class="step-by-step">
+                <h4>How to Identify the Main Point</h4>
+                <ul>
+                    <li>Look at the title and introduction</li>
+                    <li>Find the thesis statement (usually in the first or second paragraph)</li>
+                    <li>Notice what the author spends most time discussing</li>
+                    <li>Consider the conclusion - what final message does the author leave?</li>
+                </ul>
+            </div>
+            
+            <div class="example-box">
+                <h4>Example Summary Sentences</h4>
+                <p><strong>Good example:</strong> "The author argues that while technology connects us in unprecedented ways, it may also be creating 'groupthink' mentality that reduces individual critical thinking, especially among young people."</p>
+                
+                <p><strong>Why it works:</strong> Captures both sides of the author's argument and mentions the key concern about groupthink.</p>
+                
+                <p><strong>Avoid:</strong> "The author talks about technology and social media."</p>
+                <p><strong>Why it's weak:</strong> Too vague, doesn't capture the specific argument.</p>
+            </div>
+            
+            <h2>Step 2: Stating Your Position</h2>
+            <div class="step-by-step">
+                <h4>Agreement Approach</h4>
+                <p>If you agree with the author:</p>
+                <ul>
+                    <li>Explain which points resonate with you</li>
+                    <li>Provide examples from your own experience</li>
+                    <li>Add additional supporting evidence or thoughts</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Disagreement Approach</h4>
+                <p>If you disagree with the author:</p>
+                <ul>
+                    <li>Explain which points you question</li>
+                    <li>Provide counter-examples from your experience</li>
+                    <li>Suggest alternative perspectives</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Partial Agreement Approach</h4>
+                <p>If you agree with some points but not others:</p>
+                <ul>
+                    <li>Specify which points you agree/disagree with</li>
+                    <li>Explain your reasoning for each position</li>
+                    <li>Show you've thought carefully about the complexity</li>
+                </ul>
+            </div>
+            
+            <div class="example-box">
+                <h4>Example Position Statements</h4>
+                <p><strong>Agreement:</strong> "I agree with the author's concern about groupthink because I've noticed that my friends and I often share similar opinions on social media, which might be limiting our exposure to different perspectives. However, I also believe technology has given us access to more diverse viewpoints than previous generations had."</p>
+                
+                <p><strong>Disagreement:</strong> "While I understand the author's concerns, I disagree that technology necessarily creates groupthink. In my experience, social media has actually exposed me to many different cultures and ideas that I wouldn't have encountered otherwise. The key is learning to seek out diverse sources rather than staying in one's comfort zone."</p>
+            </div>
+        </div>
+
+        <!-- Slide 17: Discussion Responses and Rating -->
+        <div class="slide">
+            <h1>Discussion Responses and Rating System</h1>
+            
+            <h2>Writing Meaningful Responses</h2>
+            <div class="info-box">
+                <h4>Requirements</h4>
+                <ul>
+                    <li>Respond to <strong>3 classmates</strong></li>
+                    <li><strong>100+ words</strong> per response (3-4 complete sentences)</li>
+                    <li>Provide <strong>meaningful, helpful feedback</strong></li>
+                    <li>Rate each post from <strong>0-10</strong> (anonymous ratings)</li>
+                </ul>
+            </div>
+            
+            <h2>Types of Effective Responses</h2>
+            
+            <div class="step-by-step">
+                <h4>Type 1: Build on Their Ideas</h4>
+                <p>Add to what they said with your own experiences or thoughts.</p>
+                <div class="example-box">
+                    <p>"I really appreciate your point about technology helping us stay connected with family. This reminds me of how video calls helped me maintain a close relationship with my grandparents during the pandemic. Do you think there are any downsides to relying so heavily on technology for family connections?"</p>
+                </div>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Type 2: Respectfully Disagree</h4>
+                <p>Offer a different perspective while showing respect for their viewpoint.</p>
+                <div class="example-box">
+                    <p>"While I understand your perspective about social media creating echo chambers, I've had a different experience. Through following diverse accounts and news sources, I've actually been exposed to more varied viewpoints than I had before social media. Perhaps the key difference is how we choose to use these platforms?"</p>
+                </div>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Type 3: Ask Thoughtful Questions</h4>
+                <p>Encourage deeper thinking by asking follow-up questions.</p>
+                <div class="example-box">
+                    <p>"Your analysis of the author's groupthink argument is insightful. I'm curious about your thoughts on potential solutions - how do you think we can use technology to encourage independent thinking rather than groupthink? What strategies do you personally use to ensure you're getting diverse perspectives?"</p>
+                </div>
+            </div>
+            
+            <h2>Rating Scale Explained</h2>
+            <table class="comparison-table">
+                <tr>
+                    <th>Score</th>
+                    <th>Grade</th>
+                    <th>Description</th>
+                    <th>What to Look For</th>
+                </tr>
+                <tr>
+                    <td>9-10</td>
+                    <td>A (Excellent)</td>
+                    <td>Outstanding, insightful contribution</td>
+                    <td>Clear summary, strong position, excellent examples, meets all requirements</td>
+                </tr>
+                <tr>
+                    <td>8-9</td>
+                    <td>B (Good)</td>
+                    <td>Good insight with minor gaps</td>
+                    <td>Good summary and position, some examples, meets most requirements</td>
+                </tr>
+                <tr>
+                    <td>6-7</td>
+                    <td>C (Satisfactory)</td>
+                    <td>Adequate but needs more detail</td>
+                    <td>Basic summary and position, minimal examples, meets basic requirements</td>
+                </tr>
+                <tr>
+                    <td>4-5</td>
+                    <td>D (Limited)</td>
+                    <td>Limited insight, more effort needed</td>
+                    <td>Unclear summary or weak position, few examples, misses some requirements</td>
+                </tr>
+                <tr>
+                    <td>0-3</td>
+                    <td>F (Unsatisfactory)</td>
+                    <td>Poor understanding, major issues</td>
+                    <td>Incorrect summary, no clear position, doesn't meet requirements</td>
+                </tr>
+            </table>
+            
+            <div class="warning-box">
+                <h4>What NOT to Do in Responses</h4>
+                <ul>
+                    <li>Simply say "I agree" without explanation</li>
+                    <li>Copy what others have said</li>
+                    <li>Make personal attacks or dismissive comments</li>
+                    <li>Post responses that are too short or generic</li>
+                    <li>Mention the numerical rating you're giving (ratings are anonymous)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 18: Written Assignment - Complete Guide -->
+        <div class="slide">
+            <h1>Written Assignment: Compare and Contrast Paragraph</h1>
+            
+            <h2>Assignment Requirements</h2>
+            <div class="highlight">
+                <h4>Your Task</h4>
+                <p>Write one paragraph (minimum 3-4 sentences, at least 100 words) comparing and contrasting two places.</p>
+                
+                <h4>Place Options</h4>
+                <ul>
+                    <li>Different neighborhoods in your city</li>
+                    <li>Two towns or cities you know</li>
+                    <li>Different regions or countries</li>
+                    <li>Places you've lived, visited, or traveled to for work/school</li>
+                </ul>
+            </div>
+            
+            <h2>Step-by-Step Writing Process</h2>
+            
+            <div class="step-by-step">
+                <h4>Step 1: Choose Your Places</h4>
+                <p>Select two places you know well enough to compare meaningfully.</p>
+                <ul>
+                    <li><strong>Good choice:</strong> Your hometown vs. the city where you attend university</li>
+                    <li><strong>Good choice:</strong> Two neighborhoods you've lived in</li>
+                    <li><strong>Avoid:</strong> Places you know very little about</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Step 2: Brainstorm Comparison Points</h4>
+                <p>List possible criteria for comparison:</p>
+                <ul>
+                    <li>Size and population</li>
+                    <li>Climate and weather</li>
+                    <li>Cost of living</li>
+                    <li>Transportation options</li>
+                    <li>Cultural activities</li>
+                    <li>Job opportunities</li>
+                    <li>Pace of life</li>
+                    <li>Community atmosphere</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Step 3: Select 2-3 Main Criteria</h4>
+                <p>Choose the most important and interesting points for your paragraph.</p>
+                <p><strong>Example:</strong> If comparing your hometown to a big city, you might focus on:</p>
+                <ol>
+                    <li>Population and pace of life</li>
+                    <li>Transportation options</li>
+                    <li>Community atmosphere</li>
+                </ol>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Step 4: Write Your Topic Sentence</h4>
+                <p>Create a topic sentence that introduces both places and indicates whether you'll focus on similarities, differences, or both.</p>
+                <div class="example-box">
+                    <h4>Example Topic Sentences</h4>
+                    <p><strong>Focus on differences:</strong> "Although both my hometown of Salem and Boston are located in Massachusetts, they offer completely different living experiences in terms of pace of life, transportation, and community atmosphere."</p>
+                    
+                    <p><strong>Focus on similarities:</strong> "Despite their different sizes, both Prague and Vienna share similar European charm through their historic architecture, café culture, and public transportation systems."</p>
+                    
+                    <p><strong>Mixed approach:</strong> "My childhood neighborhood and my current apartment area are similar in their residential character but differ significantly in diversity and convenience."</p>
+                </div>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Step 5: Develop Supporting Details</h4>
+                <p>For each comparison point, explain how the places are similar or different.</p>
+                <div class="example-box">
+                    <h4>Example Supporting Details</h4>
+                    <p><strong>Point 1 - Pace of life:</strong> "Salem moves at a relaxed, small-town pace where people often stop to chat with neighbors on the street. In contrast, Boston's fast-paced environment keeps people focused on their destinations with little time for casual conversation."</p>
+                    
+                    <p><strong>Point 2 - Transportation:</strong> "While Salem residents rely primarily on cars for transportation, Boston offers extensive public transit including subways, buses, and commuter trains that make car ownership optional."</p>
+                </div>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Step 6: Write Your Concluding Sentence</h4>
+                <p>Wrap up by restating your main point or sharing your preference.</p>
+                <div class="example-box">
+                    <h4>Example Concluding Sentences</h4>
+                    <p><strong>Neutral conclusion:</strong> "Both places offer unique advantages depending on one's lifestyle preferences and career goals."</p>
+                    
+                    <p><strong>Express preference:</strong> "While I appreciate Boston's opportunities and energy, Salem's sense of community and slower pace make it a more appealing place to call home."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 19: Written Assignment Examples and Rubric -->
+        <div class="slide">
+            <h1>Written Assignment: Examples and Assessment</h1>
+            
+            <h2>Complete Example Paragraph</h2>
+            <div class="example-box">
+                <h4>Sample Student Response: Comparing Two Neighborhoods</h4>
+                <p><span style="color: #e53e3e; font-weight: bold;">[Topic Sentence]</span> Although both my childhood neighborhood in suburban Denver and my current apartment area in downtown Denver are in the same city, they offer dramatically different living experiences in terms of pace of life, community interaction, and available amenities. <span style="color: #3182ce; font-weight: bold;">[Supporting Detail 1]</span> My suburban neighborhood moves at a relaxed pace where families walk their dogs in the evening and children play in spacious front yards, while downtown Denver pulses with constant activity from business people, tourists, and late-night entertainment. <span style="color: #3182ce; font-weight: bold;">[Supporting Detail 2]</span> Community interaction also differs significantly; in the suburbs, neighbors know each other by name and often gather for block parties, whereas downtown residents typically maintain polite distance and anonymity. <span style="color: #3182ce; font-weight: bold;">[Supporting Detail 3]</span> Furthermore, while my childhood area required car trips to reach restaurants and shops, my current downtown location puts dozens of restaurants, cafes, and stores within walking distance. <span style="color: #38a169; font-weight: bold;">[Concluding Sentence]</span> Both areas have their advantages, but the convenience and energy of downtown living better suit my current lifestyle as a university student.</p>
+                
+                <p><strong>Word count:</strong> 156 words | <strong>Sentences:</strong> 5 | <strong>Structure:</strong> Point-by-point</p>
+            </div>
+            
+            <h2>Assessment Criteria (Peer Review Rubric)</h2>
+            <p>Your classmates will evaluate your work using these criteria:</p>
+            
+            <div class="assignment-grid">
+                <div class="assignment-card">
+                    <h4>1. Complete Paragraph?</h4>
+                    <p><strong>What peers look for:</strong></p>
+                    <ul>
+                        <li>Topic sentence introducing both places</li>
+                        <li>Supporting details explaining comparisons</li>
+                        <li>Concluding sentence wrapping up ideas</li>
+                        <li>Focused on one main idea</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>2. Compares Two Places?</h4>
+                    <p><strong>What peers look for:</strong></p>
+                    <ul>
+                        <li>Two clearly identified places</li>
+                        <li>Specific similarities or differences</li>
+                        <li>Relevant comparison criteria</li>
+                        <li>Balanced discussion of both places</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>3. Has Topic Sentence?</h4>
+                    <p><strong>What peers look for:</strong></p>
+                    <ul>
+                        <li>Clear topic sentence (usually first)</li>
+                        <li>Introduces both places being compared</li>
+                        <li>Indicates focus of comparison</li>
+                        <li>Sets up the rest of the paragraph</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>4. Clear Structure?</h4>
+                    <p><strong>What peers look for:</strong></p>
+                    <ul>
+                        <li>Logical organization of ideas</li>
+                        <li>Smooth transitions between points</li>
+                        <li>Appropriate use of transition words</li>
+                        <li>Easy to follow progression</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>5. Complete Sentences?</h4>
+                    <p><strong>What peers look for:</strong></p>
+                    <ul>
+                        <li>All sentences have subject and predicate</li>
+                        <li>No sentence fragments</li>
+                        <li>No run-on sentences or comma splices</li>
+                        <li>Proper punctuation</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>6. Grammar and Spelling?</h4>
+                    <p><strong>What peers look for:</strong></p>
+                    <ul>
+                        <li>Correct verb tenses</li>
+                        <li>Proper spelling</li>
+                        <li>Appropriate word choice</li>
+                        <li>Overall clarity of expression</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="success-box">
+                <h4>Tips for Success</h4>
+                <ul>
+                    <li><strong>Before writing:</strong> Create an outline with your topic sentence and 2-3 main points</li>
+                    <li><strong>While writing:</strong> Use specific examples and details to make your comparisons clear</li>
+                    <li><strong>After writing:</strong> Read aloud to check for run-on sentences and unclear ideas</li>
+                    <li><strong>Final check:</strong> Count words and sentences to ensure you meet minimum requirements</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 20: Listening Comprehension -->
+        <div class="slide">
+            <h1>Listening Comprehension: "Keeping in Touch"</h1>
+            
+            <h2>Listening Assignment Overview</h2>
+            <div class="info-box">
+                <h4>What You'll Hear</h4>
+                <p>A student presentation about how he uses social media and technology to stay connected with three different groups of people in his life: friends, teachers/classmates, and family.</p>
+                
+                <p><strong>Key Skills Practiced:</strong></p>
+                <ul>
+                    <li>Understanding main ideas and supporting details</li>
+                    <li>Following organizational structure (introduction, three main points, conclusion)</li>
+                    <li>Recognizing transition words and phrases</li>
+                    <li>Identifying specific examples and explanations</li>
+                </ul>
+            </div>
+            
+            <h2>Pre-Listening Preparation</h2>
+            <div class="step-by-step">
+                <h4>Step 1: Predict Content</h4>
+                <p>Based on the title "Keeping in Touch," what do you expect to hear?</p>
+                <ul>
+                    <li>Different ways people communicate</li>
+                    <li>Benefits and challenges of staying connected</li>
+                    <li>Technology tools for communication</li>
+                    <li>Personal experiences with social media</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Step 2: Review Key Vocabulary</h4>
+                <p>Make sure you understand these words before listening:</p>
+                <ul>
+                    <li><strong>Social media:</strong> Online platforms for sharing and communication</li>
+                    <li><strong>Virtual:</strong> Existing online, not in person</li>
+                    <li><strong>Platform:</strong> A digital service or website</li>
+                    <li><strong>Interactive:</strong> Allowing participation and communication</li>
+                    <li><strong>Navigate:</strong> To find your way through something</li>
+                </ul>
+            </div>
+            
+            <h2>Listening Strategy</h2>
+            <div class="assignment-grid">
+                <div class="assignment-card">
+                    <h4>First Listening: Main Ideas</h4>
+                    <ul>
+                        <li>Focus on understanding the overall message</li>
+                        <li>Don't worry about every detail</li>
+                        <li>Listen for the three main groups mentioned</li>
+                        <li>Notice the speaker's attitude toward technology</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Second Listening: Specific Details</h4>
+                    <ul>
+                        <li>Take notes on how he connects with each group</li>
+                        <li>Listen for specific examples and platforms</li>
+                        <li>Note the benefits mentioned for each group</li>
+                        <li>Pay attention to transition phrases</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2>What to Listen For</h2>
+            <div class="highlight">
+                <h3>Group 1: Friends</h3>
+                <ul>
+                    <li>How does he communicate with friends online?</li>
+                    <li>What specific activities does he mention?</li>
+                    <li>What concerns does his mother have?</li>
+                    <li>How does he address these concerns?</li>
+                </ul>
+                
+                <h3>Group 2: Teachers and Classmates</h3>
+                <ul>
+                    <li>How does technology help with his education?</li>
+                    <li>What specific tools or methods are mentioned?</li>
+                    <li>How do they collaborate on projects?</li>
+                    <li>What advantages does he describe?</li>
+                </ul>
+                
+                <h3>Group 3: Family</h3>
+                <ul>
+                    <li>Which family members does he stay in touch with?</li>
+                    <li>What platforms does he use for family communication?</li>
+                    <li>How often would he see them without technology?</li>
+                    <li>How does he help his family members?</li>
+                </ul>
+            </div>
+            
+            <div class="success-box">
+                <h4>After Listening: Reflection Questions</h4>
+                <ul>
+                    <li>How does the speaker's experience compare to your own?</li>
+                    <li>Which benefits of technology does he mention that you also experience?</li>
+                    <li>Are there any disadvantages of technology use that he doesn't mention?</li>
+                    <li>How might his presentation relate to the reading article about technology's impact?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 21: Learning Journal Guide -->
+        <div class="slide">
+            <h1>Learning Journal: Reflection and Growth</h1>
+            
+            <h2>Purpose of the Learning Journal</h2>
+            <div class="info-box">
+                <h4>Why We Reflect</h4>
+                <p>The Learning Journal helps you:</p>
+                <ul>
+                    <li><strong>Track your progress:</strong> See how far you've come in your learning</li>
+                    <li><strong>Identify strengths:</strong> Recognize what you're doing well</li>
+                    <li><strong>Address challenges:</strong> Understand what needs improvement</li>
+                    <li><strong>Plan future learning:</strong> Set goals for continued growth</li>
+                    <li><strong>Communicate with your instructor:</strong> Share your experiences and ask questions</li>
+                </ul>
+            </div>
+            
+            <h2>This Week's Journal Prompts</h2>
+            <div class="highlight">
+                <h3>Required Topics to Address</h3>
+                <ol>
+                    <li><strong>Helpful Strategies:</strong> Which academic reading and writing strategies from Units 1 and 2 helped you with your assignments?</li>
+                    <li><strong>Assignment Difficulty:</strong> Which assignments have been easiest or most challenging in Units 1 and 2?</li>
+                    <li><strong>Explanation:</strong> Why did you find certain assignments easy or challenging?</li>
+                    <li><strong>Questions:</strong> What questions do you have about any aspect of the course?</li>
+                </ol>
+                
+                <p><strong>Requirements:</strong> Minimum 3-4 sentences, at least 75 words</p>
+            </div>
+            
+            <h2>How to Write Effective Journal Entries</h2>
+            
+            <div class="step-by-step">
+                <h4>Step 1: Review Your Work</h4>
+                <p>Before writing, look back at:</p>
+                <ul>
+                    <li>Your assignments from Units 1 and 2</li>
+                    <li>Feedback you received from peers and instructor</li>
+                    <li>Notes you took during readings and presentations</li>
+                    <li>Any challenges you encountered while studying</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Step 2: Be Specific and Honest</h4>
+                <p>Don't just say "everything was good" or "it was hard." Instead:</p>
+                <ul>
+                    <li>Name specific strategies that helped you</li>
+                    <li>Identify particular assignments or concepts</li>
+                    <li>Explain your reasoning with examples</li>
+                    <li>Be honest about your struggles and successes</li>
+                </ul>
+            </div>
+            
+            <div class="example-box">
+                <h4>Sample Journal Entry</h4>
+                <p>"The pre-reading strategies from Unit 1, especially previewing headings and predicting content, really helped me understand 'The Technological Age' article more effectively. I found the oral presentation assignment in Unit 1 challenging because I was nervous about recording myself speaking, but it helped me practice pronunciation and organization. The most difficult part of this unit has been identifying run-on sentences in my own writing - I can spot them in other people's work but miss them in mine. The paragraph structure lessons have been the most helpful because they give me a clear framework to follow. I'm wondering if there are any additional resources for grammar practice, especially with tenses, because I still sometimes confuse past simple and present perfect."</p>
+                
+                <p><strong>Why this works:</strong></p>
+                <ul>
+                    <li>Specific about which strategies helped</li>
+                    <li>Honest about challenges and reasons</li>
+                    <li>Identifies particular areas of difficulty</li>
+                    <li>Asks a specific question for support</li>
+                    <li>Shows reflection and self-awareness</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 22: Week 2 Complete Checklist -->
+        <div class="slide">
+            <h1>Week 2 Complete Assignment Checklist</h1>
+            
+            <h2>Required Submissions This Week</h2>
+            
+            <div class="assignment-grid">
+                <div class="assignment-card">
+                    <h4>✅ Peer Assessment (Unit 1 Oral Assignments)</h4>
+                    <p><strong>Task:</strong> Evaluate 3 classmates' oral presentations from Unit 1</p>
+                    <p><strong>What to do:</strong></p>
+                    <ul>
+                        <li>Answer all assessment questions completely</li>
+                        <li>Provide specific, helpful feedback</li>
+                        <li>Rate each presentation (1-10)</li>
+                        <li>Be constructive and encouraging</li>
+                    </ul>
+                    <p><strong>Due:</strong> Check course calendar</p>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>✅ Discussion Assignment</h4>
+                    <p><strong>Task:</strong> Discuss "The Technological Age" article</p>
+                    <p><strong>What to do:</strong></p>
+                    <ul>
+                        <li>Write main post (50+ words)</li>
+                        <li>Respond to 3 classmates (100+ words each)</li>
+                        <li>Rate classmates' posts (0-10)</li>
+                        <li>Engage meaningfully with ideas</li>
+                    </ul>
+                    <p><strong>Due:</strong> Check course calendar</p>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>✅ Written Assignment</h4>
+                    <p><strong>Task:</strong> Write compare/contrast paragraph about two places</p>
+                    <p><strong>What to do:</strong></p>
+                    <ul>
+                        <li>Choose two places you know well</li>
+                        <li>Write 100+ words, 3-4 sentences minimum</li>
+                        <li>Include topic sentence and conclusion</li>
+                        <li>Check for grammar errors</li>
+                    </ul>
+                    <p><strong>Due:</strong> Check course calendar</p>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>✅ Learning Journal</h4>
+                    <p><strong>Task:</strong> Reflect on Units 1 and 2 learning</p>
+                    <p><strong>What to do:</strong></p>
+                    <ul>
+                        <li>Discuss helpful strategies</li>
+                        <li>Identify easy/challenging assignments</li>
+                        <li>Explain your reasoning</li>
+                        <li>Ask questions if needed</li>
+                    </ul>
+                    <p><strong>Requirements:</strong> 75+ words, 3-4 sentences</p>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>✅ Vocabulary Exercises</h4>
+                    <p><strong>Task:</strong> Complete vocabulary practice activities</p>
+                    <p><strong>What to do:</strong></p>
+                    <ul>
+                        <li>Word search puzzle</li>
+                        <li>Dictation exercise</li>
+                        <li>Review definitions and pronunciation</li>
+                        <li>Practice using words in context</li>
+                    </ul>
+                    <p><strong>Tip:</strong> These help prepare for exams</p>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>✅ Self-Quiz</h4>
+                    <p><strong>Task:</strong> Test your understanding of Week 2 concepts</p>
+                    <p><strong>What to do:</strong></p>
+                    <ul>
+                        <li>Take the practice quiz</li>
+                        <li>Review incorrect answers</li>
+                        <li>Retake as many times as needed</li>
+                        <li>Use results to identify study areas</li>
+                    </ul>
+                    <p><strong>Note:</strong> This is practice - not graded</p>
+                </div>
+            </div>
+            
+            <h2>Before Submitting - Final Checklist</h2>
+            <div class="success-box">
+                <h4>Quality Check for All Assignments</h4>
+                <ul>
+                    <li><strong>Content:</strong> Have I answered all required questions completely?</li>
+                    <li><strong>Length:</strong> Do I meet minimum word/sentence requirements?</li>
+                    <li><strong>Grammar:</strong> Have I checked for run-on sentences and comma splices?</li>
+                    <li><strong>Clarity:</strong> Are my ideas clear and well-organized?</li>
+                    <li><strong>Specificity:</strong> Have I included specific examples and details?</li>
+                    <li><strong>Proofreading:</strong> Have I read everything aloud to catch errors?</li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <h4>Time Management Tips</h4>
+                <ul>
+                    <li>Start assignments early - don't wait until the last minute</li>
+                    <li>Break large tasks into smaller steps</li>
+                    <li>Set aside dedicated time for each assignment</li>
+                    <li>Allow time for revision and proofreading</li>
+                    <li>Ask questions early if you're confused</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 23: Common Mistakes to Avoid -->
+        <div class="slide">
+            <h1>Common Mistakes to Avoid This Week</h1>
+            
+            <h2>Writing Mistakes</h2>
+            <div class="warning-box">
+                <h4>Mistake 1: Weak Topic Sentences</h4>
+                <p><strong>Problem:</strong> "I will compare two places" or "There are differences between X and Y"</p>
+                <p><strong>Solution:</strong> Be specific about what places and what aspects you'll compare</p>
+                <p><strong>Better:</strong> "Although both Tokyo and New York are major metropolitan areas, they differ significantly in transportation efficiency, cultural atmosphere, and cost of living."</p>
+            </div>
+            
+            <div class="warning-box">
+                <h4>Mistake 2: Mismatched Comparisons</h4>
+                <p><strong>Problem:</strong> "New York has great pizza. Tokyo is very clean."</p>
+                <p><strong>Solution:</strong> Use parallel criteria for both places</p>
+                <p><strong>Better:</strong> "New York is famous for its diverse food scene, while Tokyo is renowned for its exceptional cleanliness and organization."</p>
+            </div>
+            
+            <div class="warning-box">
+                <h4>Mistake 3: Run-on Sentences</h4>
+                <p><strong>Problem:</strong> "I lived in Boston it was expensive I moved to a smaller city the cost of living is much lower."</p>
+                <p><strong>Solution:</strong> Use proper punctuation and connecting words</p>
+                <p><strong>Better:</strong> "I lived in Boston, but it was expensive. When I moved to a smaller city, I found the cost of living much lower."</p>
+            </div>
+            
+            <h2>Discussion Forum Mistakes</h2>
+            <div class="warning-box">
+                <h4>Mistake 1: Too General Summary</h4>
+                <p><strong>Problem:</strong> "The author talks about technology and social media."</p>
+                <p><strong>Solution:</strong> Include the author's specific argument or main point</p>
+                <p><strong>Better:</strong> "The author argues that while technology connects us globally, it may be creating 'groupthink' that reduces individual critical thinking."</p>
+            </div>
+            
+            <div class="warning-box">
+                <h4>Mistake 2: Superficial Responses</h4>
+                <p><strong>Problem:</strong> "I agree with you. Good points."</p>
+                <p><strong>Solution:</strong> Add your own thoughts, examples, or questions</p>
+                <p><strong>Better:</strong> "I agree with your point about social media helping families stay connected. In my experience, video calls have strengthened my relationship with my grandparents. Do you think there are any negative effects of relying too heavily on technology for family relationships?"</p>
+            </div>
+            
+            <h2>Peer Feedback Mistakes</h2>
+            <div class="warning-box">
+                <h4>Mistake 1: Only Positive Comments</h4>
+                <p><strong>Problem:</strong> "Everything was perfect. Great job!"</p>
+                <p><strong>Solution:</strong> Balance praise with constructive suggestions</p>
+                <p><strong>Better:</strong> "Your comparison of the two educational systems was clear and well-organized. To make it even stronger, consider adding specific examples of how each system affects students' daily experiences."</p>
+            </div>
+            
+            <div class="warning-box">
+                <h4>Mistake 2: Harsh Criticism</h4>
+                <p><strong>Problem:</strong> "This presentation was confusing and poorly organized."</p>
+                <p><strong>Solution:</strong> Be constructive and specific</p>
+                <p><strong>Better:</strong> "Your main points about the two cities were interesting. To help listeners follow your ideas more easily, consider using transition phrases like 'first,' 'additionally,' and 'in conclusion' between your main points."</p>
+            </div>
+        </div>
+
+        <!-- Slide 24: Study Strategies and Resources -->
+        <div class="slide">
+            <h1>Study Strategies and Additional Resources</h1>
+            
+            <h2>Effective Study Techniques for This Week</h2>
+            
+            <div class="step-by-step">
+                <h4>For Grammar Improvement</h4>
+                <ul>
+                    <li><strong>Practice with examples:</strong> Find run-on sentences in newspapers or online articles and practice fixing them</li>
+                    <li><strong>Read aloud:</strong> This helps you hear where sentences should end</li>
+                    <li><strong>Use grammar checkers:</strong> Tools like Grammarly can help identify errors, but learn to understand why they're wrong</li>
+                    <li><strong>Keep an error log:</strong> Write down mistakes you commonly make to watch for them in future writing</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>For Vocabulary Building</h4>
+                <ul>
+                    <li><strong>Create word associations:</strong> Connect new words to words you already know</li>
+                    <li><strong>Use visual aids:</strong> Draw pictures or diagrams to remember word meanings</li>
+                    <li><strong>Practice in context:</strong> Use new vocabulary words in your own sentences</li>
+                    <li><strong>Regular review:</strong> Spend 10 minutes daily reviewing vocabulary rather than cramming</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>For Reading Comprehension</h4>
+                <ul>
+                    <li><strong>Preview before reading:</strong> Look at titles, headings, and first/last paragraphs</li>
+                    <li><strong>Take notes while reading:</strong> Summarize main points in your own words</li>
+                    <li><strong>Question the text:</strong> Ask yourself "Do I agree?" and "What evidence supports this?"</li>
+                    <li><strong>Discuss with others:</strong> Talk about readings with classmates to deepen understanding</li>
+                </ul>
+            </div>
+            
+            <h2>University of the People Resources</h2>
+            <div class="assignment-grid">
+                <div class="assignment-card">
+                    <h4>UoPeople Learning Resource Center</h4>
+                    <ul>
+                        <li>Writing support and tutorials</li>
+                        <li>APA style guidance</li>
+                        <li>Academic integrity resources</li>
+                        <li>Study skills development</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Peer Assessment Office</h4>
+                    <ul>
+                        <li>Help with peer review process</li>
+                        <li>Guidelines for giving feedback</li>
+                        <li>Support for receiving feedback</li>
+                        <li>Assessment criteria explanation</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Your Instructor</h4>
+                    <ul>
+                        <li>Email support for specific questions</li>
+                        <li>Clarification on assignments</li>
+                        <li>Individual learning guidance</li>
+                        <li>Academic progress feedback</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Online Resources</h4>
+                    <ul>
+                        <li>Oxford Learner's Dictionary for vocabulary</li>
+                        <li>Purdue OWL for grammar and writing</li>
+                        <li>Khan Academy for additional practice</li>
+                        <li>BBC Learning English for listening</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2>Creating Your Personal Study Plan</h2>
+            <div class="highlight">
+                <h3>Weekly Study Schedule Template</h3>
+                <ul>
+                    <li><strong>Monday:</strong> Read articles and take notes</li>
+                    <li><strong>Tuesday:</strong> Review vocabulary and complete exercises</li>
+                    <li><strong>Wednesday:</strong> Work on writing assignments (first draft)</li>
+                    <li><strong>Thursday:</strong> Listen to audio materials and practice</li>
+                    <li><strong>Friday:</strong> Revise writing and complete peer assessments</li>
+                    <li><strong>Weekend:</strong> Review week's learning and prepare for discussions</li>
+                </ul>
+                <p><strong>Remember:</strong> Adapt this schedule to your personal routine and commitments!</p>
+            </div>
+        </div>
+
+        <!-- Slide 25: Looking Ahead -->
+        <div class="slide">
+            <h1>Looking Ahead: Building on Week 2 Skills</h1>
+            
+            <h2>How This Week Prepares You for Future Success</h2>
+            <div class="info-box">
+                <h4>Skills You're Developing</h4>
+                <ul>
+                    <li><strong>Paragraph writing:</strong> Foundation for all academic writing</li>
+                    <li><strong>Compare/contrast thinking:</strong> Critical analysis skill used in many subjects</li>
+                    <li><strong>Grammar awareness:</strong> Clearer communication in all contexts</li>
+                    <li><strong>Peer interaction:</strong> Collaboration skills valuable in work and study</li>
+                    <li><strong>Reading critically:</strong> Essential for academic and professional success</li>
+                </ul>
+            </div>
+            
+            <h2>Connection to Future Units</h2>
+            <div class="assignment-grid">
+                <div class="assignment-card">
+                    <h4>Unit 3: Essay Development</h4>
+                    <p>Your paragraph skills will expand into full essay writing with multiple paragraphs working together to support a central thesis.</p>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Unit 4: Research Integration</h4>
+                    <p>Compare/contrast skills will help you analyze multiple sources and synthesize different perspectives on topics.</p>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Unit 5: Advanced Grammar</h4>
+                    <p>Your foundation in sentence structure will support more complex grammar concepts and writing techniques.</p>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Beyond This Course</h4>
+                    <p>These skills transfer to other courses, workplace communication, and lifelong learning opportunities.</p>
+                </div>
+            </div>
+            
+            <h2>Setting Goals for Continued Growth</h2>
+            <div class="step-by-step">
+                <h4>Short-term Goals (Next 2 Weeks)</h4>
+                <ul>
+                    <li>Master the paragraph structure completely</li>
+                    <li>Eliminate run-on sentences from your writing</li>
+                    <li>Expand your active vocabulary by 20-30 words</li>
+                    <li>Improve reading speed and comprehension</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Medium-term Goals (This Course)</h4>
+                <ul>
+                    <li>Write clear, well-organized multi-paragraph essays</li>
+                    <li>Give and receive peer feedback effectively</li>
+                    <li>Use a variety of sentence structures confidently</li>
+                    <li>Engage critically with academic texts</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step">
+                <h4>Long-term Goals (Academic Career)</h4>
+                <ul>
+                    <li>Communicate ideas clearly in any academic context</li>
+                    <li>Think critically about complex issues</li>
+                    <li>Collaborate effectively with diverse groups</li>
+                    <li>Continue learning independently throughout life</li>
+                </ul>
+            </div>
+            
+            <div class="success-box">
+                <h4>Remember: Progress Takes Time</h4>
+                <p>Learning a language and developing academic skills is a gradual process. Celebrate small improvements and be patient with yourself as you grow. Each assignment, each discussion, and each piece of feedback contributes to your overall development as a student and communicator.</p>
+            </div>
+        </div>
+
+        <!-- Slide 26: Final Encouragement and Summary -->
+        <div class="slide">
+            <h1>You're Ready for Week 2 Success!</h1>
+            
+            <h2>Key Takeaways from This Presentation</h2>
+            <div class="highlight">
+                <h3>Essential Concepts Mastered</h3>
+                <ul>
+                    <li><strong>Paragraph Structure:</strong> Topic sentence + supporting details + conclusion = effective communication</li>
+                    <li><strong>Compare/Contrast Writing:</strong> Use parallel criteria and clear transitions to show relationships</li>
+                    <li><strong>Sentence Clarity:</strong> Avoid run-ons and comma splices for clearer communication</li>
+                    <li><strong>Peer Feedback:</strong> Be specific, balanced, and constructive in your responses</li>
+                    <li><strong>Critical Reading:</strong> Engage actively with texts to understand and evaluate arguments</li>
+                    <li><strong>Academic Vocabulary:</strong> Build word knowledge to improve all language skills</li>
+                </ul>
+            </div>
+            
+            <h2>Your Week 2 Action Plan</h2>
+            <div class="assignment-grid">
+                <div class="assignment-card">
+                    <h4>Step 1: Prepare</h4>
+                    <ul>
+                        <li>Review all presentation materials</li>
+                        <li>Study vocabulary words</li>
+                        <li>Read "The Technological Age" carefully</li>
+                        <li>Listen to "Keeping in Touch" multiple times</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Step 2: Practice</h4>
+                    <ul>
+                        <li>Write practice paragraphs using proper structure</li>
+                        <li>Identify and fix sentence errors</li>
+                        <li>Practice giving constructive feedback</li>
+                        <li>Use new vocabulary in context</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Step 3: Create</h4>
+                    <ul>
+                        <li>Write thoughtful discussion posts</li>
+                        <li>Complete your compare/contrast paragraph</li>
+                        <li>Provide meaningful peer assessments</li>
+                        <li>Reflect honestly in your learning journal</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>Step 4: Review</h4>
+                    <ul>
+                        <li>Proofread all work carefully</li>
+                        <li>Check assignment requirements</li>
+                        <li>Ask questions if needed</li>
+                        <li>Submit on time with confidence</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2>Final Words of Encouragement</h2>
+            <div class="success-box">
+                <h4>You Have Everything You Need to Succeed</h4>
+                <p>This presentation has equipped you with detailed explanations, multiple examples, and practical strategies for every aspect of Week 2. Remember that learning is a process, and making mistakes is part of that process. Each assignment is an opportunity to practice and improve.</p>
+                
+                <p><strong>Trust yourself:</strong> You have the tools and knowledge to complete all assignments successfully.</p>
+                
+                <p><strong>Stay engaged:</strong> Participate actively in discussions and peer assessments - this interaction enhances learning.</p>
+                
+                <p><strong>Ask for help:</strong> Use the resources available to you, including your instructor, classmates, and the Learning Resource Center.</p>
+                
+                <p><strong>Celebrate progress:</strong> Acknowledge your improvements, no matter how small they may seem.</p>
+            </div>
+            
+            <div class="info-box">
+                <h4>Contact Information</h4>
+                <p><strong>Instructor:</strong> Yogeeta</p>
+                <p><strong>Course:</strong> ENGL 0008 - Intermediate English 2</p>
+                <p><strong>Institution:</strong> University of the People</p>
+                <p><strong>Support:</strong> UoPeople Learning Resource Center</p>
+                
+                <p style="text-align: center; font-weight: bold; margin-top: 30px; font-size: 1.2em; color: #2d3748;">
+                    Wishing you success and growth in your learning journey!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+        <span class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">26</span>
+        </span>
+        <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Next</button>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('totalSlides').textContent = totalSlides;
+        
+        function updateProgressBar() {
+            const progress = ((currentSlideIndex + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = index + 1;
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('nextBtn').disabled = index === totalSlides - 1;
+            
+            updateProgressBar();
+            
+            // Scroll to top of slide
+            window.scrollTo(0, 0);
+        }
+        
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex < 0) currentSlideIndex = 0;
+            if (currentSlideIndex >= totalSlides) currentSlideIndex = totalSlides - 1;
+            showSlide(currentSlideIndex);
+        }
+        
+        // Initialize
+        showSlide(0);
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'Home') {
+                currentSlideIndex = 0;
+                showSlide(currentSlideIndex);
+            }
+            if (e.key === 'End') {
+                currentSlideIndex = totalSlides - 1;
+                showSlide(currentSlideIndex);
+            }
+        });
+        
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchEndX < touchStartX - swipeThreshold) changeSlide(1);
+            if (touchEndX > touchStartX + swipeThreshold) changeSlide(-1);
+        }
+        
+        // Auto-save progress in localStorage (optional feature)
+        function saveProgress() {
+            localStorage.setItem('engl0008_week2_slide', currentSlideIndex.toString());
+        }
+        
+        function loadProgress() {
+            const savedSlide = localStorage.getItem('engl0008_week2_slide');
+            if (savedSlide !== null) {
+                currentSlideIndex = parseInt(savedSlide);
+                showSlide(currentSlideIndex);
+            }
+        }
+        
+        // Save progress when slide changes
+        document.addEventListener('DOMContentLoaded', loadProgress);
+        
+        // Update the changeSlide function to save progress
+        const originalChangeSlide = changeSlide;
+        changeSlide = function(direction) {
+            originalChangeSlide(direction);
+            saveProgress();
+        };
+    </script>
+</body>
+</html>
