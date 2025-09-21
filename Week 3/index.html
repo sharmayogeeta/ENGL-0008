@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENGL 0008 - Week 3: Generating Ideas for Essays</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            width: 95%;
+            max-width: 1200px;
+            height: 90%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            display: none;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .slide.active {
+            display: block;
+            animation: slideIn 0.3s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #e9967a;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin: 20px 0 15px 0;
+        }
+
+        h4 {
+            color: #555;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .vocabulary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .vocab-card {
+            background: #f8f9ff;
+            border-left: 5px solid #667eea;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .vocab-term {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+
+        .vocab-definition {
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .example-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .example-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .assignment-box {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .assignment-title {
+            font-weight: bold;
+            color: #0c5460;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .steps-list {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .step {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #856404;
+        }
+
+        .instructor-info {
+            text-align: center;
+            font-size: 1.2em;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .question-card {
+            background: #e7f3ff;
+            border: 2px solid #2196F3;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .answer-card {
+            background: #e8f5e8;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1001;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+    
+    <div class="slide-counter">
+        <span id="slideCounter">1 / 20</span>
+    </div>
+
+    <div class="presentation-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <div class="slide-header">
+                <h1>ENGL 0008 - Intermediate English 2</h1>
+                <h2>Week 3: Generating Ideas for Essays</h2>
+                <div class="instructor-info">Instructor: Yogeeta Sharma<br>University of the People</div>
+            </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <h3>Complete Learning Guide</h3>
+                <p style="font-size: 1.3em; margin: 30px 0;">Welcome to Week 3! This week we'll master the art of generating ideas for essays through prewriting strategies, learn to avoid sentence fragments, and explore business vocabulary.</p>
+                <div style="background: #f0f8ff; padding: 20px; border-radius: 10px; margin: 30px 0;">
+                    <h4>Note for Students:</h4>
+                    <p>Navigate this presentation using ← → Arrow keys or the navigation buttons below</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Week 2 Recap -->
+        <div class="slide">
+            <div class="slide-number">2</div>
+            <h2>📚 Quick Recap: Week 2</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div>
+                    <h3>What We Learned:</h3>
+                    <ul>
+                        <li><strong>Paragraph Structure:</strong> Topic sentences, supporting details, concluding sentences</li>
+                        <li><strong>Compare/Contrast:</strong> Basic introduction to comparison and contrast writing</li>
+                        <li><strong>Unity and Coherence:</strong> Making paragraphs flow logically</li>
+                        <li><strong>Transition Words:</strong> Connecting ideas smoothly</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Skills Developed:</h3>
+                    <ul>
+                        <li>Writing well-structured paragraphs</li>
+                        <li>Using comparison and contrast effectively</li>
+                        <li>Peer assessment skills</li>
+                        <li>Reading comprehension strategies</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="example-box">
+                <div class="example-title">Building on Week 2:</div>
+                <p>This week, we'll expand from paragraph writing to essay planning. You'll learn how to generate ideas BEFORE you start writing, making your essays stronger and more organized.</p>
+            </div>
+        </div>
+
+        <!-- Slide 3: Week 3 Overview -->
+        <div class="slide">
+            <div class="slide-number">3</div>
+            <h2>🎯 Week 3 Overview</h2>
+            <h3>Learning Objectives</h3>
+            <div class="steps-list">
+                <div class="step">
+                    <strong>1. Develop prewriting skills</strong> for compare/contrast essays
+                </div>
+                <div class="step">
+                    <strong>2. Create compare/contrast arguments</strong> effectively
+                </div>
+                <div class="step">
+                    <strong>3. Identify and correct</strong> sentence fragments
+                </div>
+                <div class="step">
+                    <strong>4. Master business and employment</strong> vocabulary
+                </div>
+            </div>
+            
+            <h3>Topics We'll Cover</h3>
+            <ul>
+                <li>🧠 Prewriting and brainstorming strategies</li>
+                <li>📝 Selecting essay topics for compare/contrast essays</li>
+                <li>✅ Avoiding sentence fragments</li>
+                <li>⚖️ Building comparison and contrast skills</li>
+                <li>💼 Business and employment vocabulary</li>
+                <li>📖 Reading: "Employee Happiness and Business Success"</li>
+            </ul>
+        </div>
+
+        <!-- Slide 4: Business Vocabulary Part 1 -->
+        <div class="slide">
+            <div class="slide-number">4</div>
+            <h2>💼 Business & Employment Vocabulary - Part 1</h2>
+            <p>These words appear in this week's reading and listening exercises. <span class="highlight">Study them carefully!</span></p>
+            
+            <div class="vocabulary-grid">
+                <div class="vocab-card">
+                    <div class="vocab-term">Accountable</div>
+                    <div class="vocab-definition">Responsible for your actions and decisions</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-term">Asset</div>
+                    <div class="vocab-definition">A valuable resource or skill that benefits a company</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-term">Confidence</div>
+                    <div class="vocab-definition">Belief in your abilities and skills</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-term">Employee</div>
+                    <div class="vocab-definition">A person who works for a company</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-term">Expectations</div>
+                    <div class="vocab-definition">What is expected or required from someone</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-term">Morale</div>
+                    <div class="vocab-definition">The overall mood and confidence of employees</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Business Vocabulary Part 2 -->
+        <div class="slide">
+            <div class="slide-number">5</div>
+            <h2>💼 Business & Employment Vocabulary - Part 2</h2>
+            
+            <div class="vocabulary-grid">
+                <div class="vocab-card">
+                    <div class="vocab-term">Motivated</div>
+                    <div class="vocab-definition">Having enthusiasm and drive to work hard</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-term">Performance</div>
+                    <div class="vocab-definition">How well someone does their job</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-term">Productivity</div>
+                    <div class="vocab-definition">The amount of work accomplished efficiently</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-term">Promotion</div>
+                    <div class="vocab-definition">Advancement to a higher position</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-term">Satisfaction</div>
+                    <div class="vocab-definition">Feeling pleased and fulfilled with work</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-term">Supervisor</div>
+                    <div class="vocab-definition">A person who manages and guides other employees</div>
+                </div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">Study Tips:</div>
+                <p>• Create flashcards with these terms<br>
+                • Use them in sentences<br>
+                • Listen for them in the Employee Interview audio<br>
+                • Look for them in the Employee Happiness article</p>
+            </div>
+        </div>
+
+        <!-- Slide 6: What is Prewriting? -->
+        <div class="slide">
+            <div class="slide-number">6</div>
+            <h2>🧠 What is Prewriting?</h2>
+            
+            <div style="background: #e7f3ff; padding: 25px; border-radius: 15px; margin: 20px 0;">
+                <h3>Definition:</h3>
+                <p style="font-size: 1.2em;">Prewriting is the thinking and writing you do <strong>before</strong> you begin an assignment to help you generate ideas.</p>
+            </div>
+
+            <h3>Why is Prewriting Important?</h3>
+            <ul>
+                <li>🎯 Helps you focus your thoughts</li>
+                <li>💡 Generates creative ideas</li>
+                <li>📋 Organizes your thinking</li>
+                <li>⏰ Saves time when writing</li>
+                <li>📈 Improves essay quality</li>
+            </ul>
+
+            <h3>Three Main Prewriting Techniques:</h3>
+            <div class="steps-list">
+                <div class="step">
+                    <strong>1. Freewriting:</strong> Write continuously without stopping
+                </div>
+                <div class="step">
+                    <strong>2. Brainstorming:</strong> List ideas quickly
+                </div>
+                <div class="step">
+                    <strong>3. Mind Mapping:</strong> Create visual connections between ideas
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Freewriting Technique -->
+        <div class="slide">
+            <div class="slide-number">7</div>
+            <h2>✍️ Freewriting Technique</h2>
+            
+            <h3>How to Freewrite:</h3>
+            <ol>
+                <li>Set a timer for 5-10 minutes</li>
+                <li>Write continuously about your topic</li>
+                <li>Don't worry about grammar, spelling, or organization</li>
+                <li>Don't stop writing - keep your pen moving</li>
+                <li>If you get stuck, write "I'm stuck" until new ideas come</li>
+            </ol>
+
+            <div class="example-box">
+                <div class="example-title">Freewriting Example: "Online vs. Traditional Education"</div>
+                <p style="font-style: italic;">"I'm thinking about online education versus traditional classroom learning. Online is more flexible, I can study at home in my pajamas, don't need to commute. But traditional classes have more interaction, can ask questions immediately, meet classmates face to face. Online requires more self-discipline, traditional has set schedule that forces me to attend. Technology issues with online, but traditional classes might be canceled for weather..."</p>
+            </div>
+
+            <div style="background: #d4edda; padding: 15px; border-radius: 10px;">
+                <strong>Remember:</strong> Freewriting is about getting ideas out, not perfect writing!
+            </div>
+        </div>
+
+        <!-- Slide 8: Brainstorming Technique -->
+        <div class="slide">
+            <div class="slide-number">8</div>
+            <h2>💭 Brainstorming Technique</h2>
+            
+            <h3>How to Brainstorm:</h3>
+            <ol>
+                <li>Write your topic at the top of the page</li>
+                <li>List ALL ideas that come to mind</li>
+                <li>Don't judge ideas as "good" or "bad"</li>
+                <li>Write quickly - quantity over quality</li>
+                <li>Use single words or short phrases</li>
+            </ol>
+
+            <div class="example-box">
+                <div class="example-title">Brainstorming Example: "Working from Home vs. Office"</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <h4>Working from Home:</h4>
+                        <ul>
+                            <li>No commute</li>
+                            <li>Flexible hours</li>
+                            <li>Comfortable clothes</li>
+                            <li>Own food</li>
+                            <li>Quiet environment</li>
+                            <li>Need self-discipline</li>
+                            <li>Isolated</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Office Work:</h4>
+                        <ul>
+                            <li>Team collaboration</li>
+                            <li>Professional atmosphere</li>
+                            <li>Set schedule</li>
+                            <li>Office equipment</li>
+                            <li>Commute stress</li>
+                            <li>Dress code</li>
+                            <li>Social interaction</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Mind Mapping Technique -->
+        <div class="slide">
+            <div class="slide-number">9</div>
+            <h2>🗺️ Mind Mapping Technique</h2>
+            
+            <h3>How to Create a Mind Map:</h3>
+            <ol>
+                <li>Write your main topic in the center</li>
+                <li>Draw branches for major categories</li>
+                <li>Add sub-branches for specific details</li>
+                <li>Use colors and symbols</li>
+                <li>Connect related ideas with lines</li>
+            </ol>
+
+            <div class="example-box">
+                <div class="example-title">Mind Map Example: "Healthy Living"</div>
+                <div style="text-align: center; background: white; padding: 20px; border-radius: 10px;">
+                    <div style="font-size: 1.2em; font-weight: bold; color: #667eea;">HEALTHY LIVING</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 20px;">
+                        <div>
+                            <strong style="color: #764ba2;">Exercise</strong><br>
+                            • Daily walking<br>
+                            • Gym workouts<br>
+                            • Sports activities
+                        </div>
+                        <div>
+                            <strong style="color: #764ba2;">Nutrition</strong><br>
+                            • Balanced meals<br>
+                            • Fresh vegetables<br>
+                            • Limited sugar
+                        </div>
+                        <div>
+                            <strong style="color: #764ba2;">Mental Health</strong><br>
+                            • Stress management<br>
+                            • Work-life balance<br>
+                            • Social connections
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Understanding Sentence Fragments -->
+        <div class="slide">
+            <div class="slide-number">10</div>
+            <h2>⚠️ Understanding Sentence Fragments</h2>
+            
+            <h3>What is a Sentence Fragment?</h3>
+            <div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                <p>A sentence fragment is an <strong>incomplete sentence</strong> that is missing either a subject, a verb, or doesn't express a complete thought.</p>
+            </div>
+
+            <h3>Complete Sentence Requirements:</h3>
+            <div class="steps-list">
+                <div class="step">
+                    <strong>1. Subject:</strong> Who or what the sentence is about
+                </div>
+                <div class="step">
+                    <strong>2. Verb:</strong> What the subject does or is
+                </div>
+                <div class="step">
+                    <strong>3. Complete thought:</strong> Makes sense by itself
+                </div>
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">Examples:</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <h4 style="color: red;">❌ Fragments:</h4>
+                        <ul>
+                            <li>"Running in the park." (no subject)</li>
+                            <li>"The student with the book." (no verb)</li>
+                            <li>"When I go to school." (incomplete thought)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: green;">✅ Complete Sentences:</h4>
+                        <ul>
+                            <li>"I am running in the park."</li>
+                            <li>"The student with the book is reading."</li>
+                            <li>"When I go to school, I meet my friends."</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: How to Fix Sentence Fragments -->
+        <div class="slide">
+            <div class="slide-number">11</div>
+            <h2>🔧 How to Fix Sentence Fragments</h2>
+            
+            <h3>Three Ways to Fix Fragments:</h3>
+            
+            <div class="steps-list">
+                <div class="step">
+                    <h4>1. Add Missing Subject or Verb</h4>
+                    <p><strong>Fragment:</strong> "Working late every night."<br>
+                    <strong>Fixed:</strong> "She is working late every night."</p>
+                </div>
+                
+                <div class="step">
+                    <h4>2. Connect to Another Sentence</h4>
+                    <p><strong>Fragment:</strong> "Because it was raining."<br>
+                    <strong>Fixed:</strong> "We stayed inside because it was raining."</p>
+                </div>
+                
+                <div class="step">
+                    <h4>3. Complete the Thought</h4>
+                    <p><strong>Fragment:</strong> "The book that I borrowed."<br>
+                    <strong>Fixed:</strong> "The book that I borrowed is very interesting."</p>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">Practice: Can you fix these fragments?</div>
+                <ol>
+                    <li>"Studying for the exam."</li>
+                    <li>"The teacher in the classroom."</li>
+                    <li>"After we finish dinner."</li>
+                </ol>
+                <p style="margin-top: 15px; font-size: 0.9em; color: #666;">We'll see the answers in our Q&A section!</p>
+            </div>
+        </div>
+
+        <!-- Slide 12: Reading Comprehension - Employee Happiness -->
+        <div class="slide">
+            <div class="slide-number">12</div>
+            <h2>📖 Reading: "Employee Happiness and Business Success"</h2>
+            
+            <h3>Article Overview:</h3>
+            <p>This article explores the relationship between employee satisfaction and company performance, backed by research data.</p>
+
+            <h3>Key Points from the Article:</h3>
+            <ul>
+                <li>📊 <strong>Research Data:</strong> Study of 1.9 million employees across 230 organizations</li>
+                <li>🔗 <strong>Main Finding:</strong> Happy employees lead to better business results</li>
+                <li>📈 <strong>Benefits:</strong> Higher productivity, better customer loyalty, lower turnover</li>
+                <li>🏢 <strong>Good Management:</strong> Well-informed employees, open communication, work-life balance</li>
+            </ul>
+
+            <h3>Reading Strategy:</h3>
+            <div class="steps-list">
+                <div class="step">
+                    <strong>1.</strong> Read the article 3 times (quick overview, detailed reading, key points)
+                </div>
+                <div class="step">
+                    <strong>2.</strong> Take notes on main ideas
+                </div>
+                <div class="step">
+                    <strong>3.</strong> Look for vocabulary words we studied
+                </div>
+                <div class="step">
+                    <strong>4.</strong> Think about your own work experience
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Listening Comprehension - Employee Interview -->
+        <div class="slide">
+            <div class="slide-number">13</div>
+            <h2>🎧 Listening: Employee Interview</h2>
+            
+            <h3>Interview Overview:</h3>
+            <p>Mr. Castillo is interviewing for a position at Associated Auto Industries. Listen to how he presents his qualifications and career goals.</p>
+
+            <h3>Key Interview Questions:</h3>
+            <ol>
+                <li>"Why do you want to work for our company?"</li>
+                <li>"What assets would you bring to the position?"</li>
+                <li>"What does job satisfaction mean to you?"</li>
+                <li>"Why would you be successful working for our company?"</li>
+            </ol>
+
+            <h3>Mr. Castillo's Qualifications:</h3>
+            <ul>
+                <li>💼 Experience in auto industry</li>
+                <li>🌐 Speaks three languages</li>
+                <li>📊 Marketing experience</li>
+                <li>⚡ High energy and productivity</li>
+                <li>🎯 Goal-oriented approach</li>
+            </ul>
+
+            <div class="example-box">
+                <div class="example-title">Listening Tips:</div>
+                <p>• Listen multiple times<br>
+                • Focus on vocabulary words<br>
+                • Pay attention to Mr. Castillo's confidence<br>
+                • Notice how he gives specific examples</p>
+            </div>
+        </div>
+
+        <!-- Slide 14: Discussion Assignment Explanation -->
+        <div class="slide">
+            <div class="slide-number">14</div>
+            <h2>🗣️ Discussion Assignment</h2>
+            
+            <div class="assignment-box">
+                <div class="assignment-title">Discussion Assignment Overview</div>
+                <p>Create a 2-3 minute oral presentation about the Employee Happiness article and relate it to your own experience.</p>
+            </div>
+
+            <h3>Discussion Questions to Address:</h3>
+            <ol>
+                <li>🎯 <strong>Main Idea:</strong> What was the main idea the writer was trying to express?</li>
+                <li>🏢 <strong>Ideal Workplace:</strong> What do you think an ideal work environment is like?</li>
+                <li>💡 <strong>Creating Good Environments:</strong> How can businesses create good work environments?</li>
+            </ol>
+
+            <h3>Assignment Steps:</h3>
+            <div class="steps-list">
+                <div class="step">
+                    <strong>1.</strong> Read the article using strategies from Unit 1
+                </div>
+                <div class="step">
+                    <strong>2.</strong> Review business vocabulary
+                </div>
+                <div class="step">
+                    <strong>3.</strong> Write notes for each discussion question
+                </div>
+                <div class="step">
+                    <strong>4.</strong> Record 2-3 minute oral response using Kaltura, Loom, or ScreenPal
+                </div>
+                <div class="step">
+                    <strong>5.</strong> Rate and respond to 3 classmates' posts
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 15: Learning Journal Assignment -->
+        <div class="slide">
+            <div class="slide-number">15</div>
+            <h2>📝 Learning Journal Assignment</h2>
+            
+            <div class="assignment-box">
+                <div class="assignment-title">Learning Journal: Choose Your Essay Topic</div>
+                <p>Use prewriting techniques to select and develop a topic for your compare/contrast essay.</p>
+            </div>
+
+            <h3>Requirements (Minimum 75 words):</h3>
+            <div class="steps-list">
+                <div class="step">
+                    <strong>1. Topic Selection:</strong> Write the topic you selected for your essay
+                </div>
+                <div class="step">
+                    <strong>2. Comparison Plan:</strong> State what you plan to compare or contrast
+                </div>
+                <div class="step">
+                    <strong>3. Technique Used:</strong> Write which prewriting technique you used
+                </div>
+                <div class="step">
+                    <strong>4. Process Description:</strong> Describe how you used the technique to generate ideas
+                </div>
+                <div class="step">
+                    <strong>5. Optional:</strong> Include your prewriting work or mind map picture
+                </div>
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">Example Topics for Compare/Contrast:</div>
+                <ul>
+                    <li>Online learning vs. traditional classroom learning</li>
+                    <li>Working from home vs. working in an office</li>
+                    <li>City life vs. rural life</li>
+                    <li>Public transportation vs. private cars</li>
+                    <li>Traditional shopping vs. online shopping</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 16: Weekly Checklist -->
+        <div class="slide">
+            <div class="slide-number">16</div>
+            <h2>✅ Week 3 Checklist</h2>
+            
+            <h3>Assignments to Complete:</h3>
+            <div class="checklist-item">
+                <div class="checkbox">☐</div>
+                <div>Peer Assess Unit 2 Written Assignment</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox">☐</div>
+                <div>Study Business & Employment Vocabulary</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox">☐</div>
+                <div>Complete Vocabulary Word Search</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox">☐</div>
+                <div>Complete Dictation Exercise</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox">☐</div>
+                <div>Read "Employee Happiness" Article</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox">☐</div>
+                <div>Listen to "Employee Interview" Audio</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox">☐</div>
+                <div>Record Discussion Assignment (2-3 minutes)</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox">☐</div>
+                <div>Respond to 3 Classmates' Discussions</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox">☐</div>
+                <div>Complete Learning Journal (75+ words)</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox">☐</div>
+                <div>Take Self-Quiz (unlimited attempts)</div>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox">☐</div>
+                <div>Take Graded Quiz (30 minutes, 1 attempt)</div>
+            </div>
+        </div>
+
+        <!-- Slide 17: Peer Assessment Guidelines -->
+        <div class="slide">
+            <div class="slide-number">17</div>
+            <h2>👥 Peer Assessment Guidelines</h2>
+            
+            <h3>Evaluating Unit 2 Written Assignments:</h3>
+            <p>You'll assess your classmates' compare/contrast paragraphs using these criteria:</p>
+
+            <div class="steps-list">
+                <div class="step">
+                    <strong>1. Complete Paragraph:</strong> Does it have all parts of a paragraph?
+                </div>
+                <div class="step">
+                    <strong>2. Compare/Contrast Content:</strong> Does it effectively compare two places?
+                </div>
+                <div class="step">
+                    <strong>3. Topic Sentence:</strong> Is there a clear topic sentence?
+                </div>
+                <div class="step">
+                    <strong>4. Structure:</strong> Is the paragraph well-organized?
+                </div>
+                <div class="step">
+                    <strong>5. Complete Sentences:</strong> Are there any sentence fragments?
+                </div>
+                <div class="step">
+                    <strong>6. Grammar/Spelling:</strong> Note any errors and suggest corrections
+                </div>
+            </div>
+
+            <div style="background: #d1ecf1; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                <strong>Remember:</strong> Give constructive feedback and grade fairly (1-10 scale). Your goal is to help your classmates improve!
+            </div>
+        </div>
+
+        <!-- Slide 18: Study Tips & Success Strategies -->
+        <div class="slide">
+            <div class="slide-number">18</div>
+            <h2>💡 Study Tips & Success Strategies</h2>
+            
+            <h3>For Vocabulary Mastery:</h3>
+            <ul>
+                <li>📚 Create flashcards with definitions and examples</li>
+                <li>🗣️ Use new words in conversations</li>
+                <li>✍️ Write sentences using each vocabulary word</li>
+                <li>🎧 Listen to pronunciation in the audio materials</li>
+            </ul>
+
+            <h3>For Prewriting Success:</h3>
+            <ul>
+                <li>⏰ Set aside dedicated brainstorming time</li>
+                <li>🚫 Don't judge ideas during brainstorming</li>
+                <li>🔄 Try different prewriting techniques</li>
+                <li>📝 Keep all prewriting work for reference</li>
+            </ul>
+
+            <h3>For Discussion Assignment:</h3>
+            <ul>
+                <li>🎤 Practice your presentation before recording</li>
+                <li>📋 Use notes but don't read directly</li>
+                <li>⏱️ Time yourself to stay within 2-3 minutes</li>
+                <li>🎭 Speak clearly and with confidence</li>
+            </ul>
+
+            <div class="example-box">
+                <div class="example-title">Time Management Tip:</div>
+                <p>Spread your work throughout the week. Don't try to complete everything in one day!</p>
+            </div>
+        </div>
+
+        <!-- Slide 19: Questions -->
+        <div class="slide">
+            <div class="slide-number">19</div>
+            <h2>❓ Practice Questions</h2>
+            
+            <div class="question-card">
+                <h3>Question 1:</h3>
+                <p>Which prewriting technique involves writing continuously without stopping to edit or correct mistakes?</p>
+                <ul>
+                    <li>A) Brainstorming</li>
+                    <li>B) Mind mapping</li>
+                    <li>C) Freewriting</li>
+                    <li>D) Outlining</li>
+                </ul>
+            </div>
+
+            <div class="question-card">
+                <h3>Question 2:</h3>
+                <p>Fix this sentence fragment: "Running to catch the bus."</p>
+            </div>
+
+            <div class="question-card">
+                <h3>Question 3:</h3>
+                <p>What does "accountability" mean in a business context?</p>
+            </div>
+
+            <div class="question-card">
+                <h3>Question 4:</h3>
+                <p>Name three requirements for a complete sentence.</p>
+            </div>
+
+            <div class="question-card">
+                <h3>Question 5:</h3>
+                <p>What is the minimum word count for your Learning Journal assignment?</p>
+            </div>
+        </div>
+
+        <!-- Slide 20: Answers -->
+        <div class="slide">
+            <div class="slide-number">20</div>
+            <h2>✅ Answers</h2>
+            
+            <div class="answer-card">
+                <h3>Answer 1:</h3>
+                <p><strong>C) Freewriting</strong> - This technique involves writing continuously for a set time without worrying about grammar, spelling, or organization.</p>
+            </div>
+
+            <div class="answer-card">
+                <h3>Answer 2:</h3>
+                <p><strong>Possible corrections:</strong><br>
+                • "I was running to catch the bus."<br>
+                • "She is running to catch the bus."<br>
+                • "Running to catch the bus, he dropped his backpack."</p>
+            </div>
+
+            <div class="answer-card">
+                <h3>Answer 3:</h3>
+                <p><strong>Accountability</strong> means being responsible for your actions, decisions, and work performance. In business, it means you can be trusted to complete tasks and take responsibility for results.</p>
+            </div>
+
+            <div class="answer-card">
+                <h3>Answer 4:</h3>
+                <p><strong>Three requirements:</strong><br>
+                1. Subject (who/what the sentence is about)<br>
+                2. Verb (action or state of being)<br>
+                3. Complete thought (makes sense independently)</p>
+            </div>
+
+            <div class="answer-card">
+                <h3>Answer 5:</h3>
+                <p><strong>75 words minimum</strong> for the Learning Journal assignment about your chosen compare/contrast essay topic.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            // Update slide counter
+            document.getElementById('slideCounter').textContent = `${currentSlide + 1} / ${totalSlides}`;
+            
+            // Update progress bar
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            if (direction === 1 && currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            } else if (direction === -1 && currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
