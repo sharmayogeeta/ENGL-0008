@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENGL 0008 Week 4 - Organizing Your Essay</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 90%;
+            max-width: 1000px;
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            display: block;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: #fff;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ffeb3b;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .content {
+            text-align: left;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .content li {
+            margin-bottom: 8px;
+        }
+
+        .example-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #ffeb3b;
+        }
+
+        .vocabulary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .vocab-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .instructor-info {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            font-size: 0.9rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .comparison-table th {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+
+        .thesis-examples {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .thesis-example {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .good-example {
+            border-left: 4px solid #4caf50;
+        }
+
+        .bad-example {
+            border-left: 4px solid #f44336;
+        }
+
+        .assignment-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #2196f3;
+        }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .answer-card {
+            background: rgba(76, 175, 80, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            text-align: left;
+            border-left: 4px solid #4caf50;
+        }
+
+        .highlight {
+            background: rgba(255, 235, 59, 0.3);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .conjunctions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .conjunction-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            color: #ffeb3b;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .content {
+                font-size: 1rem;
+            }
+            
+            .thesis-examples {
+                grid-template-columns: 1fr;
+            }
+            
+            .instructor-info,
+            .slide-counter {
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="instructor-info">
+        <strong>Instructor:</strong> Yogeeta Sharma<br>
+        <strong>Course:</strong> ENGL 0008 - Intermediate English 2
+    </div>
+
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">20</span>
+    </div>
+
+    <div class="presentation-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <h1>ENGL 0008 Intermediate English 2</h1>
+            <h2>Week 4: Organizing Your Essay</h2>
+            <div class="content">
+                <div style="text-align: center; margin-top: 40px;">
+                    <h3>Welcome to Week 4!</h3>
+                    <p style="font-size: 1.3rem; margin-top: 30px;">
+                        This week we'll learn how to organize our writing effectively through:
+                    </p>
+                    <ul style="font-size: 1.2rem; margin-top: 20px; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        <li>Evaluating Internet resources</li>
+                        <li>Developing strong thesis statements</li>
+                        <li>Creating detailed outlines</li>
+                        <li>Using conjunctions effectively</li>
+                        <li>Understanding countable and uncountable nouns</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Week 3 Recap -->
+        <div class="slide">
+            <h2>Week 3 Recap: Compare-Contrast Essays</h2>
+            <div class="content">
+                <h3>What We Learned Last Week:</h3>
+                <ul>
+                    <li><strong>Compare-Contrast Essay Structure:</strong> How to organize essays that examine similarities and differences</li>
+                    <li><strong>Prewriting Techniques:</strong> Brainstorming, clustering, and listing to generate ideas</li>
+                    <li><strong>Topic Selection:</strong> Choosing appropriate subjects for comparison</li>
+                    <li><strong>Organization Patterns:</strong> Block method vs. point-by-point method</li>
+                </ul>
+                
+                <div class="example-box">
+                    <h3>Example Topics from Week 3:</h3>
+                    <ul>
+                        <li>Online learning vs. traditional classroom learning</li>
+                        <li>Living in a city vs. living in the countryside</li>
+                        <li>Working from home vs. working in an office</li>
+                    </ul>
+                </div>
+                
+                <p><strong>This Week:</strong> We'll build on these foundations by learning how to create strong thesis statements and organize our ideas effectively!</p>
+            </div>
+        </div>
+
+        <!-- Slide 3: Week 4 Overview -->
+        <div class="slide">
+            <h2>Week 4 Learning Objectives</h2>
+            <div class="content">
+                <h3>By the end of this week, you will be able to:</h3>
+                <div class="vocabulary-grid">
+                    <div class="vocab-item">
+                        <strong>Evaluate</strong><br>
+                        Internet Resources
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Develop</strong><br>
+                        Thesis Statements
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Create</strong><br>
+                        Essay Outlines
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Use</strong><br>
+                        Conjunctions
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Understand</strong><br>
+                        Countable/Uncountable Nouns
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Expand</strong><br>
+                        Academic Vocabulary
+                    </div>
+                </div>
+                
+                <div class="example-box">
+                    <h3>This Week's Focus:</h3>
+                    <p>Moving from <span class="highlight">idea generation</span> to <span class="highlight">organized writing</span>. We'll transform your compare-contrast topics into well-structured essays with clear thesis statements and logical organization.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Academic Vocabulary -->
+        <div class="slide">
+            <h2>Week 4 Vocabulary: Academic Research</h2>
+            <div class="content">
+                <h3>Key Terms for Academic Writing:</h3>
+                <div class="vocabulary-grid">
+                    <div class="vocab-item">accurate</div>
+                    <div class="vocab-item">authority</div>
+                    <div class="vocab-item">citation</div>
+                    <div class="vocab-item">credible</div>
+                    <div class="vocab-item">database</div>
+                    <div class="vocab-item">evaluate</div>
+                    <div class="vocab-item">objective</div>
+                    <div class="vocab-item">reference</div>
+                    <div class="vocab-item">relevant</div>
+                    <div class="vocab-item">reliable</div>
+                </div>
+                
+                <div class="example-box">
+                    <h3>Using Vocabulary in Context:</h3>
+                    <ul>
+                        <li><strong>Accurate:</strong> "The research provided <span class="highlight">accurate</span> statistics about online learning."</li>
+                        <li><strong>Authority:</strong> "The professor is an <span class="highlight">authority</span> on educational technology."</li>
+                        <li><strong>Evaluate:</strong> "We must <span class="highlight">evaluate</span> the quality of our sources."</li>
+                        <li><strong>Relevant:</strong> "This information is <span class="highlight">relevant</span> to our essay topic."</li>
+                    </ul>
+                </div>
+                
+                <p><strong>Practice Tip:</strong> Use these words in your discussions and assignments this week!</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Evaluating Internet Resources -->
+        <div class="slide">
+            <h2>Evaluating Internet Resources</h2>
+            <div class="content">
+                <h3>Why Evaluate Sources?</h3>
+                <p>The Internet provides immediate access to information, but <span class="highlight">not all information is reliable</span>. Anyone can create a website and post information, so we must be critical consumers.</p>
+                
+                <h3>5 Key Criteria for Quality Sources:</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Criteria</th>
+                        <th>What to Look For</th>
+                        <th>Red Flags</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Authority</strong></td>
+                        <td>Author credentials, expert background</td>
+                        <td>No author listed, unknown qualifications</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Accuracy</strong></td>
+                        <td>Facts with citations, verifiable information</td>
+                        <td>No sources, impossible claims</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Currency</strong></td>
+                        <td>Recent publication dates, updated information</td>
+                        <td>No dates, outdated information</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Purpose</strong></td>
+                        <td>Educational or informational goals</td>
+                        <td>Selling products, biased agenda</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Objectivity</strong></td>
+                        <td>Neutral language, balanced viewpoints</td>
+                        <td>Emotional language, one-sided</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide 6: Website Domain Types -->
+        <div class="slide">
+            <h2>Understanding Website Domains</h2>
+            <div class="content">
+                <h3>Domain Extensions Tell You About the Source:</h3>
+                <div class="vocabulary-grid">
+                    <div class="vocab-item" style="background: rgba(76, 175, 80, 0.3);">
+                        <strong>.edu</strong><br>
+                        Educational institutions<br>
+                        <em>Usually reliable</em>
+                    </div>
+                    <div class="vocab-item" style="background: rgba(76, 175, 80, 0.3);">
+                        <strong>.gov</strong><br>
+                        Government bodies<br>
+                        <em>Usually reliable</em>
+                    </div>
+                    <div class="vocab-item" style="background: rgba(76, 175, 80, 0.3);">
+                        <strong>.org</strong><br>
+                        Non-profit organizations<br>
+                        <em>Often reliable</em>
+                    </div>
+                    <div class="vocab-item" style="background: rgba(255, 193, 7, 0.3);">
+                        <strong>.com</strong><br>
+                        Commercial enterprises<br>
+                        <em>Evaluate carefully</em>
+                    </div>
+                </div>
+                
+                <div class="example-box">
+                    <h3>Red Flags to Avoid:</h3>
+                    <ul>
+                        <li><strong>Anonymous authors:</strong> No name or credentials listed</li>
+                        <li><strong>No citations:</strong> Claims without supporting evidence</li>
+                        <li><strong>Outdated information:</strong> No recent update dates</li>
+                        <li><strong>Bias language:</strong> Emotional or inflammatory words</li>
+                        <li><strong>Poor writing:</strong> Grammar errors, informal style</li>
+                        <li><strong>Wikipedia:</strong> Never use as a primary source in academic writing</li>
+                    </ul>
+                </div>
+                
+                <p><strong>Best Practice:</strong> Use academic databases from your university library whenever possible!</p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Thesis Statements Introduction -->
+        <div class="slide">
+            <h2>What is a Thesis Statement?</h2>
+            <div class="content">
+                <h3>Think of it Like a Movie Trailer</h3>
+                <p>A thesis statement is like a movie trailer for your essay - it tells readers what to expect and makes them want to keep reading!</p>
+                
+                <h3>Key Characteristics:</h3>
+                <ul>
+                    <li><strong>Location:</strong> Usually found in the introduction paragraph</li>
+                    <li><strong>Length:</strong> Typically 1-2 sentences</li>
+                    <li><strong>Purpose:</strong> States your main argument or point</li>
+                    <li><strong>Preview:</strong> Shows what the rest of your essay will discuss</li>
+                </ul>
+                
+                <div class="thesis-examples">
+                    <div class="thesis-example bad-example">
+                        <h4>❌ Weak Thesis</h4>
+                        <p>"Telecommuting is an option for some people who can work on their computer."</p>
+                        <p><em>Problem: Just states a fact, no clear opinion</em></p>
+                    </div>
+                    <div class="thesis-example good-example">
+                        <h4>✅ Strong Thesis</h4>
+                        <p>"Telecommuting seems great because it offers flexibility, but it only works for people who have self-discipline, independence, and a willingness to maintain a home office."</p>
+                        <p><em>Strength: Clear opinion with specific supporting points</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Developing Strong Thesis Statements -->
+        <div class="slide">
+            <h2>The Thesis Statement Checklist</h2>
+            <div class="content">
+                <h3>Ask Yourself These 5 Questions:</h3>
+                
+                <div class="question-card">
+                    <h4>1. Is your opinion clear?</h4>
+                    <p>Your thesis should take a position, not just state facts.</p>
+                    <div class="example-box">
+                        <strong>Weak:</strong> "Many students use online learning."<br>
+                        <strong>Strong:</strong> "Online learning is more effective than traditional classroom learning for working adults."
+                    </div>
+                </div>
+                
+                <div class="question-card">
+                    <h4>2. Can someone disagree?</h4>
+                    <p>A good thesis presents an arguable point, not a universally accepted fact.</p>
+                </div>
+                
+                <div class="question-card">
+                    <h4>3. Is it specific?</h4>
+                    <p>Provide concrete details about what you'll discuss.</p>
+                </div>
+                
+                <div class="question-card">
+                    <h4>4. Where are you going?</h4>
+                    <p>Give readers a roadmap of your main points.</p>
+                </div>
+                
+                <div class="question-card">
+                    <h4>5. Have you revised?</h4>
+                    <p>Thesis statements should evolve as you research and write.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Thesis Statement Evolution -->
+        <div class="slide">
+            <h2>How Thesis Statements Evolve</h2>
+            <div class="content">
+                <h3>Example: From Weak to Strong</h3>
+                
+                <div class="example-box">
+                    <h4>Step 1: Initial Idea</h4>
+                    <p>"Telecommuting seems great, but it is not for everyone."</p>
+                    <p><em>Problem: Too vague - what's great about it? Why not for everyone?</em></p>
+                </div>
+                
+                <div class="example-box">
+                    <h4>Step 2: Adding Details</h4>
+                    <p>"Telecommuting seems great because it offers flexibility, but it only works for people who have self-discipline, independence, and a willingness to maintain a home office."</p>
+                    <p><em>Better: Specific reasons why it's great and who it works for</em></p>
+                </div>
+                
+                <div class="example-box">
+                    <h4>Step 3: Final Polish</h4>
+                    <p>"Whether someone views telecommuting as beneficial or challenging depends on his or her self-discipline, independence, and willingness to maintain a home office."</p>
+                    <p><em>Strongest: Clear structure for compare-contrast essay</em></p>
+                </div>
+                
+                <h3>Pro Tips:</h3>
+                <ul>
+                    <li>Start with a working thesis - it will change!</li>
+                    <li>Take breaks and return with fresh eyes</li>
+                    <li>Each highlighted point becomes a body paragraph</li>
+                    <li>Make sure your thesis matches your essay type</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 10: Creating Outlines -->
+        <div class="slide">
+            <h2>Developing Essay Outlines</h2>
+            <div class="content">
+                <h3>Why Outline?</h3>
+                <ul>
+                    <li>Organize your thoughts before writing</li>
+                    <li>Ensure logical flow of ideas</li>
+                    <li>Prevent writer's block</li>
+                    <li>Keep focused on your main argument</li>
+                </ul>
+                
+                <h3>Basic Outline Structure:</h3>
+                <div class="example-box">
+                    <strong>I. Introduction</strong><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;A. Hook/attention grabber<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;B. Background information<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;C. Thesis statement<br><br>
+                    
+                    <strong>II. Body Paragraph 1</strong><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;A. Topic sentence (first main point)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;B. Supporting evidence<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;C. Analysis/explanation<br><br>
+                    
+                    <strong>III. Body Paragraph 2</strong><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;A. Topic sentence (second main point)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;B. Supporting evidence<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;C. Analysis/explanation<br><br>
+                    
+                    <strong>IV. Body Paragraph 3</strong><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;A. Topic sentence (third main point)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;B. Supporting evidence<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;C. Analysis/explanation<br><br>
+                    
+                    <strong>V. Conclusion</strong><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;A. Restate thesis<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;B. Summarize main points<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;C. Final thought/call to action
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Conjunctions Introduction -->
+        <div class="slide">
+            <h2>Conjunctions: Joining Ideas</h2>
+            <div class="content">
+                <h3>What are Conjunctions?</h3>
+                <p>Conjunctions are <span class="highlight">"joining words"</span> that connect words, phrases, or clauses. Think of them as connectors between train cars!</p>
+                
+                <h3>Two Main Types:</h3>
+                
+                <div class="thesis-examples">
+                    <div class="thesis-example">
+                        <h4>Coordinating Conjunctions</h4>
+                        <p>Join equal parts (words, phrases, or independent clauses)</p>
+                        <div class="conjunctions-grid">
+                            <div class="conjunction-item">AND</div>
+                            <div class="conjunction-item">BUT</div>
+                            <div class="conjunction-item">OR</div>
+                            <div class="conjunction-item">NOR</div>
+                            <div class="conjunction-item">FOR</div>
+                            <div class="conjunction-item">YET</div>
+                            <div class="conjunction-item">SO</div>
+                        </div>
+                    </div>
+                    
+                    <div class="thesis-example">
+                        <h4>Subordinating Conjunctions</h4>
+                        <p>Connect dependent clauses to independent clauses</p>
+                        <div class="conjunctions-grid">
+                            <div class="conjunction-item">AFTER</div>
+                            <div class="conjunction-item">ALTHOUGH</div>
+                            <div class="conjunction-item">BECAUSE</div>
+                            <div class="conjunction-item">BEFORE</div>
+                            <div class="conjunction-item">IF</div>
+                            <div class="conjunction-item">SINCE</div>
+                            <div class="conjunction-item">WHEN</div>
+                            <div class="conjunction-item">WHILE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Conjunction Examples -->
+        <div class="slide">
+            <h2>Using Conjunctions Correctly</h2>
+            <div class="content">
+                <h3>Coordinating Conjunction Examples:</h3>
+                <div class="example-box">
+                    <ul>
+                        <li><strong>AND:</strong> "I like ice cream <span class="highlight">and</span> chocolate chip cookies."</li>
+                        <li><strong>BUT:</strong> "I wanted to drive to the party, <span class="highlight">but</span> Sally insisted we walk."</li>
+                        <li><strong>SO:</strong> "I had a test this morning, <span class="highlight">so</span> I went to bed early."</li>
+                    </ul>
+                    <p><em>Note: Use a comma before coordinating conjunctions when joining two complete sentences!</em></p>
+                </div>
+                
+                <h3>Subordinating Conjunction Examples:</h3>
+                <div class="example-box">
+                    <ul>
+                        <li><strong>WHEN:</strong> "Clara screamed <span class="highlight">when</span> she saw the spider."</li>
+                        <li><strong>BECAUSE:</strong> "I have a stomachache <span class="highlight">because</span> I ate too much ice cream."</li>
+                        <li><strong>ALTHOUGH:</strong> "<span class="highlight">Although</span> it was raining, we went for a walk."</li>
+                    </ul>
+                    <p><em>Note: Use a comma when the subordinating clause comes first!</em></p>
+                </div>
+                
+                <h3>Practice:</h3>
+                <p>Fill in the blanks: "You won't pass your class _____ you study hard." <br>
+                <em>Answer: <strong>unless</strong> (subordinating conjunction)</em></p>
+            </div>
+        </div>
+
+        <!-- Slide 13: Countable and Uncountable Nouns -->
+        <div class="slide">
+            <h2>Countable vs. Uncountable Nouns</h2>
+            <div class="content">
+                <h3>Understanding the Difference:</h3>
+                
+                <table class="comparison-table">
+                    <tr>
+                        <th>Countable Nouns</th>
+                        <th>Uncountable Nouns</th>
+                    </tr>
+                    <tr>
+                        <td>Things you can count individually</td>
+                        <td>Things you cannot count individually</td>
+                    </tr>
+                    <tr>
+                        <td>Can be singular or plural</td>
+                        <td>Always singular</td>
+                    </tr>
+                    <tr>
+                        <td>Use a/an with singular forms</td>
+                        <td>Never use a/an</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Examples:</strong><br>
+                        one apple → two apples<br>
+                        a chair → three chairs<br>
+                        a student → many students</td>
+                        <td><strong>Examples:</strong><br>
+                        water (not waters)<br>
+                        information (not informations)<br>
+                        advice (not advices)</td>
+                    </tr>
+                </table>
+                
+                <div class="example-box">
+                    <h3>Using Articles and Quantifiers:</h3>
+                    <table class="comparison-table">
+                        <tr>
+                            <th></th>
+                            <th>Countable</th>
+                            <th>Uncountable</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Positive</strong></td>
+                            <td>a banana / some bananas</td>
+                            <td>some flour</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Negative</strong></td>
+                            <td>not an egg / not any eggs</td>
+                            <td>not any milk</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Questions</strong></td>
+                            <td>How many? / any books?</td>
+                            <td>How much? / any water?</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Common Uncountable Nouns -->
+        <div class="slide">
+            <h2>Common Uncountable Nouns to Remember</h2>
+            <div class="content">
+                <h3>Academic Writing Vocabulary:</h3>
+                <div class="vocabulary-grid">
+                    <div class="vocab-item">information</div>
+                    <div class="vocab-item">research</div>
+                    <div class="vocab-item">advice</div>
+                    <div class="vocab-item">homework</div>
+                    <div class="vocab-item">progress</div>
+                    <div class="vocab-item">equipment</div>
+                    <div class="vocab-item">furniture</div>
+                    <div class="vocab-item">luggage</div>
+                    <div class="vocab-item">traffic</div>
+                    <div class="vocab-item">weather</div>
+                </div>
+                
+                <div class="example-box">
+                    <h3>Tricky Examples - Same Word, Different Meanings:</h3>
+                    <ul>
+                        <li><strong>Paper</strong> (uncountable) = material for writing<br>
+                            <strong>A paper</strong> (countable) = a research document</li>
+                        <li><strong>Glass</strong> (uncountable) = material<br>
+                            <strong>A glass</strong> (countable) = drinking container</li>
+                        <li><strong>Ice cream</strong> (uncountable) = the food<br>
+                            <strong>An ice cream</strong> (countable) = one serving</li>
+                    </ul>
+                </div>
+                
+                <h3>Memory Tip:</h3>
+                <p>When in doubt, think: "Can I put a number in front of it naturally?" If yes, it's probably countable!</p>
+            </div>
+        </div>
+
+        <!-- Slide 15: Discussion Assignment -->
+        <div class="slide">
+            <h2>Discussion Assignment</h2>
+            <div class="content">
+                <div class="assignment-card">
+                    <h3>📝 Main Task:</h3>
+                    <p>After reading "Evaluating Internet Resources," describe your biggest concern about online information and discuss strategies you'll use to address this concern.</p>
+                    
+                    <h4>Requirements:</h4>
+                    <ul>
+                        <li><strong>Length:</strong> Minimum 75 words (at least 3 sentences)</li>
+                        <li><strong>Content:</strong> Identify a specific concern and explain strategies</li>
+                        <li><strong>Examples:</strong> Reference strategies from the article</li>
+                    </ul>
+                </div>
+                
+                <div class="assignment-card">
+                    <h3>💬 Response Task:</h3>
+                    <p>Respond to 3 classmates meaningfully</p>
+                    <ul>
+                        <li><strong>Length:</strong> Minimum 100 words (3-4 complete sentences)</li>
+                        <li><strong>Quality:</strong> Ask questions, share experiences, provide examples</li>
+                        <li><strong>Rating:</strong> Rate each response 0-10 anonymously</li>
+                    </ul>
+                </div>
+                
+                <div class="example-box">
+                    <h3>Sample Response Structure:</h3>
+                    <p><strong>Concern:</strong> "My biggest concern is..."<br>
+                    <strong>Strategy:</strong> "I plan to use [specific strategy] because..."<br>
+                    <strong>Application:</strong> "This will help me by..."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 16: Written Assignment -->
+        <div class="slide">
+            <h2>Written Assignment: Oral Presentation</h2>
+            <div class="content">
+                <div class="assignment-card">
+                    <h3>🎥 Create a Short Oral Presentation</h3>
+                    <p>Present your compare-contrast essay topic to your classmates using video/audio recording.</p>
+                    
+                    <h4>Answer These 5 Questions:</h4>
+                    <ol>
+                        <li><strong>What is your topic?</strong> (State it clearly)</li>
+                        <li><strong>Why did you select this topic?</strong> (Personal interest? Relevance?)</li>
+                        <li><strong>What are you comparing/contrasting?</strong> (Specific subjects)</li>
+                        <li><strong>What criteria will you use?</strong> (Basis for comparison)</li>
+                        <li><strong>What's your main point?</strong> (What should readers learn?)</li>
+                    </ol>
+                </div>
+                
+                <div class="assignment-card">
+                    <h3>📋 Step-by-Step Process:</h3>
+                    <ol>
+                        <li>Write out your answers first</li>
+                        <li>Review for errors and clarity</li>
+                        <li>Practice speaking clearly and slowly</li>
+                        <li>Record using Kaltura, Loom, or ScreenPal</li>
+                        <li>Upload your recording</li>
+                    </ol>
+                </div>
+                
+                <div class="example-box">
+                    <h3>Speaking Tips:</h3>
+                    <ul>
+                        <li>Speak slowly and clearly</li>
+                        <li>Make eye contact with the camera</li>
+                        <li>Use natural gestures</li>
+                        <li>Practice beforehand</li>
+                        <li>Keep it conversational but organized</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 17: Learning Journal -->
+        <div class="slide">
+            <h2>Learning Journal: Thesis & Outline</h2>
+            <div class="content">
+                <div class="assignment-card">
+                    <h3>📖 Your Task:</h3>
+                    <p>Develop a thesis statement and outline for your compare-contrast essay based on this week's presentations.</p>
+                    
+                    <h4>Required Format:</h4>
+                    <div class="example-box">
+                        <strong>Thesis statement:</strong> [Your complete thesis here]<br><br>
+                        
+                        <strong>Body paragraph 1:</strong> [Topic]<br>
+                        <strong>Body paragraph 2:</strong> [Topic]<br>
+                        <strong>Body paragraph 3:</strong> [Topic]<br>
+                        (You can have more or fewer body paragraphs)<br><br>
+                        
+                        <strong>Conclusion:</strong> (Will be written in your first draft)
+                    </div>
+                </div>
+                
+                <div class="assignment-card">
+                    <h3>✅ Quality Checklist:</h3>
+                    <ul>
+                        <li>Is your thesis opinion clear and specific?</li>
+                        <li>Can someone disagree with your thesis?</li>
+                        <li>Does each body paragraph support your thesis?</li>
+                        <li>Are your topics logically organized?</li>
+                        <li>Have you proofread for errors?</li>
+                    </ul>
+                </div>
+                
+                <p><strong>Remember:</strong> This is also your chance to ask questions about any aspect of the course!</p>
+            </div>
+        </div>
+
+        <!-- Slide 18: Additional Activities -->
+        <div class="slide">
+            <h2>Additional Week 4 Activities</h2>
+            <div class="content">
+                <h3>Complete These Activities:</h3>
+                
+                <div class="assignment-card">
+                    <h4>📝 Vocabulary Word Search</h4>
+                    <p>Practice recognizing this week's academic vocabulary in context.</p>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>🎧 Dictation Exercise</h4>
+                    <p>Improve listening skills and spelling accuracy with academic vocabulary.</p>
+                </div>
+                
+                <div class="assignment-card">
+                    <h4>📊 Self-Quiz</h4>
+                    <p>Test your understanding of this week's concepts. Take it as many times as needed!</p>
+                </div>
+                
+                <div class="example-box">
+                    <h3>Study Tips for Success:</h3>
+                    <ul>
+                        <li><strong>Review vocabulary daily</strong> - Add new words to your personal list</li>
+                        <li><strong>Practice conjunctions</strong> - Use them in your own sentences</li>
+                        <li><strong>Evaluate sources critically</strong> - Apply the 5 criteria to websites you visit</li>
+                        <li><strong>Read your thesis aloud</strong> - Does it sound clear and convincing?</li>
+                        <li><strong>Get feedback</strong> - Ask classmates or the instructor for input</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 19: Questions -->
+        <div class="slide">
+            <h2>Test Your Understanding</h2>
+            <div class="content">
+                <h3>Answer These Questions:</h3>
+                
+                <div class="question-card">
+                    <h4>Question 1:</h4>
+                    <p>Which domain extension is typically most reliable for academic research?</p>
+                    <p>a) .com &nbsp;&nbsp;&nbsp; b) .edu &nbsp;&nbsp;&nbsp; c) .net &nbsp;&nbsp;&nbsp; d) .info</p>
+                </div>
+                
+                <div class="question-card">
+                    <h4>Question 2:</h4>
+                    <p>Complete this sentence with the correct conjunction:<br>
+                    "I wanted to study abroad, _____ my parents were worried about the cost."</p>
+                </div>
+                
+                <div class="question-card">
+                    <h4>Question 3:</h4>
+                    <p>Which is correct?</p>
+                    <p>a) "I need some advices about my essay."<br>
+                    b) "I need some advice about my essay."</p>
+                </div>
+                
+                <div class="question-card">
+                    <h4>Question 4:</h4>
+                    <p>What makes a thesis statement strong? List three characteristics.</p>
+                </div>
+                
+                <div class="question-card">
+                    <h4>Question 5:</h4>
+                    <p>Name three criteria you should use to evaluate Internet sources.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 20: Answers -->
+        <div class="slide">
+            <h2>Answers</h2>
+            <div class="content">
+                <div class="answer-card">
+                    <h4>Answer 1:</h4>
+                    <p><strong>b) .edu</strong> - Educational institutions are typically most reliable for academic research, followed by .gov (government) and .org (non-profit organizations).</p>
+                </div>
+                
+                <div class="answer-card">
+                    <h4>Answer 2:</h4>
+                    <p><strong>"but"</strong> - This is a coordinating conjunction showing contrast between two independent clauses. Don't forget the comma!</p>
+                </div>
+                
+                <div class="answer-card">
+                    <h4>Answer 3:</h4>
+                    <p><strong>b) "I need some advice about my essay."</strong> - "Advice" is uncountable, so it cannot be plural. We use "some" with uncountable nouns.</p>
+                </div>
+                
+                <div class="answer-card">
+                    <h4>Answer 4:</h4>
+                    <p><strong>A strong thesis statement:</strong></p>
+                    <ul>
+                        <li>Presents a clear, specific opinion</li>
+                        <li>Is arguable (someone could disagree)</li>
+                        <li>Provides a roadmap for the essay</li>
+                        <li>Is focused and not too broad</li>
+                        <li>Appears in the introduction</li>
+                    </ul>
+                </div>
+                
+                <div class="answer-card">
+                    <h4>Answer 5:</h4>
+                    <p><strong>Criteria for evaluating sources:</strong></p>
+                    <ul>
+                        <li><strong>Authority:</strong> Who wrote it? What are their credentials?</li>
+                        <li><strong>Accuracy:</strong> Are facts supported with citations?</li>
+                        <li><strong>Currency:</strong> Is the information current and updated?</li>
+                        <li><strong>Purpose:</strong> Why was this created? Is it educational?</li>
+                        <li><strong>Objectivity:</strong> Is the language neutral and unbiased?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prev-btn" onclick="previousSlide()" disabled>← Previous</button>
+        <button class="nav-btn" id="next-btn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = n;
+            
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+            
+            // Update navigation buttons
+            document.getElementById('prev-btn').disabled = currentSlide === 0;
+            document.getElementById('next-btn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                event.preventDefault();
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                event.preventDefault();
+                previousSlide();
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
