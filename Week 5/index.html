@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 5: Writing an Essay - ENGL 0008</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .slide {
+            display: none;
+            background: white;
+            width: 90%;
+            max-width: 1000px;
+            height: 85vh;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 60px;
+            overflow-y: auto;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .slide h2 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .slide h3 {
+            color: #667eea;
+            font-size: 1.4em;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .slide p, .slide li {
+            color: #333;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .slide ul, .slide ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .example-box {
+            background: #f0f4ff;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .important-box {
+            background: #fff4e6;
+            border-left: 5px solid #ff6b6b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .tip-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .nav-btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .nav-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            background: rgba(255,255,255,0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: #667eea;
+            z-index: 1000;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        table th {
+            background: #667eea;
+            color: white;
+        }
+        
+        table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .question-card {
+            background: #f8f9fa;
+            border: 2px solid #667eea;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+        
+        .answer-card {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">25</span>
+    </div>
+    
+    <div class="slide-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <h1>📚 Unit 5: Writing an Essay</h1>
+            <h2>ENGL 0008 - Intermediate English 2</h2>
+            <br><br>
+            <h3>Welcome Students!</h3>
+            <p style="font-size: 1.2em; text-align: center;">Instructor: Yogeeta Sharma</p>
+            <p style="font-size: 1.2em; text-align: center;">University of the People</p>
+            <br><br>
+            <div class="tip-box">
+                <p><strong>This Week's Focus:</strong></p>
+                <ul>
+                    <li>Writing a compare/contrast essay</li>
+                    <li>Understanding plagiarism</li>
+                    <li>Using transition words effectively</li>
+                    <li>Learning gerunds and infinitives</li>
+                    <li>Vocabulary: Recycling and environment</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 2: Week 4 Recap -->
+        <div class="slide">
+            <h1>📝 Quick Recap: Week 4</h1>
+            <h2>What We Learned Last Week</h2>
+            
+            <h3>Narrowing a Topic</h3>
+            <ul>
+                <li><strong>Start broad</strong> - Begin with a general topic area</li>
+                <li><strong>Focus down</strong> - Make it specific and manageable</li>
+                <li><strong>Consider your audience</strong> - What do they need to know?</li>
+                <li><strong>Make it appropriate</strong> - Suitable for a compare/contrast essay</li>
+            </ul>
+            
+            <h3>Writing a Thesis Statement</h3>
+            <ul>
+                <li>A thesis is your main idea or argument</li>
+                <li>It appears at the end of your introduction</li>
+                <li>It tells readers what to expect in your essay</li>
+                <li>For compare/contrast: shows what you're comparing and your main point</li>
+            </ul>
+            
+            <h3>Creating an Outline</h3>
+            <ul>
+                <li>Organizes your ideas before writing</li>
+                <li>Includes introduction, body paragraphs, and conclusion</li>
+                <li>Lists main points and supporting details</li>
+                <li>Serves as a roadmap for your essay</li>
+            </ul>
+            
+            <div class="example-box">
+                <strong>Example Thesis Statement:</strong>
+                <p>"While both online and traditional education provide quality learning, they differ significantly in flexibility, social interaction, and cost, making each suitable for different types of students."</p>
+            </div>
+        </div>
+
+        <!-- Slide 3: Unit 5 Overview -->
+        <div class="slide">
+            <h1>🎯 Unit 5 Learning Objectives</h1>
+            
+            <h2>By the End of This Unit, You Will Be Able To:</h2>
+            
+            <ol>
+                <li><strong>Write a compare/contrast essay</strong> using an outline</li>
+                <li><strong>Avoid plagiarizing</strong> ideas in your writing</li>
+                <li><strong>Use transition words</strong> to relate ideas in a paragraph</li>
+                <li><strong>Use vocabulary</strong> related to recycling and the environment</li>
+                <li><strong>Demonstrate reading comprehension</strong> through discussion of an academic article</li>
+                <li><strong>Prepare for the final exam</strong> through grammar and comprehension activities</li>
+            </ol>
+            
+            <div class="tip-box">
+                <p><strong>💡 Study Tip:</strong> Review all materials multiple times and practice the concepts with your own examples!</p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Transition Words Introduction -->
+        <div class="slide">
+            <h1>🔗 Transition Words</h1>
+            <h2>Connecting Your Ideas</h2>
+            
+            <h3>What Are Transition Words?</h3>
+            <p>Transition words are like bridges that connect your ideas. They help your writing flow smoothly and show relationships between sentences and paragraphs.</p>
+            
+            <h3>Why Are They Important?</h3>
+            <ul>
+                <li>Improve the <strong>flow</strong> and <strong>style</strong> of your essay</li>
+                <li>Help readers follow your thoughts</li>
+                <li>Show how ideas relate to each other</li>
+                <li>Make your writing more professional</li>
+            </ul>
+            
+            <div class="important-box">
+                <p><strong>⚠️ Important Rule:</strong> Don't use too many transition words! Use them sparingly and selectively. Too many can make your writing cluttered and distract from your main idea.</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Types of Transition Words -->
+        <div class="slide">
+            <h1>📋 Types of Transition Words</h1>
+            
+            <table>
+                <tr>
+                    <th>Purpose</th>
+                    <th>Transition Words</th>
+                </tr>
+                <tr>
+                    <td><strong>Add on to an idea</strong></td>
+                    <td>Likewise, Similarly, Furthermore, Moreover, Also</td>
+                </tr>
+                <tr>
+                    <td><strong>Contrast two ideas</strong></td>
+                    <td>However, On the other hand, But, Nevertheless</td>
+                </tr>
+                <tr>
+                    <td><strong>Show time progression</strong></td>
+                    <td>Afterward, Next, Before, Then, Finally</td>
+                </tr>
+                <tr>
+                    <td><strong>Prove a point</strong></td>
+                    <td>Therefore, As a result, Because, Consequently</td>
+                </tr>
+                <tr>
+                    <td><strong>Give an example</strong></td>
+                    <td>For example, In this case, For instance</td>
+                </tr>
+                <tr>
+                    <td><strong>Summarize</strong></td>
+                    <td>In conclusion, In summary, Accordingly, Hence</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Slide 6: Transition Words Examples -->
+        <div class="slide">
+            <h1>💡 Transition Words in Action</h1>
+            
+            <div class="example-box">
+                <h3>Example 1: Giving an Example</h3>
+                <p>"Cats have nine lives. <span class="highlight">For example</span>, my cat fell from the window and was perfectly alright."</p>
+                <p><strong>What it does:</strong> The phrase "For example" tells you that what follows will illustrate the previous statement.</p>
+            </div>
+            
+            <div class="example-box">
+                <h3>Example 2: Adding Information</h3>
+                <p>"The fall has the best weather. <span class="highlight">Furthermore</span>, the fall has the most beautiful scenery."</p>
+                <p><strong>What it does:</strong> "Furthermore" shows that the second sentence agrees with and adds to the first sentence.</p>
+            </div>
+            
+            <div class="example-box">
+                <h3>Example 3: Contrasting Ideas</h3>
+                <p>"I love Italian food, <span class="highlight">but</span> I don't like pizza."</p>
+                <p><strong>What it does:</strong> "But" shows a contrast between two related ideas.</p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Punctuating Transition Words -->
+        <div class="slide">
+            <h1>✍️ Punctuating Transition Words</h1>
+            
+            <h3>Rule 1: Punctuate Introductory Phrases</h3>
+            <div class="example-box">
+                <p><span class="highlight">For example,</span> I painted three pictures last week.</p>
+                <p><strong>Why:</strong> Use a comma after the transition word when it introduces the sentence.</p>
+            </div>
+            
+            <h3>Rule 2: Use Comma with Conjunctions Between Independent Clauses</h3>
+            <div class="example-box">
+                <p>I wanted to watch the movie<span class="highlight">, but</span> I had to go home for dinner.</p>
+                <p><strong>Why:</strong> Both parts can stand alone as complete sentences, so use a comma before "but."</p>
+            </div>
+            
+            <h3>Rule 3: Use Commas for Transitions in the Middle</h3>
+            <div class="example-box">
+                <p>Suzy is<span class="highlight">, therefore,</span> the best person for the job.</p>
+                <p><strong>Why:</strong> The sentence would be complete without "therefore," so it's offset by commas.</p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Plagiarism - What Is It? -->
+        <div class="slide">
+            <h1>⚠️ Understanding Plagiarism</h1>
+            
+            <h2>What Is Plagiarism?</h2>
+            <p>Plagiarism is <strong>using another person's work without giving credit to the author</strong> or presenting that work as your own.</p>
+            
+            <h3>What Must Be Acknowledged?</h3>
+            <ul>
+                <li>Direct quotations</li>
+                <li>Ideas and concepts from others</li>
+                <li>Statistics and data</li>
+                <li>Paraphrased information</li>
+                <li>Any information not from your own original thinking</li>
+            </ul>
+            
+            <div class="important-box">
+                <p><strong>🚨 Critical Point:</strong> Even <span class="highlight">accidental plagiarism is plagiarism!</span></p>
+                <p>Consequences include:</p>
+                <ul>
+                    <li>Failing an assignment</li>
+                    <li>Failing a course</li>
+                    <li>Permanent notation on your academic record</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 9: Examples of Plagiarism -->
+        <div class="slide">
+            <h1>❌ Is It Plagiarism?</h1>
+            
+            <table>
+                <tr>
+                    <th>Action</th>
+                    <th>Is It Plagiarism?</th>
+                </tr>
+                <tr>
+                    <td>Using a quote without quotation marks or reference</td>
+                    <td><strong style="color: red;">YES</strong></td>
+                </tr>
+                <tr>
+                    <td>Writing about specialized information without references</td>
+                    <td><strong style="color: red;">YES</strong></td>
+                </tr>
+                <tr>
+                    <td>Changing one or two words in someone's sentence</td>
+                    <td><strong style="color: red;">YES</strong></td>
+                </tr>
+                <tr>
+                    <td>Copying and pasting from a website</td>
+                    <td><strong style="color: red;">YES</strong></td>
+                </tr>
+                <tr>
+                    <td>Purchasing an essay someone else wrote</td>
+                    <td><strong style="color: red;">YES</strong></td>
+                </tr>
+                <tr>
+                    <td>Including citation without reference (or vice versa)</td>
+                    <td><strong style="color: red;">YES</strong></td>
+                </tr>
+                <tr>
+                    <td>Submitting an essay you used in another course</td>
+                    <td><strong style="color: red;">YES</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Slide 10: How to Avoid Plagiarism -->
+        <div class="slide">
+            <h1>✅ How to Avoid Plagiarism</h1>
+            
+            <h2>Three Essential Steps:</h2>
+            
+            <h3>1. Take Notes During Research</h3>
+            <p>Whenever you read an article or find information, immediately write down:</p>
+            <ul>
+                <li>Author's name</li>
+                <li>Publication year</li>
+                <li>Title of the article/book</li>
+                <li>Website or journal name</li>
+                <li>Page numbers (if applicable)</li>
+            </ul>
+            
+            <h3>2. Use In-Text Citations</h3>
+            <p>When you use information from a source, include a citation in your text:</p>
+            <div class="example-box">
+                <p>"Quotation" (Author last name, Publication Year, Page number).</p>
+            </div>
+            
+            <h3>3. Create a Reference List</h3>
+            <p>At the end of your paper, list all sources in alphabetical order by author's last name.</p>
+        </div>
+
+        <!-- Slide 11: In-Text Citations -->
+        <div class="slide">
+            <h1>📑 In-Text Citations</h1>
+            
+            <h2>What Is an In-Text Citation?</h2>
+            <p>A shortened reference placed in parentheses right after the quote or paraphrased information.</p>
+            
+            <h3>Format:</h3>
+            <div class="example-box">
+                <p><strong>For a direct quote:</strong></p>
+                <p>"Quotation text here" (Smith, 2020, p. 45).</p>
+                <br>
+                <p><strong>For paraphrased information:</strong></p>
+                <p>According to recent research, climate change affects agriculture (Jones, 2021).</p>
+            </div>
+            
+            <h3>What to Include:</h3>
+            <ul>
+                <li>Author's last name</li>
+                <li>Publication year</li>
+                <li>Page number (for direct quotes)</li>
+            </ul>
+            
+            <div class="tip-box">
+                <p><strong>💡 Tip:</strong> Always use quotation marks around exact words from a source!</p>
+            </div>
+        </div>
+
+        <!-- Slide 12: References -->
+        <div class="slide">
+            <h1>📚 Reference List</h1>
+            
+            <h2>What Is a Reference?</h2>
+            <p>A complete citation at the end of your paper that provides all information needed to find the source.</p>
+            
+            <h3>Format for Online Articles:</h3>
+            <div class="example-box">
+                <p>Smith, T. (2005). Title of article. <em>Title of Website or Journal</em>. Retrieved from www.website.com/Smith</p>
+            </div>
+            
+            <h3>Important Rules:</h3>
+            <ul>
+                <li>Alphabetize by author's last name</li>
+                <li>Use hanging indent (second line indented)</li>
+                <li>Include all sources cited in your paper</li>
+                <li>Follow APA style guidelines</li>
+            </ul>
+            
+            <div class="important-box">
+                <p><strong>Remember:</strong> Every in-text citation must have a matching reference, and every reference must be cited in your text!</p>
+            </div>
+        </div>
+
+        <!-- Slide 13: Gerunds and Infinitives Introduction -->
+        <div class="slide">
+            <h1>📖 Grammar: Gerunds and Infinitives</h1>
+            
+            <h2>What Are They?</h2>
+            
+            <h3>Gerund</h3>
+            <p>A verb form ending in <strong>-ing</strong> that functions as a noun.</p>
+            <div class="example-box">
+                <p><span class="highlight">Swimming</span> is good exercise.</p>
+                <p>I enjoy <span class="highlight">reading</span>.</p>
+            </div>
+            
+            <h3>Infinitive</h3>
+            <p>The word <strong>"to"</strong> plus the base form of a verb.</p>
+            <div class="example-box">
+                <p>I want <span class="highlight">to study</span> abroad.</p>
+                <p>She decided <span class="highlight">to leave</span> early.</p>
+            </div>
+            
+            <div class="tip-box">
+                <p><strong>Key Point:</strong> When two verbs appear together, the first verb changes based on tense, but the second verb takes either the gerund or infinitive form.</p>
+            </div>
+        </div>
+
+        <!-- Slide 14: When to Use Infinitives -->
+        <div class="slide">
+            <h1>✨ When to Use Infinitives</h1>
+            
+            <h3>1. After Certain Verbs</h3>
+            <div class="example-box">
+                <p>I've decided <span class="highlight">to adopt</span> a dog.</p>
+                <p>I want <span class="highlight">to paint</span> you a picture.</p>
+                <p><strong>Common verbs:</strong> want, need, decide, plan, hope, agree, promise</p>
+            </div>
+            
+            <h3>2. After Adjectives</h3>
+            <div class="example-box">
+                <p>It's wonderful <span class="highlight">to see</span> you again.</p>
+                <p>It's important <span class="highlight">to put on</span> a seatbelt when you drive.</p>
+            </div>
+            
+            <h3>3. After Question Words</h3>
+            <div class="example-box">
+                <p>Can you tell me how <span class="highlight">to make</span> soup?</p>
+                <p>I don't know what <span class="highlight">to think</span> of him.</p>
+            </div>
+            
+            <h3>4. To Express Purpose</h3>
+            <div class="example-box">
+                <p>I called her <span class="highlight">to tell</span> her I love her.</p>
+                <p>She does it <span class="highlight">to annoy</span> me.</p>
+            </div>
+        </div>
+
+        <!-- Slide 15: When to Use Gerunds -->
+        <div class="slide">
+            <h1>✨ When to Use Gerunds</h1>
+            
+            <h3>1. After Certain Verbs</h3>
+            <div class="example-box">
+                <p>I enjoy <span class="highlight">spending</span> time with you.</p>
+                <p>She can't stand <span class="highlight">listening</span> to rock music.</p>
+                <p><strong>Common verbs:</strong> enjoy, finish, avoid, consider, suggest, practice, quit</p>
+            </div>
+            
+            <h3>2. As Subject or Object</h3>
+            <div class="example-box">
+                <p><span class="highlight">Smoking</span> is bad for you. (subject)</p>
+                <p>Do you think <span class="highlight">eating</span> should be allowed in the library? (object)</p>
+            </div>
+            
+            <h3>3. After Prepositions</h3>
+            <div class="example-box">
+                <p>He is good at <span class="highlight">singing</span>.</p>
+                <p>I'm looking forward to <span class="highlight">studying</span> abroad.</p>
+                <p><strong>Note:</strong> After prepositions (at, in, on, about, for, to), always use gerunds!</p>
+            </div>
+        </div>
+
+        <!-- Slide 16: Special Cases -->
+        <div class="slide">
+            <h1>🔍 Gerunds vs. Infinitives: Meaning Changes</h1>
+            
+            <h2>Some verbs can take both, but the meaning changes!</h2>
+            
+            <h3>Remember</h3>
+            <div class="example-box">
+                <p><strong>remember + infinitive</strong> = you remember THEN do the action</p>
+                <p>"Did you <span class="highlight">remember to lock</span> the door?" (Did you lock it?)</p>
+                <br>
+                <p><strong>remember + gerund</strong> = you remember something from the past</p>
+                <p>"Do you <span class="highlight">remember swimming</span> in the blue lagoon?" (past memory)</p>
+            </div>
+            
+            <h3>Forget</h3>
+            <div class="example-box">
+                <p><strong>forget + infinitive</strong> = you didn't remember to do something</p>
+                <p>"I <span class="highlight">forgot to feed</span> the fish." (I didn't feed them)</p>
+                <br>
+                <p><strong>forget + gerund</strong> = you don't remember doing something in the past</p>
+                <p>"He <span class="highlight">forgot watching</span> the movie with his girlfriend." (He did watch it but doesn't remember)</p>
+            </div>
+        </div>
+
+        <!-- Slide 17: Vocabulary - Recycling -->
+        <div class="slide">
+            <h1>🌍 Vocabulary: Recycling and Environment</h1>
+            
+            <h3>Key Terms You Need to Know:</h3>
+            
+            <table>
+                <tr>
+                    <th>Word</th>
+                    <th>Meaning</th>
+                </tr>
+                <tr>
+                    <td><strong>biodegradable</strong></td>
+                    <td>Can break down naturally without harming the environment</td>
+                </tr>
+                <tr>
+                    <td><strong>conservation</strong></td>
+                    <td>Protection and preservation of natural resources</td>
+                </tr>
+                <tr>
+                    <td><strong>emission</strong></td>
+                    <td>Release of gas or other substance into the air</td>
+                </tr>
+                <tr>
+                    <td><strong>landfill</strong></td>
+                    <td>A place where waste is buried in the ground</td>
+                </tr>
+                <tr>
+                    <td><strong>pollution</strong></td>
+                    <td>Contamination of the environment</td>
+                </tr>
+                <tr>
+                    <td><strong>recycle</strong></td>
+                    <td>Convert waste into reusable material</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Slide 18: More Vocabulary -->
+        <div class="slide">
+            <h1>📝 More Environmental Vocabulary</h1>
+            
+            <table>
+                <tr>
+                    <th>Word</th>
+                    <th>Meaning</th>
+                </tr>
+                <tr>
+                    <td><strong>global warming</strong></td>
+                    <td>Increase in Earth's average temperature</td>
+                </tr>
+                <tr>
+                    <td><strong>habitat</strong></td>
+                    <td>Natural home of an animal or plant</td>
+                </tr>
+                <tr>
+                    <td><strong>extinct</strong></td>
+                    <td>No longer in existence</td>
+                </tr>
+                <tr>
+                    <td><strong>species</strong></td>
+                    <td>A group of living organisms</td>
+                </tr>
+                <tr>
+                    <td><strong>threaten</strong></td>
+                    <td>To put at risk</td>
+                </tr>
+                <tr>
+                    <td><strong>ethical</strong></td>
+                    <td>Morally right and fair</td>
+                </tr>
+            </table>
+            
+            <div class="tip-box">
+                <p><strong>💡 Study Tip:</strong> Use these words in sentences to help you remember them!</p>
+            </div>
+        </div>
+
+        <!-- Slide 19: Discussion Assignment -->
+        <div class="slide">
+            <h1>💬 Discussion Assignment</h1>
+            
+            <h2>What You Need to Do:</h2>
+            
+            <h3>Step 1: Read the Article</h3>
+            <p>Read "Is There any Point in Recycling?" carefully. Read it multiple times!</p>
+            
+            <h3>Step 2: Write Your Response</h3>
+            <p>Answer these three questions:</p>
+            <ol>
+                <li><strong>What is the main point?</strong> (Write 1 sentence)</li>
+                <li><strong>How would you change the recycling program in your community?</strong> (Write 2-3 sentences)</li>
+                <li><strong>What would be the benefits of this change?</strong> (Write 1 sentence)</li>
+            </ol>
+            
+            <h3>Step 3: Edit Carefully</h3>
+            <p>Check for grammar, spelling, and punctuation errors.</p>
+            
+            <h3>Step 4: Respond to Peers</h3>
+            <p>Rate and respond to 3 classmates with meaningful feedback (3-4 sentences, at least 100 words).</p>
+        </div>
+
+        <!-- Slide 20: Written Assignment -->
+        <div class="slide">
+            <h1>✍️ Written Assignment: First Draft</h1>
+            
+            <h2>Writing Your Compare/Contrast Essay</h2>
+            
+            <h3>What You Need:</h3>
+            <ul>
+                <li>Your thesis statement from Unit 4</li>
+                <li>Your outline from Unit 4</li>
+                <li>Minimum 350 words</li>
+            </ul>
+            
+            <h3>Essay Structure:</h3>
+            <ol>
+                <li><strong>Introduction</strong> - Include your thesis statement</li>
+                <li><strong>Body Paragraphs</strong> - Develop your comparison/contrast points</li>
+                <li><strong>Conclusion</strong> - Summarize your main points</li>
+            </ol>
+            
+            <div class="important-box">
+                <p><strong>Remember to:</strong></p>
+                <ul>
+                    <li>Use transition words appropriately</li>
+                    <li>Include in-text citations if using sources</li>
+                    <li>Proofread carefully</li>
+                    <li>Follow APA style</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 21: Essay Writing Tips -->
+        <div class="slide">
+            <h1>💡 Essay Writing Tips</h1>
+            
+            <h3>1. Follow Your Outline</h3>
+            <p>Your outline is your roadmap. Each main point becomes a paragraph.</p>
+            
+            <h3>2. Start with a Strong Introduction</h3>
+            <ul>
+                <li>Hook the reader's attention</li>
+                <li>Provide background information</li>
+                <li>End with your thesis statement</li>
+            </ul>
+            
+            <h3>3. Develop Body Paragraphs</h3>
+            <ul>
+                <li>Topic sentence for each paragraph</li>
+                <li>Supporting details and examples</li>
+                <li>Use transition words between ideas</li>
+            </ul>
+            
+            <h3>4. Write a Strong Conclusion</h3>
+            <ul>
+                <li>Restate your thesis in different words</li>
+                <li>Summarize main points</li>
+                <li>End with a final thought</li>
+            </ul>
+            
+            <div class="tip-box">
+                <p><strong>This is a first draft!</strong> You'll have a chance to revise it later, so focus on getting your ideas down clearly.</p>
+            </div>
+        </div>
+
+        <!-- Slide 22: Learning Journal -->
+        <div class="slide">
+            <h1>📓 Learning Journal Assignment</h1>
+            
+            <h2>Topic: Plagiarism</h2>
+            
+            <h3>Write a Response (Minimum 100 words) to:</h3>
+            
+            <div class="question-card">
+                <p><strong>Question 1:</strong> In your own words, how would you define plagiarism? Think beyond just "copying"—what does it mean in a broader sense?</p>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>Question 2:</strong> Have you ever encountered an instance of plagiarism—either in school, at work, or even online? Share an example and explain what happened. Why is it an offence?</p>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>Question 3:</strong> Avoiding plagiarism is essential for maintaining integrity in both oral and written work. What steps will you take to ensure that your work is original and properly cited?</p>
+            </div>
+            
+            <p><strong>Remember to proofread before submitting!</strong></p>
+        </div>
+
+        <!-- Slide 23: Weekly Checklist -->
+        <div class="slide">
+            <h1>✅ Unit 5 Checklist</h1>
+            
+            <h2>Make Sure You Complete All Tasks:</h2>
+            
+            <ol>
+                <li>☐ Peer assess Unit 4 Written Assignment (3 peers)</li>
+                <li>☐ Review vocabulary list</li>
+                <li>☐ Complete reading comprehension activity</li>
+                <li>☐ Complete listening comprehension activity</li>
+                <li>☐ Study grammar: Gerunds and infinitives</li>
+                <li>☐ Complete and submit Discussion Assignment</li>
+                <li>☐ Respond to 3 peers in Discussion Forum</li>
+                <li>☐ Complete and submit Written Assignment (first draft)</li>
+                <li>☐ Complete and submit Learning Journal</li>
+                <li>☐ Complete Vocabulary Word Search</li>
+                <li>☐ Complete Dictation exercise</li>
+                <li>☐ Complete Self-Quiz</li>
+            </ol>
+            
+            <div class="important-box">
+                <p><strong>⏰ Deadline Reminder:</strong> Check your course calendar for specific due dates!</p>
+            </div>
+        </div>
+
+        <!-- Slide 24: Practice Questions -->
+        <div class="slide">
+            <h1>❓ Practice Questions</h1>
+            
+            <div class="question-card">
+                <p><strong>Question 1:</strong> Which transition word would you use to show contrast between two ideas?</p>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>Question 2:</strong> Is it plagiarism if you change a few words from a source but don't cite it?</p>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>Question 3:</strong> Complete the sentence: "I enjoy _______ (read) books in my free time." Should you use the gerund or infinitive?</p>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>Question 4:</strong> What three parts must a complete essay have?</p>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>Question 5:</strong> What information should an in-text citation include for a direct quote?</p>
+            </div>
+        </div>
+
+        <!-- Slide 25: Answers -->
+        <div class="slide">
+            <h1>✅ Practice Question Answers</h1>
+            
+            <div class="answer-card">
+                <p><strong>Answer 1:</strong> However, On the other hand, But, or Nevertheless</p>
+                <p><em>These words show contrast or opposition between ideas.</em></p>
+            </div>
+            
+            <div class="answer-card">
+                <p><strong>Answer 2:</strong> YES! This is plagiarism.</p>
+                <p><em>Even if you change words, you must cite the original source if the idea came from someone else.</em></p>
+            </div>
+            
+            <div class="answer-card">
+                <p><strong>Answer 3:</strong> "I enjoy <strong>reading</strong> books in my free time."</p>
+                <p><em>Use the gerund (-ing form) after "enjoy".</em></p>
+            </div>
+            
+            <div class="answer-card">
+                <p><strong>Answer 4:</strong> Introduction, Body Paragraphs, and Conclusion</p>
+                <p><em>All academic essays need these three main parts.</em></p>
+            </div>
+            
+            <div class="answer-card">
+                <p><strong>Answer 5:</strong> Author's last name, publication year, and page number</p>
+                <p><em>Example: (Smith, 2020, p. 45)</em></p>
+            </div>
+        </div>
+
+        <!-- Slide 26: Final Slide -->
+        <div class="slide">
+            <h1>🎓 You're Ready for Unit 5!</h1>
+            
+            <h2>Key Takeaways:</h2>
+            <ul>
+                <li>✅ Use transition words to connect your ideas smoothly</li>
+                <li>✅ Always cite your sources to avoid plagiarism</li>
+                <li>✅ Follow your outline to write a strong essay</li>
+                <li>✅ Understand when to use gerunds vs. infinitives</li>
+                <li>✅ Learn environmental vocabulary</li>
+            </ul>
+            
+            <div class="tip-box">
+                <h3>Study Resources:</h3>
+                <ul>
+                    <li>UoPeople Learning Resource Center (LRC)</li>
+                    <li>APA Style Guide</li>
+                    <li>Your instructor - always feel free to ask questions!</li>
+                </ul>
+            </div>
+            
+            <h2 style="text-align: center; margin-top: 40px;">Good Luck! 🌟</h2>
+            <p style="text-align: center; font-size: 1.2em;">You can do this!</p>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            if (n >= totalSlides) {
+                currentSlide = totalSlides - 1;
+            } else if (n < 0) {
+                currentSlide = 0;
+            } else {
+                currentSlide = n;
+            }
+            
+            slides[currentSlide].classList.add('active');
+            slides[currentSlide].scrollTop = 0;
+            
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+            
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+        
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+        
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
