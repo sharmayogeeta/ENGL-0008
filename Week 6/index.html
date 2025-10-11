@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 6: Editing Your Work & Refining Your Skills</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .slide {
+            display: none;
+            width: 90%;
+            max-width: 1200px;
+            height: 85vh;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 60px;
+            overflow-y: auto;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+        }
+        
+        h2 {
+            color: #764ba2;
+            font-size: 2em;
+            margin: 25px 0 15px 0;
+        }
+        
+        h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin: 20px 0 10px 0;
+        }
+        
+        p, li {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .example-box {
+            background-color: #e7f3ff;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .tip-box {
+            background-color: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .warning-box {
+            background-color: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(0,0,0,0.3);
+        }
+        
+        .slide-number {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(102, 126, 234, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            z-index: 1000;
+        }
+        
+        .vocab-word {
+            font-weight: bold;
+            color: #764ba2;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #667eea;
+            color: white;
+        }
+        
+        .question-box {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+        
+        .answer-box {
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Slide 1: Title Slide -->
+        <div class="slide active">
+            <h1 style="text-align: center; font-size: 3em; margin-top: 150px;">Week 6: Editing Your Work & Refining Your Skills</h1>
+            <h2 style="text-align: center; color: #764ba2; margin-top: 30px;">ENGL 0008: Intermediate English 2</h2>
+            <p style="text-align: center; font-size: 1.3em; margin-top: 50px;">Instructor: Yogeeta Sharma</p>
+            <p style="text-align: center; font-size: 1.2em; margin-top: 20px; color: #666;">University of the People</p>
+        </div>
+
+        <!-- Slide 2: Recap of Week 5 -->
+        <div class="slide">
+            <h1>📚 Quick Recap: Week 5</h1>
+            <h2>What We Learned Last Week</h2>
+            <ul>
+                <li><strong>Compare and Contrast Essays:</strong> We learned how to structure essays that show similarities and differences between two subjects</li>
+                <li><strong>Thesis Statements:</strong> We practiced writing clear thesis statements for compare/contrast essays</li>
+                <li><strong>Organization Patterns:</strong> We explored point-by-point and block methods for organizing comparative essays</li>
+                <li><strong>Transition Words:</strong> We used words like "similarly," "however," "in contrast," "on the other hand"</li>
+                <li><strong>Written Assignment:</strong> You completed a compare/contrast essay on a topic of your choice</li>
+            </ul>
+            <div class="tip-box">
+                <strong>🔄 This Week's Connection:</strong> In Week 6, you will peer-assess your classmates' compare/contrast essays from Week 5, so keep those skills fresh in your mind!
+            </div>
+        </div>
+
+        <!-- Slide 3: Week 6 Overview -->
+        <div class="slide">
+            <h1>🎯 Week 6 Overview</h1>
+            <h2>What Will We Learn This Week?</h2>
+            <ul>
+                <li><strong>Reading:</strong> "The Danger of a Single Story" by Chimamanda Ngozi Adichie</li>
+                <li><strong>Grammar:</strong> Using commas effectively in academic writing</li>
+                <li><strong>Writing Skills:</strong> Strategies for editing and revising your work</li>
+                <li><strong>Vocabulary:</strong> Words related to lifestyles and current affairs</li>
+                <li><strong>Listening:</strong> "World View Voyages" audio comprehension</li>
+            </ul>
+            <div class="example-box">
+                <h3>Why Is This Week Important?</h3>
+                <p>Editing is one of the most crucial skills for any writer. Even professional authors revise their work multiple times! This week, you'll learn systematic strategies to improve your writing and catch errors before submission.</p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Learning Objectives -->
+        <div class="slide">
+            <h1>🎓 Learning Objectives</h1>
+            <h2>By the End of This Week, You Will Be Able To:</h2>
+            <ol>
+                <li><strong>Develop skills for editing your writing</strong>
+                    <ul>
+                        <li>Identify common errors in your work</li>
+                        <li>Use systematic editing strategies</li>
+                        <li>Improve clarity and flow</li>
+                    </ul>
+                </li>
+                <li><strong>Use commas effectively in your writing</strong>
+                    <ul>
+                        <li>Apply comma rules correctly</li>
+                        <li>Improve sentence readability</li>
+                    </ul>
+                </li>
+                <li><strong>Understand and compare complex topics</strong>
+                    <ul>
+                        <li>Analyze the concept of "single stories"</li>
+                        <li>Reflect on stereotypes in your own life</li>
+                    </ul>
+                </li>
+                <li><strong>Use vocabulary related to lifestyles and current events</strong></li>
+                <li><strong>Prepare for the final exam</strong> through listening and reading comprehension</li>
+            </ol>
+        </div>
+
+        <!-- Slide 5: Vocabulary Introduction -->
+        <div class="slide">
+            <h1>📖 Week 6 Vocabulary</h1>
+            <h2>Lifestyles and Current Affairs</h2>
+            <p>This week's vocabulary focuses on words that help you describe different cultures, lifestyles, and current events. These words will appear in your reading and listening activities.</p>
+            
+            <h3>Key Vocabulary Categories:</h3>
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Example Words</th>
+                </tr>
+                <tr>
+                    <td>Cultural Concepts</td>
+                    <td>stereotype, tradition, conventional, contemporary</td>
+                </tr>
+                <tr>
+                    <td>Social Issues</td>
+                    <td>poverty, immigration, consequence, debate</td>
+                </tr>
+                <tr>
+                    <td>Personal Attitudes</td>
+                    <td>pity, reject, emphasize, justify</td>
+                </tr>
+                <tr>
+                    <td>Description Words</td>
+                    <td>representative, dependent, conscious</td>
+                </tr>
+            </table>
+            
+            <div class="tip-box">
+                <strong>💡 Study Tip:</strong> Create flashcards for each vocabulary word. Write the word on one side and the definition with an example sentence on the other. Review these daily!
+            </div>
+        </div>
+
+        <!-- Slide 6: Vocabulary Examples -->
+        <div class="slide">
+            <h1>📝 Vocabulary in Context</h1>
+            <h2>Understanding Through Examples</h2>
+            
+            <div class="example-box">
+                <h3><span class="vocab-word">Stereotype</span> (noun)</h3>
+                <p><strong>Definition:</strong> A widely held but fixed and oversimplified image or idea of a particular type of person or thing</p>
+                <p><strong>Example:</strong> "The stereotype that all teenagers are irresponsible is unfair and inaccurate."</p>
+            </div>
+            
+            <div class="example-box">
+                <h3><span class="vocab-word">Contemporary</span> (adjective)</h3>
+                <p><strong>Definition:</strong> Living or occurring at the same time; modern or current</p>
+                <p><strong>Example:</strong> "Contemporary music reflects the diverse cultures of our modern world."</p>
+            </div>
+            
+            <div class="example-box">
+                <h3><span class="vocab-word">Immigration</span> (noun)</h3>
+                <p><strong>Definition:</strong> The action of coming to live permanently in a foreign country</p>
+                <p><strong>Example:</strong> "Immigration policies affect millions of families around the world."</p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Reading - The Danger of a Single Story -->
+        <div class="slide">
+            <h1>📚 Reading: "The Danger of a Single Story"</h1>
+            <h2>By Chimamanda Ngozi Adichie</h2>
+            
+            <h3>What Is This Article About?</h3>
+            <p>Chimamanda Ngozi Adichie is a Nigerian author who shares her personal experiences with stereotypes and the dangers of having only one perspective about people, places, or cultures.</p>
+            
+            <h3>Key Concept: What Is a "Single Story"?</h3>
+            <div class="example-box">
+                <p>A <strong>"single story"</strong> is when we know only one narrative about a person, place, or culture. This incomplete picture creates stereotypes and prevents us from seeing the full, complex reality.</p>
+                <p><strong>Example:</strong> If you only watch news about negative events in a country, you might think that's all there is to that place, missing the beautiful culture, happy people, and positive developments.</p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Reading Strategies -->
+        <div class="slide">
+            <h1>🔍 How to Read This Article</h1>
+            <h2>Reading Strategies for Academic Texts</h2>
+            
+            <ol>
+                <li><strong>First Reading - Get the Main Idea</strong>
+                    <ul>
+                        <li>Read through completely without stopping</li>
+                        <li>Don't worry about every word</li>
+                        <li>Ask: What is the author's main message?</li>
+                    </ul>
+                </li>
+                <li><strong>Second Reading - Take Notes</strong>
+                    <ul>
+                        <li>Highlight key passages</li>
+                        <li>Write questions in the margins</li>
+                        <li>Note examples that stand out</li>
+                    </ul>
+                </li>
+                <li><strong>Third Reading - Deep Understanding</strong>
+                    <ul>
+                        <li>Look up unfamiliar words</li>
+                        <li>Connect ideas to your own experience</li>
+                        <li>Prepare to discuss in the forum</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <div class="tip-box">
+                <strong>💡 Reading Tip:</strong> This article will be used for your Discussion Assignment, so take detailed notes about single stories in your own life!
+            </div>
+        </div>
+
+        <!-- Slide 9: Key Themes from the Reading -->
+        <div class="slide">
+            <h1>🌍 Key Themes in "The Danger of a Single Story"</h1>
+            
+            <h3>1. Early Influences Shape Our Perceptions</h3>
+            <p>Adichie explains how reading only British and American books as a child made her believe all books had to be about foreign experiences, not her own Nigerian life.</p>
+            
+            <h3>2. Single Stories Create Stereotypes</h3>
+            <div class="example-box">
+                <p><strong>Adichie's Example:</strong> She only knew that her house boy Fide's family was poor. When she visited them and saw a beautiful basket they made, she was surprised because she couldn't see them as anything but poor.</p>
+            </div>
+            
+            <h3>3. Power Determines Which Stories Are Told</h3>
+            <p>Those with power decide which stories become dominant. This is why we often hear more stories from some cultures than others.</p>
+            
+            <h3>4. We Are All Guilty of Single Stories</h3>
+            <p>Even Adichie admits she had single stories about Mexicans before visiting Mexico. We all make these mistakes!</p>
+        </div>
+
+        <!-- Slide 10: Listening Comprehension -->
+        <div class="slide">
+            <h1>🎧 Listening: "World View Voyages"</h1>
+            <h2>A Travel Agency Commercial</h2>
+            
+            <h3>What Will You Hear?</h3>
+            <p>This is a commercial for a travel agency that offers a different kind of vacation experience - one that emphasizes cultural understanding and avoiding stereotypes.</p>
+            
+            <h3>Listening Strategy:</h3>
+            <ol>
+                <li><strong>First Listen:</strong> Get the general idea - What is this company selling?</li>
+                <li><strong>Second Listen:</strong> Take notes on specific details:
+                    <ul>
+                        <li>What makes this company different?</li>
+                        <li>What services do they offer?</li>
+                        <li>What vocabulary words from this week do you hear?</li>
+                    </ul>
+                </li>
+                <li><strong>Third Listen:</strong> Check your understanding and answer comprehension questions</li>
+            </ol>
+            
+            <div class="tip-box">
+                <strong>💡 Connection:</strong> Notice how this commercial relates to the reading! It's about avoiding stereotypes and seeing the full picture of a culture.
+            </div>
+        </div>
+
+        <!-- Slide 11: Grammar - Comma Usage Introduction -->
+        <div class="slide">
+            <h1>✍️ Grammar: Using Commas Effectively</h1>
+            <h2>Why Are Commas Important?</h2>
+            
+            <p>Commas are like traffic signals in your sentences - they tell readers when to pause and help group ideas together. Without commas, sentences can be confusing!</p>
+            
+            <div class="example-box">
+                <h3>See the Difference:</h3>
+                <p><strong>Without comma:</strong> "Let's eat Grandma!"</p>
+                <p><strong>With comma:</strong> "Let's eat, Grandma!"</p>
+                <p>The comma saves Grandma from being eaten! 😊</p>
+            </div>
+            
+            <h3>What Commas Do:</h3>
+            <ul>
+                <li>Signal pauses in sentences</li>
+                <li>Show how ideas are grouped</li>
+                <li>Separate parts that would otherwise run together</li>
+                <li>Make writing clearer and easier to read</li>
+            </ul>
+        </div>
+
+        <!-- Slide 12: Comma Rule 1 -->
+        <div class="slide">
+            <h1>Comma Rule #1: After Introductory Ideas</h1>
+            <h2>Use a comma after introductory words, phrases, or clauses</h2>
+            
+            <div class="example-box">
+                <h3>Examples:</h3>
+                <p>✅ <strong>Whenever I eat pasta,</strong> I think of my vacation in Rome.</p>
+                <p>✅ <strong>If you ever need help with an assignment,</strong> email the instructor.</p>
+                <p>✅ <strong>After the war ended,</strong> the civilians returned home to rebuild their city.</p>
+                <p>✅ <strong>Although the economy rebounded after the recession,</strong> many people still suffered from lost wealth.</p>
+            </div>
+            
+            <h3>Why This Works:</h3>
+            <p>The comma gives readers a moment to process the introductory information before moving to the main idea of the sentence.</p>
+            
+            <div class="tip-box">
+                <strong>💡 Test:</strong> If your sentence starts with words like "when," "if," "after," "although," "because," "since," or "while," you probably need a comma after the introductory clause!
+            </div>
+        </div>
+
+        <!-- Slide 13: Comma Rule 2 -->
+        <div class="slide">
+            <h1>Comma Rule #2: Separating Descriptive Phrases</h1>
+            <h2>Use commas to set off extra information that describes</h2>
+            
+            <div class="example-box">
+                <h3>Examples:</h3>
+                <p>✅ The old man, <strong>suffering from fatigue and dehydration,</strong> could barely talk.</p>
+                <p>✅ Dr. Livingston, <strong>professor of history at the university,</strong> lectured on the challenges facing the 21st century.</p>
+                <p>✅ My grandmother, <strong>who is one of the kindest people I've ever met,</strong> would often send bags of food home with the children.</p>
+                <p>✅ The child was afraid of large animals, <strong>such as bears and tigers.</strong></p>
+            </div>
+            
+            <h3>The Test:</h3>
+            <p>If you can remove the information between the commas and the sentence still makes sense, you've used commas correctly!</p>
+            
+            <p><strong>Example:</strong> "Dr. Livingston lectured on the challenges facing the 21st century." - Still makes sense! ✅</p>
+        </div>
+
+        <!-- Slide 14: Comma Rule 3 -->
+        <div class="slide">
+            <h1>Comma Rule #3: Joining Complete Sentences</h1>
+            <h2>Use a comma before conjunctions (and, but, or, so) when joining two complete sentences</h2>
+            
+            <div class="example-box">
+                <h3>Examples:</h3>
+                <p>✅ I often wondered if my hard work in college was worth the effort, <strong>but</strong> then I graduated and landed the perfect job.</p>
+                <p>✅ The dog would bark at the wind, <strong>or</strong> he would howl at the moon.</p>
+                <p>✅ The student would complete her assignments early in the week, <strong>and</strong> then she would review them later to correct errors.</p>
+            </div>
+            
+            <h3>Important Rule:</h3>
+            <p>Both parts must be complete sentences (have a subject and verb). If the second part is not a complete sentence, DON'T use a comma.</p>
+            
+            <div class="warning-box">
+                <strong>❌ Wrong:</strong> I want to study computers<strong>,</strong> because they can help solve global problems.<br>
+                <strong>✅ Right:</strong> I want to study computers because they can help solve global problems.
+            </div>
+        </div>
+
+        <!-- Slide 15: Comma Rule 4 -->
+        <div class="slide">
+            <h1>Comma Rule #4: Items in a Series</h1>
+            <h2>Use commas to separate three or more items in a list</h2>
+            
+            <div class="example-box">
+                <h3>Examples:</h3>
+                <p>✅ I often buy <strong>bananas, apples, and grapes</strong> when I go to the store.</p>
+                <p>✅ He is the most <strong>selfish, mean, and unforgiving</strong> person I have ever met.</p>
+                <p>✅ During the past week, I <strong>visited my uncle, cleaned my house, and finished my assignments.</strong></p>
+                <p>✅ When I went to the automotive garage, the mechanics <strong>changed my oil, adjusted my brakes, and rotated my tires.</strong></p>
+            </div>
+            
+            <h3>Note About the Oxford Comma:</h3>
+            <p>The comma before "and" in a list (called the Oxford or serial comma) is used in academic writing. Always include it!</p>
+            
+            <div class="example-box">
+                <p><strong>Example:</strong> red, white, and blue (not red, white and blue)</p>
+            </div>
+        </div>
+
+        <!-- Slide 16: Comma Practice -->
+        <div class="slide">
+            <h1>📝 Comma Practice Exercise</h1>
+            <h2>Add commas where needed:</h2>
+            
+            <div class="question-box">
+                <p><strong>1.</strong> When I finish my homework I will watch a movie.</p>
+                <p><strong>2.</strong> My sister who lives in Canada is visiting next week.</p>
+                <p><strong>3.</strong> I need to buy milk eggs bread and cheese.</p>
+                <p><strong>4.</strong> The students studied hard for the exam and they all passed.</p>
+            </div>
+            
+            <div class="tip-box">
+                <strong>💡 Strategy:</strong> Read each sentence aloud. Where do you naturally pause? That's often where a comma belongs!
+            </div>
+        </div>
+
+        <!-- Slide 17: Comma Practice Answers -->
+        <div class="slide">
+            <h1>✅ Comma Practice - Answers</h1>
+            
+            <div class="answer-box">
+                <p><strong>1.</strong> When I finish my homework<strong>,</strong> I will watch a movie.<br>
+                <em>(Comma after introductory clause)</em></p>
+                
+                <p><strong>2.</strong> My sister<strong>,</strong> who lives in Canada<strong>,</strong> is visiting next week.<br>
+                <em>(Commas around descriptive phrase)</em></p>
+                
+                <p><strong>3.</strong> I need to buy milk<strong>,</strong> eggs<strong>,</strong> bread<strong>,</strong> and cheese.<br>
+                <em>(Commas separating items in a series)</em></p>
+                
+                <p><strong>4.</strong> The students studied hard for the exam<strong>,</strong> and they all passed.<br>
+                <em>(Comma before conjunction joining two complete sentences)</em></p>
+            </div>
+        </div>
+
+        <!-- Slide 18: Editing Introduction -->
+        <div class="slide">
+            <h1>🔧 Editing Your Writing</h1>
+            <h2>What Is Editing?</h2>
+            
+            <p><strong>Editing</strong> is the process of revising your paper to improve it. This includes:</p>
+            <ul>
+                <li>Fixing grammar errors</li>
+                <li>Rewriting incomplete sentences</li>
+                <li>Improving the flow of your writing</li>
+                <li>Checking spelling and punctuation</li>
+                <li>Making sure your ideas are clear</li>
+            </ul>
+            
+            <div class="example-box">
+                <h3>Important Truth:</h3>
+                <p><strong>NO ONE writes a perfect first draft!</strong> Even professional authors revise their work many times. Editing is not a sign of weakness - it's a sign of being a good writer!</p>
+            </div>
+            
+            <div class="tip-box">
+                <strong>Benefits of Editing:</strong>
+                <ul>
+                    <li>Improves your reading skills</li>
+                    <li>Strengthens your writing</li>
+                    <li>Helps you catch mistakes</li>
+                    <li>Makes your arguments clearer</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 19: Preparing to Edit -->
+        <div class="slide">
+            <h1>📋 How to Prepare for Editing</h1>
+            <h2>Set Yourself Up for Success</h2>
+            
+            <h3>1. Take a Break from Your Writing</h3>
+            <p>It's hard to catch mistakes when you've been staring at the same text for hours. Take a break!</p>
+            <div class="example-box">
+                <p><strong>Recommended:</strong> Wait at least a few hours (or overnight) before editing. This gives you fresh eyes.</p>
+            </div>
+            
+            <h3>2. Find a Quiet Space</h3>
+            <p>You need to focus when editing. Find a place with:</p>
+            <ul>
+                <li>Good lighting</li>
+                <li>Few distractions</li>
+                <li>Comfortable seating</li>
+            </ul>
+            
+            <h3>3. Gather Your Tools</h3>
+            <ul>
+                <li>Grammar guide</li>
+                <li>APA style guide</li>
+                <li>Dictionary</li>
+                <li>Your assignment rubric</li>
+            </ul>
+        </div>
+
+        <!-- Slide 20: The Editing Process -->
+        <div class="slide">
+            <h1>🔍 The Editing Process</h1>
+            <h2>Edit in Stages - Don't Try to Fix Everything at Once!</h2>
+            
+            <h3>Stage 1: Content (Big Picture)</h3>
+            <ul>
+                <li>Did I answer all parts of the assignment?</li>
+                <li>Do I have a clear thesis statement?</li>
+                <li>Do my paragraphs support my thesis?</li>
+                <li>Is my argument logical and clear?</li>
+            </ul>
+            
+            <h3>Stage 2: Structure (Organization)</h3>
+            <ul>
+                <li>Do I have an introduction, body, and conclusion?</li>
+                <li>Does each paragraph have a topic sentence?</li>
+                <li>Do my paragraphs connect to each other?</li>
+                <li>Did I use transitions effectively?</li>
+            </ul>
+            
+            <h3>Stage 3: Style (Sentence Level)</h3>
+            <ul>
+                <li>Are my sentences clear and complete?</li>
+                <li>Do I repeat words too much?</li>
+                <li>Is my writing concise or wordy?</li>
+            </ul>
+        </div>
+
+        <!-- Slide 21: Editing Checklist -->
+        <div class="slide">
+            <h1>✅ Editing Checklist</h1>
+            
+            <h3>Stage 4: Grammar & Spelling</h3>
+            <ul>
+                <li>Check spelling of all words</li>
+                <li>Verify comma usage</li>
+                <li>Check subject-verb agreement</li>
+                <li>Review verb tenses</li>
+                <li>Check capitalization</li>
+            </ul>
+            
+            <h3>Stage 5: References (If Applicable)</h3>
+            <ul>
+                <li>Do all outside sources have in-text citations?</li>
+                <li>Is there a reference list at the end?</li>
+                <li>Are all citations in APA format?</li>
+                <li>Do in-text citations match the reference list?</li>
+            </ul>
+            
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Edit each stage separately. Don't try to check everything at once - you'll miss things!
+            </div>
+        </div>
+
+        <!-- Slide 22: Editing Strategies -->
+        <div class="slide">
+            <h1>🎯 Powerful Editing Strategies</h1>
+            
+            <h3>1. Read Your Paper Aloud</h3>
+            <p>Hearing your words helps you catch awkward phrasing and missing words. Your ears catch things your eyes miss!</p>
+            
+            <h3>2. Read Backwards</h3>
+            <p>Start at the last sentence and read to the first. This forces you to focus on each sentence individually rather than getting caught up in the content.</p>
+            
+            <h3>3. Print Your Paper</h3>
+            <p>Editing on paper can help you see errors you miss on screen. Use a different colored pen to make corrections.</p>
+            
+            <h3>4. Know Your Patterns</h3>
+            <p>Do you always forget commas? Mix up "their/there/they're"? Make a list of YOUR common errors and check specifically for those.</p>
+            
+            <h3>5. Use a Friend</h3>
+            <p>Ask someone else to read your paper and give feedback. Fresh eyes catch new things!</p>
+        </div>
+
+        <!-- Slide 23: Editing Example -->
+        <div class="slide">
+            <h1>📝 Editing Example</h1>
+            <h2>Before and After</h2>
+            
+            <div class="warning-box">
+                <h3>❌ BEFORE Editing:</h3>
+                <p>i'm going to read ten books this year but I'm not going to read any comic books. In his article, Smith writes, "novels and comic books are both useful reading." I disagree with his statements. I think I get more out of novels than I do out of comic books .</p>
+            </div>
+            
+            <div class="answer-box">
+                <h3>✅ AFTER Editing:</h3>
+                <p><strong>I'm</strong> going to read ten books this year<strong>,</strong> but I'm not going to read any comic books. In his article, Smith writes, "novels and comic books are both useful reading" <strong>(2006, p. 67). However,</strong> I disagree with his <strong>statement</strong>. I think I get more out of novels than I do out of comic books.</p>
+            </div>
+            
+            <h3>What Was Fixed?</h3>
+            <ul>
+                <li>Capitalized "I"</li>
+                <li>Added comma before "but"</li>
+                <li>Added APA citation</li>
+                <li>Changed "statements" to "statement"</li>
+                <li>Removed extra space before period</li>
+                <li>Added transition word "However"</li>
+            </ul>
+        </div>
+
+        <!-- Slide 24: Discussion Assignment -->
+        <div class="slide">
+            <h1>💬 Discussion Assignment</h1>
+            <h2>The Danger of a Single Story</h2>
+            
+            <h3>What You Need to Do:</h3>
+            <p><strong>Write a minimum of 75 words</strong> that includes:</p>
+            
+            <ol>
+                <li><strong>One sentence summarizing</strong> the author's main point in "The Danger of a Single Story"</li>
+                <li><strong>Two to three sentences</strong> describing your experiences with single stories</li>
+            </ol>
+            
+            <h3>Questions to Address:</h3>
+            <ul>
+                <li>What does the writer mean by "a single story"?</li>
+                <li>How have single stories impacted your life?</li>
+                <li>Why is it important to recognize the danger in a single story?</li>
+                <li>How can you overcome the single story you have about someone or something?</li>
+            </ul>
+            
+            <div class="tip-box">
+                <strong>Remember:</strong> Review the comma presentation and proofread your submission for correctness before posting!
+            </div>
+        </div>
+
+        <!-- Slide 25: Discussion Response Requirements -->
+        <div class="slide">
+            <h1>📝 Responding to Peers</h1>
+            <h2>Discussion Response Requirements</h2>
+            
+            <h3>You Must Respond to THREE Classmates</h3>
+            <p><strong>Each response should be 100+ words (3-4 complete sentences)</strong></p>
+            
+            <h3>Good Responses Include:</h3>
+            <ul>
+                <li><strong>Comments</strong> on their ideas</li>
+                <li><strong>Questions</strong> to deepen the discussion</li>
+                <li><strong>Connections</strong> to your own experience</li>
+                <li><strong>Constructive feedback</strong> on their examples</li>
+            </ul>
+            
+            <div class="example-box">
+                <h3>Example Response:</h3>
+                <p>"Thank you for sharing your experience with single stories about your home country. I found it interesting that you mentioned how TV shows created stereotypes. This connects to my own experience when I moved to a new city - people had a single story about where I came from based on movies they'd seen. How do you think we can challenge these stereotypes when we encounter them in our daily lives? Your point about seeking multiple perspectives really resonated with me."</p>
+            </div>
+        </div>
+
+        <!-- Slide 26: Peer Assessment -->
+        <div class="slide">
+            <h1>👥 Peer Assessment</h1>
+            <h2>Reviewing Week 5 Written Assignment</h2>
+            
+            <h3>What Is Peer Assessment?</h3>
+            <p>You will read and evaluate your classmates' compare/contrast essays from Week 5. This helps you learn by seeing other writing examples and practicing giving constructive feedback.</p>
+            
+            <h3>What to Evaluate:</h3>
+            <ol>
+                <li>Is this a compare/contrast essay? (Explain in 1-2 sentences)</li>
+                <li>Does it have introduction, body paragraphs, and conclusion?</li>
+                <li>Is there a clear thesis statement? (Identify it)</li>
+                <li>Are sentences complete?</li>
+                <li>Is the work original or cited properly?</li>
+                <li>Are there spelling/grammar errors to note?</li>
+            </ol>
+            
+            <h3>Rating: 0-10 Scale</h3>
+            <p>Give a grade from 0 (unsatisfactory) to 10 (excellent). Be fair and constructive!</p>
+        </div>
+
+        <!-- Slide 27: Learning Journal -->
+        <div class="slide">
+            <h1>📓 Learning Journal</h1>
+            <h2>Reflecting on Editing Strategies</h2>
+            
+            <h3>Assignment Requirements:</h3>
+            <p><strong>Write at least 75 words (minimum 3 sentences)</strong> reflecting on the editing presentation.</p>
+            
+            <h3>Questions to Answer:</h3>
+            <ul>
+                <li>What editing strategy do you think will be most useful for YOUR writing style?</li>
+                <li>How are these strategies different from editing strategies you've used in the past?</li>
+                <li>Are any of these strategies new to you?</li>
+            </ul>
+            
+            <div class="example-box">
+                <h3>Example Response:</h3>
+                <p>"The strategy I found most helpful was reading my paper aloud. In the past, I would just read silently and miss many errors. Reading aloud helps me hear awkward sentences and missing words. The idea of editing in stages is new to me - I usually tried to fix everything at once. I plan to use the checklist to edit my content first, then structure, then grammar. This will help me be more systematic in my editing process."</p>
+            </div>
+            
+            <div class="tip-box">
+                <strong>Bonus:</strong> The Learning Journal is also your place to ask questions about ANY aspect of the course!
+            </div>
+        </div>
+
+        <!-- Slide 28: Other Assignments -->
+        <div class="slide">
+            <h1>✏️ Additional Assignments</h1>
+            
+            <h3>1. Vocabulary Word Search</h3>
+            <p>Complete the word search puzzle using this week's vocabulary words. This helps reinforce spelling and recognition.</p>
+            
+            <h3>2. Dictation Exercise</h3>
+            <p>Listen to a passage and write down what you hear. This practices listening skills and spelling.</p>
+            <ul>
+                <li>Listen multiple times</li>
+                <li>Write what you hear</li>
+                <li>Check your spelling and punctuation</li>
+            </ul>
+            
+            <div class="tip-box">
+                <strong>💡 Dictation Tip:</strong> Don't try to write everything the first time. Listen once for general meaning, then listen again to write specific words.
+            </div>
+        </div>
+
+        <!-- Slide 29: Self-Quiz -->
+        <div class="slide">
+            <h1>📊 Self-Quiz</h1>
+            <h2>Practice for the Graded Quiz</h2>
+            
+            <h3>Purpose:</h3>
+            <p>The self-quiz helps you review the week's lessons and identify areas where you need more study. It's <strong>not graded</strong> - it's for YOUR benefit!</p>
+            
+            <h3>How It Works:</h3>
+            <ul>
+                <li>Take the quiz as many times as you want</li>
+                <li>Review your answers</li>
+                <li>Study areas where you made mistakes</li>
+                <li>Take it again until you feel confident</li>
+            </ul>
+            
+            <div class="tip-box">
+                <strong>Study Strategy:</strong>
+                <ol>
+                    <li>Take the self-quiz once without reviewing materials</li>
+                    <li>Note which questions you missed</li>
+                    <li>Review those topics in the learning guide</li>
+                    <li>Take the quiz again</li>
+                    <li>Repeat until you score well consistently</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Slide 30: Graded Quiz -->
+        <div class="slide">
+            <h1>🎯 Graded Quiz</h1>
+            <h2>Important Information</h2>
+            
+            <h3>Quiz Details:</h3>
+            <ul>
+                <li><strong>10 questions</strong> (multiple choice and true/false)</li>
+                <li><strong>Worth:</strong> 10 points each (100 points total)</li>
+                <li><strong>Time limit:</strong> 30 minutes</li>
+                <li><strong>Attempts:</strong> You have only 1 attempt - make it count!</li>
+            </ul>
+            
+            <h3>What's Covered:</h3>
+            <ul>
+                <li>Vocabulary from this week</li>
+                <li>Comma usage rules</li>
+                <li>Editing strategies</li>
+                <li>Content from "The Danger of a Single Story"</li>
+                <li>Listening comprehension from "World View Voyages"</li>
+            </ul>
+            
+            <div class="warning-box">
+                <strong>⚠️ Important:</strong> Complete all other assignments and take the self-quiz several times BEFORE taking the graded quiz!
+            </div>
+        </div>
+
+        <!-- Slide 31: Week 6 Checklist -->
+        <div class="slide">
+            <h1>✅ Week 6 Checklist</h1>
+            <h2>Complete All These Tasks:</h2>
+            
+            <table>
+                <tr>
+                    <th>Task</th>
+                    <th>Due/Notes</th>
+                </tr>
+                <tr>
+                    <td>❏ Peer Assess Week 5 Written Assignment</td>
+                    <td>Assess 3 classmates' essays</td>
+                </tr>
+                <tr>
+                    <td>❏ Study Vocabulary</td>
+                    <td>Create flashcards, practice</td>
+                </tr>
+                <tr>
+                    <td>❏ Read "The Danger of a Single Story"</td>
+                    <td>Read 3 times, take notes</td>
+                </tr>
+                <tr>
+                    <td>❏ Listen to "World View Voyages"</td>
+                    <td>Listen multiple times</td>
+                </tr>
+                <tr>
+                    <td>❏ Review Comma Usage Presentation</td>
+                    <td>Practice with examples</td>
+                </tr>
+                <tr>
+                    <td>❏ Review Editing Presentation</td>
+                    <td>Take notes on strategies</td>
+                </tr>
+                <tr>
+                    <td>❏ Complete Discussion Assignment</td>
+                    <td>75+ words, respond to 3 peers</td>
+                </tr>
+                <tr>
+                    <td>❏ Complete Learning Journal</td>
+                    <td>75+ words on editing strategies</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Slide 32: Checklist Continued -->
+        <div class="slide">
+            <h1>✅ Week 6 Checklist (Continued)</h1>
+            
+            <table>
+                <tr>
+                    <th>Task</th>
+                    <th>Due/Notes</th>
+                </tr>
+                <tr>
+                    <td>❏ Complete Vocabulary Word Search</td>
+                    <td>Practice vocabulary recognition</td>
+                </tr>
+                <tr>
+                    <td>❏ Complete Dictation Exercise</td>
+                    <td>Listen and write accurately</td>
+                </tr>
+                <tr>
+                    <td>❏ Take Self-Quiz (Multiple Times)</td>
+                    <td>Practice until confident</td>
+                </tr>
+                <tr>
+                    <td>❏ Take Graded Quiz</td>
+                    <td>30 minutes, 1 attempt only</td>
+                </tr>
+            </table>
+            
+            <div class="tip-box">
+                <strong>📅 Time Management Tip:</strong> Don't wait until the last day! Spread these assignments throughout the week:
+                <ul>
+                    <li><strong>Days 1-2:</strong> Reading, listening, vocabulary</li>
+                    <li><strong>Days 3-4:</strong> Discussion post, peer responses</li>
+                    <li><strong>Days 5-6:</strong> Learning journal, peer assessment</li>
+                    <li><strong>Day 7:</strong> Review, self-quiz, graded quiz</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 33: Tips for Success -->
+        <div class="slide">
+            <h1>🌟 Tips for Success This Week</h1>
+            
+            <h3>1. Connect the Concepts</h3>
+            <p>Notice how everything this week relates to improving your writing and avoiding stereotypes (single stories)!</p>
+            
+            <h3>2. Practice Active Reading</h3>
+            <p>Don't just read passively - take notes, ask questions, make connections to your life.</p>
+            
+            <h3>3. Use the Editing Strategies Now</h3>
+            <p>Apply this week's editing lessons to ALL your assignments, including discussion posts and journal entries.</p>
+            
+            <h3>4. Engage Meaningfully</h3>
+            <p>In discussion responses, go beyond "I agree." Share your own experiences and ask thoughtful questions.</p>
+            
+            <h3>5. Prepare for Next Week</h3>
+            <p>Week 7 is the Written Assignment week - you'll use these editing skills extensively!</p>
+        </div>
+
+        <!-- Slide 34: Common Mistakes to Avoid -->
+        <div class="slide">
+            <h1>⚠️ Common Mistakes to Avoid</h1>
+            
+            <h3>1. Rushing Through the Reading</h3>
+            <p>❌ Reading once quickly<br>✅ Reading 3 times with different focuses</p>
+            
+            <h3>2. Ignoring Vocabulary</h3>
+            <p>❌ Skipping vocabulary practice<br>✅ Making flashcards and reviewing daily</p>
+            
+            <h3>3. Not Proofreading</h3>
+            <p>❌ Posting without editing<br>✅ Using comma rules and editing checklist</p>
+            
+            <h3>4. Superficial Discussion Responses</h3>
+            <p>❌ "I agree. Good job!"<br>✅ Detailed responses with examples and questions</p>
+            
+            <h3>5. Taking Graded Quiz Unprepared</h3>
+            <p>❌ Taking quiz without reviewing materials<br>✅ Taking self-quiz multiple times first</p>
+        </div>
+
+        <!-- Slide 35: Getting Help -->
+        <div class="slide">
+            <h1>🆘 Need Help?</h1>
+            <h2>Resources Available to You</h2>
+            
+            <h3>1. Ask Questions in Your Learning Journal</h3>
+            <p>The Learning Journal isn't just for reflections - use it to ask me (your instructor) questions about ANY aspect of the course!</p>
+            
+            <h3>2. Discuss with Classmates</h3>
+            <p>The Discussion Forum is a great place to help each other understand concepts.</p>
+            
+            <h3>3. Review Course Materials</h3>
+            <p>Go back to presentations, reading materials, and examples as often as needed.</p>
+            
+            <h3>4. Contact Your Instructor</h3>
+            <p>I'm here to help! If you're struggling with any concept, reach out.</p>
+            
+            <div class="tip-box">
+                <strong>Remember:</strong> Asking for help is a sign of being a good student, not a sign of weakness!
+            </div>
+        </div>
+
+        <!-- Slide 36: Review Questions -->
+        <div class="slide">
+            <h1>❓ Review Questions</h1>
+            <h2>Test Your Understanding</h2>
+            
+            <div class="question-box">
+                <p><strong>Question 1:</strong> What is a "single story" according to Chimamanda Ngozi Adichie?</p>
+            </div>
+            
+            <div class="question-box">
+                <p><strong>Question 2:</strong> Which comma rule applies to this sentence: "After finishing my homework I went to bed."?</p>
+            </div>
+            
+            <div class="question-box">
+                <p><strong>Question 3:</strong> What is the first stage of editing, and why should you edit in stages?</p>
+            </div>
+            
+            <div class="question-box">
+                <p><strong>Question 4:</strong> True or False: You should always use a comma before conjunctions like "and" or "but."</p>
+            </div>
+            
+            <div class="question-box">
+                <p><strong>Question 5:</strong> Name three editing strategies from this week's presentation.</p>
+            </div>
+        </div>
+
+        <!-- Slide 37: Answers to Review Questions -->
+        <div class="slide">
+            <h1>✅ Answers to Review Questions</h1>
+            
+            <div class="answer-box">
+                <p><strong>Answer 1:</strong> A "single story" is when we know only one narrative or perspective about a person, place, or culture. This incomplete picture creates stereotypes and prevents us from seeing the full, complex reality of people and situations.</p>
+            </div>
+            
+            <div class="answer-box">
+                <p><strong>Answer 2:</strong> This needs a comma after an introductory clause. Correct sentence: "After finishing my homework<strong>,</strong> I went to bed." The comma signals a pause after the introductory information.</p>
+            </div>
+            
+            <div class="answer-box">
+                <p><strong>Answer 3:</strong> The first stage is editing for <strong>content</strong> (big picture ideas). You should edit in stages because trying to fix everything at once is overwhelming and causes you to miss errors. Focusing on one aspect at a time (content, then structure, then style, then grammar) is more effective.</p>
+            </div>
+        </div>
+
+        <!-- Slide 38: More Answers -->
+        <div class="slide">
+            <h1>✅ More Answers</h1>
+            
+            <div class="answer-box">
+                <p><strong>Answer 4:</strong> <strong>FALSE.</strong> You only use a comma before "and," "but," "or," "so" when they join two <strong>complete sentences</strong> (both sides have a subject and verb). If the second part is not a complete sentence, don't use a comma.</p>
+                <p><strong>Examples:</strong></p>
+                <ul>
+                    <li>✅ "I studied hard<strong>,</strong> and I passed the test." (Both complete sentences)</li>
+                    <li>❌ "I studied hard<strong>,</strong> and passed the test." (Second part incomplete)</li>
+                </ul>
+            </div>
+            
+            <div class="answer-box">
+                <p><strong>Answer 5:</strong> Three editing strategies (any of these):</p>
+                <ol>
+                    <li><strong>Read your paper aloud</strong> - helps catch awkward phrasing</li>
+                    <li><strong>Take a break</strong> - gives you fresh eyes</li>
+                    <li><strong>Read backwards</strong> - focuses on individual sentences</li>
+                    <li><strong>Edit in stages</strong> - content, structure, style, grammar separately</li>
+                    <li><strong>Get peer feedback</strong> - fresh perspective catches new things</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Slide 39: Final Reminders -->
+        <div class="slide">
+            <h1>🎯 Final Reminders</h1>
+            
+            <h3>Key Takeaways from Week 6:</h3>
+            <ul>
+                <li>✅ Single stories create stereotypes - seek multiple perspectives</li>
+                <li>✅ Commas improve clarity - use them correctly after introductory clauses, around descriptive phrases, before conjunctions in compound sentences, and between items in a series</li>
+                <li>✅ Editing is essential - NO ONE writes perfectly the first time</li>
+                <li>✅ Edit in stages - content, structure, style, grammar, references</li>
+                <li>✅ Take breaks and read aloud - these strategies really work!</li>
+            </ul>
+            
+            <div class="tip-box">
+                <h3>Looking Ahead to Week 7:</h3>
+                <p>Next week, you'll write and edit a major essay. Everything you've learned about editing this week will be crucial! Start thinking about potential essay topics now.</p>
+            </div>
+            
+            <h3 style="text-align: center; margin-top: 40px; color: #667eea;">You've got this! Good luck with your assignments! 🌟</h3>
+        </div>
+
+        <!-- Slide 40: Thank You -->
+        <div class="slide">
+            <h1 style="text-align: center; font-size: 3em; margin-top: 200px;">Thank You!</h1>
+            <p style="text-align: center; font-size: 1.5em; margin-top: 40px;">Questions?</p>
+            <p style="text-align: center; font-size: 1.2em; margin-top: 20px; color: #666;">Remember: You can ask questions in your Learning Journal<br>or contact me directly for help.</p>
+            <p style="text-align: center; font-size: 1.3em; margin-top: 60px; color: #667eea;"><strong>Happy Learning!</strong></p>
+            <p style="text-align: center; font-size: 1.1em; margin-top: 20px;">- Yogeeta Sharma</p>
+        </div>
+    </div>
+
+    <div class="slide-number">
+        <span id="current-slide">1</span> / <span id="total-slides">40</span>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+        <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+            slides[currentSlide].scrollTop = 0;
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                previousSlide();
+            }
+        });
+        
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) nextSlide();
+            if (touchEndX > touchStartX + 50) previousSlide();
+        }
+    </script>
+</body>
+</html>
